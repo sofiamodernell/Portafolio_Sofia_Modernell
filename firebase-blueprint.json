@@ -1,0 +1,52 @@
+{
+  "entities": {
+    "Visitor": {
+      "title": "Visitor",
+      "description": "Information about page visitors",
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "number",
+          "description": "The total number of visitors"
+        }
+      },
+      "required": ["count"]
+    },
+    "GuestbookEntry": {
+      "title": "Guestbook Entry",
+      "description": "A message left by a visitor in the guestbook",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the visitor"
+        },
+        "text": {
+          "type": "string",
+          "description": "The message text"
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the message was sent"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp for sorting"
+        }
+      },
+      "required": ["name", "text", "date", "createdAt"]
+    }
+  },
+  "firestore": {
+    "visitors/total": {
+      "schema": "Visitor",
+      "description": "Document tracking total visits"
+    },
+    "guestbook/{entryId}": {
+      "schema": "GuestbookEntry",
+      "description": "Collection of guestbook messages"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidVisitor(data) {
+      return data.keys().hasAll(['count']) &&
+             data.count is number &&
+             data.count >= 0;
+    }
+
+    function isValidGuestbookEntry(data) {
+      return data.keys().hasAll(['name', 'text', 'date', 'createdAt']) &&
+             data.keys().size() == 4 &&
+             data.name is string && data.name.size() > 0 && data.name.size() <= 64 &&
+             data.text is string && data.text.size() > 0 && data.text.size() <= 500 &&
+             data.date is string &&
+             data.createdAt == request.time;
+    }
+
+    match /visitors/total {
+      allow read: if true;
+      allow create: if isValidVisitor(incoming());
+      allow update: if (
+        isValidVisitor(incoming()) && 
+        incoming().count == existing().count + 1
+      );
+    }
+
+    match /guestbook/{entryId} {
+      allow list: if true;
+      allow get: if true;
+      allow create: if isValidId(entryId) && isValidGuestbookEntry(incoming());
+    }
+  }
+}
