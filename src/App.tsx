@@ -1297,10 +1297,10 @@ export default function App() {
           <SectionHeader title="DISEÑOS_MECANICOS_2D_3D" />
           <div className="grid grid-cols-2 gap-2 h-64 overflow-y-auto pr-2 bg-gray-400 p-2 border-2 border-inset border-gray-600" style={{ borderStyle: 'inset' }}>
              {[
-               { title: 'Plano_Brazo.png', file: 'assets/images/plano-brazo.jpg', color: 'bg-white' },
-               { title: 'Ensamble_CNC.png', file: 'assets/images/ensamble-cnc.jpg', color: 'bg-blue-50' },
-               { title: 'Circuito_ESP32.png', file: 'assets/images/circuito-esp32.jpg', color: 'bg-green-50' },
-               { title: 'Engranajes_v1.png', file: 'assets/images/engranajes.jpg', color: 'bg-red-50' }
+               { title: 'Plano_Gavetas.png', file: 'assets/images/plano-gavetas.jpg', color: 'bg-white' },
+               { title: 'Ensamblaje.png', file: 'assets/images/ensamblaje.jpg', color: 'bg-blue-50' },
+               { title: 'Circuito_PCB.png', file: 'assets/images/circuito-pcb.jpg', color: 'bg-green-50' },
+               { title: 'Modulo_Ref.png', file: 'assets/images/modulo.jpg', color: 'bg-red-50' }
              ].map((img, i) => (
                <div key={i} className={`${img.color} border border-black p-1 shadow-md hover:scale-105 transition-transform`}>
                   <div className="h-24 bg-slate-200 flex items-center justify-center border border-gray-400 overflow-hidden">
