@@ -562,12 +562,12 @@ export default function App() {
 
                     <div className="flex justify-center items-center gap-8 py-8 px-4 bg-gray-50 border-2 border-inset border-gray-400" style={{ borderStyle: 'inset' }}>
                        <div className="flex flex-col items-center">
-                         <img src="input_file_0.png" alt="Ingeniería en Mecatrónica" className="h-20 md:h-28 object-contain transition-transform hover:scale-105" referrerPolicy="no-referrer" />
+                         <img src="https://utec.edu.uy/wp-content/uploads/2021/11/Mecatronica.png" alt="Ingeniería en Mecatrónica" className="h-20 md:h-28 object-contain transition-transform hover:scale-105" referrerPolicy="no-referrer" />
                          <span className="text-[9px] font-bold mt-2 text-blue-900 uppercase text-center">Ingeniería en<br/>Mecatrónica</span>
                        </div>
                        <div className="h-16 w-px bg-gray-400 hidden md:block" />
                        <div className="flex flex-col items-center">
-                         <img src="input_file_1.png" alt="UTEC ITR Suroeste" className="h-20 md:h-28 object-contain transition-transform hover:scale-105" referrerPolicy="no-referrer" />
+                         <img src="https://utec.edu.uy/wp-content/uploads/2023/04/Logo-UTEC-ITR-Suroeste-Color.png" alt="UTEC ITR Suroeste" className="h-20 md:h-28 object-contain transition-transform hover:scale-105" referrerPolicy="no-referrer" />
                          <span className="text-[9px] font-bold mt-2 text-blue-900 uppercase text-center">UTEC ITR<br/>Suroeste</span>
                        </div>
                     </div>
@@ -615,9 +615,9 @@ export default function App() {
                          </VintageCard>
 
                          <div className="flex justify-between items-center px-4 py-2 bg-white border-2 border-inset border-gray-400 group" style={{ borderStyle: 'inset' }}>
-                            <img src="input_file_0.png" alt="MEC" className="h-10 object-contain grayscale hover:grayscale-0 transition-all" referrerPolicy="no-referrer" />
+                            <img src="https://utec.edu.uy/wp-content/uploads/2021/11/Mecatronica.png" alt="MEC" className="h-10 object-contain grayscale hover:grayscale-0 transition-all" referrerPolicy="no-referrer" />
                             <div className="h-6 w-px bg-gray-300" />
-                            <img src="input_file_1.png" alt="UTEC" className="h-10 object-contain grayscale hover:grayscale-0 transition-all" referrerPolicy="no-referrer" />
+                            <img src="https://utec.edu.uy/wp-content/uploads/2023/04/Logo-UTEC-ITR-Suroeste-Color.png" alt="UTEC" className="h-10 object-contain grayscale hover:grayscale-0 transition-all" referrerPolicy="no-referrer" />
                          </div>
                       </div>
                       <div className="flex-1 font-serif">
