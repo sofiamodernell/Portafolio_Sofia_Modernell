@@ -20,7 +20,7 @@ import { CursorTrail } from './components/CursorTrail';
 import { TicTacToe } from './components/TicTacToe';
 import { Terminal } from './components/Terminal';
 import { RetroMusicPlayer } from './components/RetroMusicPlayer';
-import { Mail, Linkedin, FolderOpen, Star, AlertTriangle, Monitor, HardDrive, Cpu, Globe, Volume2, VolumeX, MessageSquare, FileText, Award, Image as ImageIcon, Gamepad2, Terminal as TerminalIcon, ShieldCheck, Music, Grid3X3 } from 'lucide-react';
+import { Mail, Linkedin, FolderOpen, Star, AlertTriangle, Monitor, HardDrive, Cpu, Globe, Volume2, VolumeX, MessageSquare, FileText, Award, Image as ImageIcon, Gamepad2, Terminal as TerminalIcon, ShieldCheck, Music, Grid3X3, Book } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   collection, 
@@ -400,7 +400,7 @@ export default function App() {
         {/* Column 2: Documentation & Work */}
         <div className="group cursor-pointer flex flex-col items-center w-20" onClick={() => setIsGuestbookOpen(true)}>
           <div className="w-10 h-10 bg-gray-300 border-2 border-white border-r-gray-700 border-b-gray-700 flex items-center justify-center shadow-md group-active:translate-y-px">
-             <div className="w-6 h-6 bg-yellow-400 border border-black flex items-center justify-center text-[8px] font-bold">TEXT</div>
+             <Book size={24} className="text-blue-700" />
           </div>
           <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Guestbook.txt</span>
         </div>
@@ -936,40 +936,40 @@ export default function App() {
           <SectionHeader title="MEDALLERO_TECNICO" />
           <div className="grid grid-cols-2 gap-4">
              <div className="bg-white border-2 border-inset border-gray-400 p-2 flex flex-col items-center text-center shadow-sm" style={{ borderStyle: 'inset' }}>
-                <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center border-2 border-yellow-500 mb-2">
-                   <Award size={24} className="text-yellow-600" />
-                </div>
-                <div className="text-[9px] font-bold uppercase">UTEC_CERT</div>
-                <div className="text-[8px] italic">Ingeniería Mecatrónica</div>
-             </div>
-             <div className="bg-white border-2 border-inset border-gray-400 p-2 flex flex-col items-center text-center shadow-sm" style={{ borderStyle: 'inset' }}>
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center border-2 border-blue-500 mb-2">
                    <ShieldCheck size={24} className="text-blue-600" />
                 </div>
                 <div className="text-[9px] font-bold uppercase">SOLIDWORKS_CSWA</div>
-                <div className="text-[8px] italic">Diseño Mecánico Pro</div>
+                <div className="text-[8px] italic">Diseño Mecánico</div>
              </div>
              <div className="bg-white border-2 border-inset border-gray-400 p-2 flex flex-col items-center text-center shadow-sm" style={{ borderStyle: 'inset' }}>
                 <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center border-2 border-green-500 mb-2">
-                   <Cpu size={24} className="text-green-600" />
+                   <FileText size={24} className="text-green-600" />
                 </div>
-                <div className="text-[9px] font-bold uppercase">IOT_FUNDAMENTALS</div>
-                <div className="text-[8px] italic">Expertise en ESP32</div>
+                <div className="text-[9px] font-bold uppercase">EXCEL_SPECIALIZATION</div>
+                <div className="text-[8px] italic">Análisis de Datos</div>
              </div>
              <div className="bg-white border-2 border-inset border-gray-400 p-2 flex flex-col items-center text-center shadow-sm" style={{ borderStyle: 'inset' }}>
                 <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center border-2 border-purple-500 mb-2">
                    <Globe size={24} className="text-purple-600" />
                 </div>
-                <div className="text-[9px] font-bold uppercase">FUTURE_DEV</div>
-                <div className="text-[8px] italic">Innovación 2026</div>
+                <div className="text-[9px] font-bold uppercase">ENGLISH_EF_SET</div>
+                <div className="text-[8px] italic">Nivel B2 (Intermedio-Alto)</div>
+             </div>
+             <div className="bg-white border-2 border-inset border-gray-400 p-2 flex flex-col items-center text-center shadow-sm" style={{ borderStyle: 'inset' }}>
+                <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center border-2 border-yellow-500 mb-2">
+                   <Award size={24} className="text-yellow-600" />
+                </div>
+                <div className="text-[9px] font-bold uppercase">UTEC_INGENIERIA</div>
+                <div className="text-[8px] italic">Mecatrónica en proceso</div>
              </div>
           </div>
           <div className="p-2 bg-blue-50 border border-blue-200">
              <div className="text-[9px] font-bold mb-1">PROXIMO_OBJETIVO:</div>
              <div className="w-full bg-gray-300 h-2 border border-black">
-                <div className="w-[75%] h-full bg-blue-600" />
+                <div className="w-[85%] h-full bg-blue-600" />
              </div>
-             <div className="text-[8px] text-right mt-1">Carga al 75% - Tesis de Ingeniería</div>
+             <div className="text-[8px] text-right mt-1">Carga al 85% - Finalización de Carrera</div>
           </div>
         </div>
       </Window>

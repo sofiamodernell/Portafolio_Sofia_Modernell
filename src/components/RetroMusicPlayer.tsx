@@ -7,24 +7,54 @@ export const RetroMusicPlayer: React.FC = () => {
   const [currentTrack, setCurrentTrack] = useState(0);
   const [progress, setProgress] = useState(0);
 
+  const audioRef = useRef<HTMLAudioElement>(null);
+
   const playlist = [
-    { title: 'Oda_a_la_Mecatronica.mid', artist: 'MIDI_GEN_X', duration: '2:45' },
-    { title: 'Synth_Dreams_98.wav', artist: 'Retro_Wave', duration: '3:12' },
-    { title: 'Industrial_Ambience.mp3', artist: 'Factory_Sounds', duration: '4:05' }
+    { title: 'Oda_a_la_Mecatronica.mid', artist: 'MIDI_GEN_X', duration: '2:45', url: 'https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Tours/Enthusiast/Tours_-_01_-_Enthusiast.mp3' },
+    { title: 'Synth_Dreams_98.wav', artist: 'Retro_Wave', duration: '3:12', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' },
+    { title: 'Industrial_Ambience.mp3', artist: 'Factory_Sounds', duration: '4:05', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' }
   ];
+
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play().catch(e => console.log("Audio play blocked", e));
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [isPlaying, currentTrack]);
 
   useEffect(() => {
     let interval: any;
     if (isPlaying) {
       interval = setInterval(() => {
-        setProgress((prev) => (prev >= 100 ? 0 : prev + 1));
-      }, 1000);
+        if (audioRef.current) {
+          const p = (audioRef.current.currentTime / audioRef.current.duration) * 100;
+          setProgress(p || 0);
+        }
+      }, 500);
     }
     return () => clearInterval(interval);
   }, [isPlaying]);
 
+  const handleNext = () => {
+    setCurrentTrack((prev) => (prev === playlist.length - 1 ? 0 : prev + 1));
+    setProgress(0);
+  };
+
+  const handlePrev = () => {
+    setCurrentTrack((prev) => (prev === 0 ? playlist.length - 1 : prev - 1));
+    setProgress(0);
+  };
+
   return (
     <div className="bg-[#c0c0c0] border-t-2 border-l-2 border-white border-r-2 border-b-2 border-r-gray-800 border-b-gray-800 p-2 w-full max-w-[300px]">
+      <audio 
+        ref={audioRef} 
+        src={playlist[currentTrack].url} 
+        onEnded={handleNext}
+      />
       {/* LCD Screen */}
       <div className="bg-[#003300] border-2 border-inset border-gray-600 p-2 mb-2 h-16 flex flex-col justify-center overflow-hidden" style={{ borderStyle: 'inset' }}>
         <div className="flex justify-between items-start">
@@ -62,7 +92,7 @@ export const RetroMusicPlayer: React.FC = () => {
       <div className="flex justify-between items-center gap-1">
         <div className="flex gap-1">
           <button 
-            onClick={() => setCurrentTrack((prev) => (prev === 0 ? playlist.length - 1 : prev - 1))}
+            onClick={handlePrev}
             className="w-8 h-8 bg-gray-300 border-2 border-white border-r-gray-800 border-b-gray-800 flex items-center justify-center active:translate-y-px"
           >
             <SkipBack size={14} />
@@ -74,7 +104,7 @@ export const RetroMusicPlayer: React.FC = () => {
             {isPlaying ? <Pause size={14} /> : <Play size={14} />}
           </button>
           <button 
-            onClick={() => setCurrentTrack((prev) => (prev === playlist.length - 1 ? 0 : prev + 1))}
+            onClick={handleNext}
             className="w-8 h-8 bg-gray-300 border-2 border-white border-r-gray-800 border-b-gray-800 flex items-center justify-center active:translate-y-px"
           >
             <SkipForward size={14} />

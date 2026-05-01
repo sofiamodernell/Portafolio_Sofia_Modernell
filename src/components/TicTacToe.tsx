@@ -82,19 +82,19 @@ export const TicTacToe: React.FC = () => {
   };
 
   useEffect(() => {
-    if (!isXNext && !gameOver) {
+    if (!isXNext && !gameOver && winner === null) {
       const timer = setTimeout(() => {
         const bestMove = getBestMove(board);
         if (bestMove !== -1) {
           handleClick(bestMove);
         }
-      }, 500);
+      }, 600);
       return () => clearTimeout(timer);
     }
-  }, [isXNext, gameOver, board]);
+  }, [isXNext, gameOver, board, winner]);
 
   const handleClick = (i: number) => {
-    if (board[i] || gameOver) return;
+    if (board[i] || gameOver || (!isXNext && winner === null)) return;
 
     const newBoard = [...board];
     newBoard[i] = isXNext ? 'X' : 'O';
