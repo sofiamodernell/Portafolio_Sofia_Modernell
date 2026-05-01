@@ -733,19 +733,6 @@ export default function App() {
                            <StatusIndicator label="Especialidad" status="No definida" />
                          </div>
 
-                         <VintageCard title="Formación">
-                            <ul className="text-[11px] space-y-2 font-bold italic">
-                               <li className="flex gap-2">
-                                 <Monitor size={12} className="text-blue-900 shrink-0" />
-                                 <span>Carrera: Ing. Mecatrónica</span>
-                               </li>
-                               <li className="flex gap-2">
-                                 <Cpu size={12} className="text-blue-900 shrink-0" />
-                                 <span>Plan: 2023 (Semestre 5)</span>
-                               </li>
-                            </ul>
-                         </VintageCard>
-                         
                          <VintageCard title="Hard_Stack.sys">
                             <div className="space-y-3 pt-1">
                                <ProgressBar label="Operación" value={60} color="#A21E74" />
@@ -805,27 +792,6 @@ export default function App() {
                                </div>
                             </div>
                          </div>
-
-
-                         <VintageCard title="Comunidad UTEC" className="mt-2 group hover:bg-purple-50 transition-colors">
-                            <div className="flex gap-4">
-                               <div className="w-14 h-14 bg-purple-100 border-2 border-purple-400 rounded-full flex items-center justify-center text-purple-600 shrink-0 shadow-sm group-hover:scale-110 transition-transform">
-                                  <Users size={28} />
-                               </div>
-                               <div className="flex-1">
-                                  <div className="text-[12px] font-black uppercase text-blue-900 border-b border-gray-200 mb-1 pb-1 flex justify-between">
-                                    <span>Participación Estudiantil</span>
-                                    <div className="flex gap-1">
-                                      <div className="w-2 h-2 bg-purple-400 animate-pulse"></div>
-                                      <div className="w-2 h-2 bg-purple-300 animate-pulse delay-75"></div>
-                                    </div>
-                                  </div>
-                                  <p className="text-[11px] text-slate-600 leading-tight italic">
-                                    Miembro comprometido del ITR Suroeste. He participado activamente en ferias tecnológicas, eventos de integración y espacios de apoyo entre pares, fomentando un ambiente académico colaborativo.
-                                  </p>
-                               </div>
-                            </div>
-                         </VintageCard>
                       </div>
                     </div>
                   </motion.div>
