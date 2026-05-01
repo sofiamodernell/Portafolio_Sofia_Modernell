@@ -6,6 +6,7 @@ export const RetroMusicPlayer: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [hasError, setHasError] = useState(false);
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -18,7 +19,10 @@ export const RetroMusicPlayer: React.FC = () => {
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
-        audioRef.current.play().catch(e => console.log("Audio play blocked", e));
+        audioRef.current.play().catch(e => {
+          console.log("Audio play blocked or failed", e);
+          setIsPlaying(false);
+        });
       } else {
         audioRef.current.pause();
       }
@@ -27,25 +31,36 @@ export const RetroMusicPlayer: React.FC = () => {
 
   useEffect(() => {
     let interval: any;
-    if (isPlaying) {
+    if (isPlaying && !hasError) {
       interval = setInterval(() => {
-        if (audioRef.current) {
+        if (audioRef.current && audioRef.current.duration) {
           const p = (audioRef.current.currentTime / audioRef.current.duration) * 100;
           setProgress(p || 0);
         }
       }, 500);
     }
     return () => clearInterval(interval);
-  }, [isPlaying]);
+  }, [isPlaying, hasError]);
 
   const handleNext = () => {
+    setHasError(false);
     setCurrentTrack((prev) => (prev === playlist.length - 1 ? 0 : prev + 1));
     setProgress(0);
   };
 
   const handlePrev = () => {
+    setHasError(false);
     setCurrentTrack((prev) => (prev === 0 ? playlist.length - 1 : prev - 1));
     setProgress(0);
+  };
+
+  const handleAudioError = () => {
+    setHasError(true);
+    setIsPlaying(false);
+    // Auto-skip after 3 seconds if error occurs
+    setTimeout(() => {
+      handleNext();
+    }, 3000);
   };
 
   return (
@@ -54,27 +69,29 @@ export const RetroMusicPlayer: React.FC = () => {
         ref={audioRef} 
         src={playlist[currentTrack].url} 
         onEnded={handleNext}
+        onError={handleAudioError}
+        onPlay={() => setHasError(false)}
       />
       {/* LCD Screen */}
       <div className="bg-[#003300] border-2 border-inset border-gray-600 p-2 mb-2 h-16 flex flex-col justify-center overflow-hidden" style={{ borderStyle: 'inset' }}>
         <div className="flex justify-between items-start">
-          <div className="text-[#00ff00] font-mono text-[10px] uppercase truncate w-3/4">
-            {playlist[currentTrack].title}
+          <div className={`font-mono text-[10px] uppercase truncate w-3/4 ${hasError ? 'text-red-500' : 'text-[#00ff00]'}`}>
+            {hasError ? 'ERROR: LOAD_FAILED' : playlist[currentTrack].title}
           </div>
           <div className="text-[#00ff00] font-mono text-[10px]">
-            {isPlaying ? 'PLAY' : 'PAUSE'}
+            {hasError ? '!!!' : isPlaying ? 'PLAY' : 'PAUSE'}
           </div>
         </div>
         <div className="text-[#00cc00] font-mono text-[8px]">
-          {playlist[currentTrack].artist}
+          {hasError ? 'RETRIEVING_NEXT_TRACK...' : playlist[currentTrack].artist}
         </div>
         <div className="mt-1 flex gap-0.5">
            {Array.from({ length: 20 }).map((_, i) => (
              <motion.div 
                key={i}
-               animate={{ height: isPlaying ? [4, Math.random() * 8 + 4, 4] : 4 }}
+               animate={{ height: (isPlaying && !hasError) ? [4, Math.random() * 8 + 4, 4] : 4 }}
                transition={{ duration: 0.5, repeat: Infinity }}
-               className="w-1 bg-[#00ff00]"
+               className={`w-1 ${hasError ? 'bg-red-900' : 'bg-[#00ff00]'}`}
              />
            ))}
         </div>

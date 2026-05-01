@@ -924,52 +924,107 @@ export default function App() {
 
       {/* Achievements Window */}
       <Window
-        title="Logros_Coleccionables.exe"
+        title="Logros_y_Certificaciones.exe"
         isOpen={isAchievementsOpen}
         onClose={() => setIsAchievementsOpen(false)}
-        top="10%"
-        left="55%"
-        width="380px"
+        top="5%"
+        left="50%"
+        width="460px"
         icon={<Award size={12} className="text-yellow-600" />}
       >
-        <div className="space-y-4">
-          <SectionHeader title="MEDALLERO_TECNICO" />
-          <div className="grid grid-cols-2 gap-4">
-             <div className="bg-white border-2 border-inset border-gray-400 p-2 flex flex-col items-center text-center shadow-sm" style={{ borderStyle: 'inset' }}>
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center border-2 border-blue-500 mb-2">
-                   <ShieldCheck size={24} className="text-blue-600" />
+        <div className="space-y-4 max-h-[65vh] overflow-y-auto pr-2 custom-scrollbar">
+          <SectionHeader title="MEDALLERO_TECNICO_UTEC" />
+          
+          <div className="space-y-3">
+            {[
+              {
+                category: "IDIOMAS • CAMBRIDGE",
+                title: "Inglés B2/C1 — LinguaSkill (2023)",
+                desc: "Certificación de nivel B2 en inglés académico y técnico, emitida por Cambridge Assessment English.",
+                link: "Ver certificado »",
+                icon: <Globe size={16} className="text-blue-600" />
+              },
+              {
+                category: "HABILIDADES TÉCNICAS • UTEC",
+                title: "Curso de Soldadura",
+                desc: "Certificación en técnicas de soldadura para fabricación electrónica y mecánica, UTEC.",
+                link: "Ver certificado »",
+                icon: <Cpu size={16} className="text-orange-600" />
+              },
+              {
+                category: "TUTORÍAS • UTEC IMEC",
+                title: "Tutora Académica — 2026",
+                desc: "Orientación a estudiantes ingresantes de Ingeniería en Mecatrónica, apoyo técnico y académico.",
+                link: "En curso • 2026",
+                icon: <Award size={16} className="text-purple-600" />
+              },
+              {
+                category: "SEGURIDAD • ITR",
+                title: "Jornada Emergencias y Evacuación (2025)",
+                desc: "Capacitación en evacuación de ITR, teoría del fuego y uso de extintores portátiles.",
+                link: "Ver certificado »",
+                icon: <ShieldCheck size={16} className="text-red-600" />
+              },
+              {
+                category: "FABRICACIÓN DIGITAL • EDU",
+                title: "Introducción al Corte Láser (2024)",
+                desc: "Curso de fabricación digital. Proyecto final: Diseño y construcción de Mariposa Autómata.",
+                link: "Ver trabajo final »",
+                icon: <Grid3X3 size={16} className="text-green-600" />
+              },
+              {
+                category: "RELACIONES INTERNACIONALES • UTEC",
+                title: "Buddy Program y Networking",
+                desc: "Facilitadora en la integración de estudiantes de intercambio y gestión intercultural.",
+                link: "Networking & Colaboración",
+                icon: <Globe size={16} className="text-cyan-600" />
+              },
+              {
+                category: "INNOVACIÓN • UTEC",
+                title: "6ª Semana de la Innovación (2023)",
+                desc: "Presentación de proyectos tecnológicos y networking especializado en mecatrónica.",
+                link: "Innovación & Equipo",
+                icon: <Star size={16} className="text-yellow-600" />
+              },
+              {
+                category: "HARDWARE LIBRE • 2022",
+                title: "Arduino for Creative Collaboration",
+                desc: "Jornadas de colaboración creativa utilizando hardware libre para resolución de problemas.",
+                link: "Hardware & Código",
+                icon: <Cpu size={16} className="text-blue-600" />
+              }
+            ].map((item, i) => (
+              <div key={i} className="bg-white border-2 border-inset border-gray-400 p-3 shadow-sm hover:bg-gray-50 transition-colors" style={{ borderStyle: 'inset' }}>
+                <div className="flex gap-3">
+                  <div className="mt-1 p-2 bg-gray-100 border border-gray-300 h-fit">
+                    {item.icon}
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-[9px] font-bold text-blue-900 border-b border-blue-100 mb-1">{item.category}</div>
+                    <div className="text-[11px] font-bold text-gray-800">{item.title}</div>
+                    <div className="text-[10px] text-gray-600 mt-1 leading-tight">{item.desc}</div>
+                    {item.link && (
+                      <div className="mt-2 text-[9px] text-blue-700 font-bold hover:underline cursor-pointer flex items-center gap-1">
+                        <FileText size={10} /> {item.link}
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <div className="text-[9px] font-bold uppercase">SOLIDWORKS_CSWA</div>
-                <div className="text-[8px] italic">Diseño Mecánico</div>
-             </div>
-             <div className="bg-white border-2 border-inset border-gray-400 p-2 flex flex-col items-center text-center shadow-sm" style={{ borderStyle: 'inset' }}>
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center border-2 border-green-500 mb-2">
-                   <FileText size={24} className="text-green-600" />
-                </div>
-                <div className="text-[9px] font-bold uppercase">EXCEL_SPECIALIZATION</div>
-                <div className="text-[8px] italic">Análisis de Datos</div>
-             </div>
-             <div className="bg-white border-2 border-inset border-gray-400 p-2 flex flex-col items-center text-center shadow-sm" style={{ borderStyle: 'inset' }}>
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center border-2 border-purple-500 mb-2">
-                   <Globe size={24} className="text-purple-600" />
-                </div>
-                <div className="text-[9px] font-bold uppercase">ENGLISH_EF_SET</div>
-                <div className="text-[8px] italic">Nivel B2 (Intermedio-Alto)</div>
-             </div>
-             <div className="bg-white border-2 border-inset border-gray-400 p-2 flex flex-col items-center text-center shadow-sm" style={{ borderStyle: 'inset' }}>
-                <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center border-2 border-yellow-500 mb-2">
-                   <Award size={24} className="text-yellow-600" />
-                </div>
-                <div className="text-[9px] font-bold uppercase">UTEC_INGENIERIA</div>
-                <div className="text-[8px] italic">Mecatrónica en proceso</div>
-             </div>
+              </div>
+            ))}
           </div>
-          <div className="p-2 bg-blue-50 border border-blue-200">
-             <div className="text-[9px] font-bold mb-1">PROXIMO_OBJETIVO:</div>
-             <div className="w-full bg-gray-300 h-2 border border-black">
+
+          <div className="p-3 bg-blue-100 border-2 border-blue-300">
+             <div className="flex justify-between items-center mb-1 text-[10px] font-bold text-blue-900 uppercase">
+                <span>Estado Finalización Carrera</span>
+                <span>85%</span>
+             </div>
+             <div className="w-full bg-gray-300 h-3 border border-black p-0.5">
                 <div className="w-[85%] h-full bg-blue-600" />
              </div>
-             <div className="text-[8px] text-right mt-1">Carga al 85% - Finalización de Carrera</div>
+             <div className="mt-2 text-[9px] text-blue-800 italic text-right">
+                * Calculado según créditos acumulados a Mayo 2026
+             </div>
           </div>
         </div>
       </Window>

@@ -64,7 +64,8 @@ export const TicTacToe: React.FC = () => {
     }
   };
 
-  const getBestMove = (squares: Player[]): number => {
+  const getBestMove = (boardState: Player[]): number => {
+    const squares = [...boardState];
     let bestScore = -Infinity;
     let move = -1;
     for (let i = 0; i < 9; i++) {
@@ -88,13 +89,13 @@ export const TicTacToe: React.FC = () => {
         if (bestMove !== -1) {
           handleClick(bestMove);
         }
-      }, 600);
+      }, 700);
       return () => clearTimeout(timer);
     }
   }, [isXNext, gameOver, board, winner]);
 
   const handleClick = (i: number) => {
-    if (board[i] || gameOver || (!isXNext && winner === null)) return;
+    if (board[i] || gameOver) return;
 
     const newBoard = [...board];
     newBoard[i] = isXNext ? 'X' : 'O';
@@ -122,7 +123,7 @@ export const TicTacToe: React.FC = () => {
         {gameOver ? (
           winner === 'Draw' ? '¡EMPATE!' : `¡GANADOR: ${winner}!`
         ) : (
-          `TURNO: ${isXNext ? 'TU (X)' : 'CPU (O)'}`
+          `TURNO: ${isXNext ? 'USUARIO (X)' : 'SISTEMA (O)'}`
         )}
       </div>
 
@@ -130,8 +131,9 @@ export const TicTacToe: React.FC = () => {
         {board.map((cell, i) => (
           <button
             key={i}
-            onClick={() => isXNext && handleClick(i)}
-            className={`w-16 h-16 bg-gray-200 border-2 border-white border-r-gray-700 border-b-gray-700 font-bold text-2xl flex items-center justify-center active:translate-y-px ${
+            disabled={!isXNext || gameOver}
+            onClick={() => handleClick(i)}
+            className={`w-16 h-16 bg-gray-200 border-2 border-white border-r-gray-700 border-b-gray-700 font-bold text-2xl flex items-center justify-center active:translate-y-px transition-all hover:bg-gray-100 disabled:cursor-not-allowed ${
               cell === 'X' ? 'text-blue-700' : 'text-red-700'
             }`}
           >
