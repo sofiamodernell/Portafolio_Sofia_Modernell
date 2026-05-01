@@ -168,19 +168,19 @@ export default function App() {
       title: "Proyecto Integrador II",
       tag: "EMBEDDED / IoT",
       desc: "PCB propia con ATmega328PB, sensores y SigFox IoT. Incluye gemelo digital.",
-      img: "https://picsum.photos/seed/pcb/600/400"
+      img: "/assets/images/project-pic2.jpg"
     },
     {
       title: "Pick-to-Light System",
       tag: "AUTOMATION",
       desc: "Sistema de guiado lumínico para depósitos optimizado mediante análisis Ishikawa.",
-      img: "https://picsum.photos/seed/storage/600/400"
+      img: "/assets/images/project-p2l.jpg"
     },
     {
       title: "Robot Seguidor de Línea",
       tag: "ROBOTICS",
       desc: "Robot de competencia con control PID ajustado para máxima velocidad en trayectorias curvas.",
-      img: "https://picsum.photos/seed/robot/600/400"
+      img: "/assets/images/project-robot.jpg"
     }
   ];
 
@@ -658,7 +658,7 @@ export default function App() {
                        <div className="flex flex-col items-center group">
                          <div className="w-24 h-24 md:w-32 md:h-32 flex items-center justify-center bg-transparent transition-transform group-hover:scale-105">
                            <img 
-                             src="/logo-mecatronica.png" 
+                             src="/assets/images/logo-mecatronica.png" 
                              alt="Ingeniería en Mecatrónica" 
                              className="max-w-full max-h-full object-contain" 
                              referrerPolicy="no-referrer"
@@ -675,7 +675,7 @@ export default function App() {
                        <div className="flex flex-col items-center group">
                          <div className="w-32 h-24 md:w-48 md:h-32 flex items-center justify-center bg-transparent transition-transform group-hover:scale-105">
                            <img 
-                             src="/logo-utec.png" 
+                             src="/assets/images/logo-utec.png" 
                              alt="UTEC ITR Suroeste" 
                              className="max-w-full max-h-full object-contain" 
                              referrerPolicy="no-referrer"
@@ -713,7 +713,14 @@ export default function App() {
                          <div className="bg-[#c0c0c0] border-2 border-white border-r-gray-800 border-b-gray-800 p-1 relative group">
                             <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-blue-600 z-10"></div>
                             <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-right-2 border-blue-600 z-10" style={{ borderRightWidth: '2px' }}></div>
-                            <img src="https://picsum.photos/seed/sofia_mec/400/500" alt="Avatar" className="w-full grayscale border border-black transition-all group-hover:grayscale-0" />
+                                                         <img 
+                                src="/assets/images/profile.png" 
+                                alt="Avatar" 
+                                className="w-full grayscale border border-black transition-all group-hover:grayscale-0" 
+                                onError={(e) => {
+                                   (e.target as HTMLImageElement).src = "https://picsum.photos/seed/sofia_mec/400/500";
+                                }}
+                             />
                             <div className="bg-black text-[#00ff00] text-[7px] font-mono p-1 mt-1 flex justify-between uppercase">
                                <span>SCAN_ACTIVE</span>
                                <Blink>_</Blink>
@@ -1290,14 +1297,23 @@ export default function App() {
           <SectionHeader title="DISEÑOS_MECANICOS_2D_3D" />
           <div className="grid grid-cols-2 gap-2 h-64 overflow-y-auto pr-2 bg-gray-400 p-2 border-2 border-inset border-gray-600" style={{ borderStyle: 'inset' }}>
              {[
-               { title: 'Plano_Brazo.png', color: 'bg-white' },
-               { title: 'Ensamble_CNC.png', color: 'bg-blue-50' },
-               { title: 'Circuito_ESP32.png', color: 'bg-green-50' },
-               { title: 'Engranajes_v1.png', color: 'bg-red-50' }
+               { title: 'Plano_Brazo.png', file: '/assets/images/plano-brazo.jpg', color: 'bg-white' },
+               { title: 'Ensamble_CNC.png', file: '/assets/images/ensamble-cnc.jpg', color: 'bg-blue-50' },
+               { title: 'Circuito_ESP32.png', file: '/assets/images/circuito-esp32.jpg', color: 'bg-green-50' },
+               { title: 'Engranajes_v1.png', file: '/assets/images/engranajes.jpg', color: 'bg-red-50' }
              ].map((img, i) => (
                <div key={i} className={`${img.color} border border-black p-1 shadow-md hover:scale-105 transition-transform`}>
-                  <div className="h-24 bg-slate-200 flex items-center justify-center border border-gray-400">
-                     <ImageIcon size={32} className="text-gray-400 opacity-30" />
+                  <div className="h-24 bg-slate-200 flex items-center justify-center border border-gray-400 overflow-hidden">
+                     <img 
+                        src={img.file} 
+                        alt={img.title} 
+                        className="w-full h-full object-cover opacity-80"
+                        onError={(e) => {
+                           (e.target as HTMLImageElement).style.display = 'none';
+                           (e.target as HTMLImageElement).parentElement?.classList.add('flex');
+                        }}
+                     />
+                     <ImageIcon size={32} className="text-gray-400 opacity-30 absolute" />
                   </div>
                   <div className="text-[8px] mt-1 font-mono">{img.title}</div>
                </div>
