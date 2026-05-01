@@ -546,14 +546,9 @@ export default function App() {
                        </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <VintageCard title="Misión_Científica.txt">
-                        <p className="text-[11px]">Convertirme en una referente en la integración de hardware y firmware para la industria nacional, promoviendo la innovación y la eficiencia en sistemas automatizados.</p>
-                      </VintageCard>
-                      <VintageCard title="Bitácora_Carga.exe" area="HARDWARE">
-                        <p className="text-[11px]">Actualmente cursando el 5to semestre. Explora las secciones para ver mis PICs (Proyectos Integradores) y certificados.</p>
-                      </VintageCard>
-                    </div>
+
+
+
 
                     <div className="bg-yellow-50 border-2 border-yellow-400 p-3 italic text-[11px] flex items-center gap-3">
                        <MessageSquare size={20} className="text-yellow-600 shrink-0" />
@@ -566,7 +561,7 @@ export default function App() {
                        <div className="flex flex-col items-center group">
                          <div className="w-24 h-24 md:w-32 md:h-32 flex items-center justify-center bg-transparent transition-transform group-hover:scale-105">
                            <img 
-                             src="input_file_0.png" 
+                             src="/logo-mecatronica.png" 
                              alt="Ingeniería en Mecatrónica" 
                              className="max-w-full max-h-full object-contain" 
                              referrerPolicy="no-referrer"
@@ -583,7 +578,7 @@ export default function App() {
                        <div className="flex flex-col items-center group">
                          <div className="w-32 h-24 md:w-48 md:h-32 flex items-center justify-center bg-transparent transition-transform group-hover:scale-105">
                            <img 
-                             src="input_file_1.png" 
+                             src="/logo-utec.png" 
                              alt="UTEC ITR Suroeste" 
                              className="max-w-full max-h-full object-contain" 
                              referrerPolicy="no-referrer"
@@ -631,7 +626,7 @@ export default function App() {
                          <div className="space-y-2">
                            <StatusIndicator label="Estado" status="Operacional" />
                            <StatusIndicator label="Localización" status="UTEC - ITR Suroeste" />
-                           <StatusIndicator label="Especialidad" status="Embebidos / IoT" />
+                           <StatusIndicator label="Especialidad" status="No definida" />
                          </div>
 
                          <VintageCard title="Formación">
@@ -649,10 +644,10 @@ export default function App() {
                          
                          <VintageCard title="Hard_Stack.sys">
                             <div className="space-y-3 pt-1">
-                               <ProgressBar label="Electrónica Análoga" value={85} color="#A21E74" />
-                               <ProgressBar label="Sistemas Embebidos" value={92} color="#00ADEF" />
-                               <ProgressBar label="Diseño PCB (KiCad)" value={88} color="#2563eb" />
-                               <ProgressBar label="Redes e IoT" value={80} color="#10b981" />
+                               <ProgressBar label="Operación" value={60} color="#A21E74" />
+                               <ProgressBar label="Diseño" value={55} color="#00ADEF" />
+                               <ProgressBar label="Innovación" value={45} color="#2563eb" />
+                               <ProgressBar label="Mantenimiento" value={50} color="#10b981" />
                             </div>
                          </VintageCard>
                       </div>
