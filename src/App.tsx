@@ -204,55 +204,56 @@ export default function App() {
     },
     {
       id: "pro2",
-      title: "Area 02 — Mantenimiento",
+      title: "Area 02 — Mantenimiento de sistemas mecatrónicos",
       area: "PRO",
-      description: "Ejecutar planes de mantenimiento preventivo y correctivo en sistemas mecatrónicos complejos para asegurar la continuidad operativa.",
+      description: "Aplicar procedimientos para identificar, diagnosticar y corregir fallas, verificando el correcto funcionamiento tras la intervención técnica.",
       evidences: [
-        { name: "Plan Mantenimiento PIC I", type: "Gestión", link: "#" },
-        { name: "Sistemas de Potencia (Fuentes)", type: "Diagnóstico", link: "#" },
-        { name: "Análisis Críticos TMPR", type: "Laboratorio", link: "#" }
+        { name: "Análisis ED1 (Discrepancias)", type: "Diagnóstico", link: "#" },
+        { name: "Documentación EAA (Teórico/Medido)", type: "Validación", link: "#" },
+        { name: "Diagnóstico SPI/I2C/UART (TMPR)", type: "Protocolos", link: "#" },
+        { name: "Instrumentación Multímetro/Osciloscopio", type: "Hardware", link: "#" }
       ],
-      reflection: "La gestión del mantenimiento ha dejado de ser para mí una tarea reactiva para convertirse en una disciplina estratégica de prevención. Durante mi formación, especialmente en el diseño de planes para sistemas integradores, he perfeccionado la capacidad de identificar vulnerabilidades en hardware antes de que impacten la cadena de valor. Concibo el mantenimiento como un ciclo de mejora continua donde el diagnóstico preciso y la documentación técnica son los pilares que aseguran la máxima disponibilidad de los activos tecnológicos.",
+      reflection: "La competencia de mantenimiento no se enseña exclusivamente en el aula, sino que se forja en el momento en que un circuito no responde y es necesario descubrir el porqué mediante un diagnóstico metódico. A través de mi experiencia en laboratorios de electrónica y sistemas embebidos, he perfeccionado la capacidad de identificar discrepancias entre el comportamiento esperado y el real, utilizando instrumentación avanzada para aislar fallas. Para mí, el mantenimiento es un proceso de descubrimiento constante que exige rigor analítico y una validación exhaustiva post-intervención.",
       resources: [
-        { name: "Manual de Mantenimiento Clase A", url: "#" },
-        { name: "Normas de Seguridad Eléctrica ISA", url: "#" },
+        { name: "Evidencias Area 02 Drive", url: "https://drive.google.com/drive/u/1/folders/17Retv7992rLRJWRwvWbupOL5darzVy8d" },
         { name: "Guía ISA-S5.1", url: "#" }
       ],
       link: "https://drive.google.com/drive/u/1/folders/17Retv7992rLRJWRwvWbupOL5darzVy8d"
     },
     {
       id: "pro3",
-      title: "Area 03 — Diseño",
+      title: "Area 03 — Diseño de sistemas mecatrónicos",
       area: "ENG",
-      description: "Fabricar equipos segun especificaciones y rediseñar sistemas mecatrónicos utilizando CAD/CAM y herramientas de simulación.",
+      description: "Fabricar equipos según especificaciones técnicas, incorporar y generar insumos para el diseño o rediseño integral de sistemas mecatrónicos.",
       evidences: [
-        { name: "PCB KiCad (IoT/SigFox)", type: "Hardware Design", link: "#" },
-        { name: "Modelado CAD/CAM", type: "Manufactura", link: "#" },
-        { name: "Simulación Multisim/KiCad", type: "Validación", link: "#" }
+        { name: "Amplificadores y Filtros EAA", type: "Análogo", link: "#" },
+        { name: "Diseño Digital ED1 (Karnaugh)", type: "Lógica", link: "#" },
+        { name: "Lazo Cerrado RFID (TMPR)", type: "Control", link: "#" },
+        { name: "Proyecto PIC I (Pick-to-light)", type: "Integrador", link: "#" },
+        { name: "PCB Propia IoT (SigFox) PIC II", type: "Mechatronics", link: "#" }
       ],
-      reflection: "El diseño mecatrónico es el punto de encuentro entre la visión creativa y el rigor de la normativa técnica. Al desarrollar la arquitectura de hardware para sistemas de comunicación de largo alcance, enfrenté el desafío de integrar señales críticas en espacios confinados, priorizando siempre la integridad electromagnética y la eficiencia térmica. He aprendido que un diseño superior no solo soluciona un problema actual, sino que anticipa las necesidades de fabricación y la escalabilidad del sistema completo.",
+      reflection: "El diseño es la etapa donde la creatividad técnica se encuentra con la normativa. El proyecto PIC II representó para mí el punto de mayor convergencia de diseño, donde no solo implementé un circuito, sino que fundamenté cada decisión de componentes y comparé alternativas tecnológicas para maximizar la eficiencia. He aprendido que el diseño mecatrónico robusto requiere una visión sistémica que integre la viabilidad de fabricación con la precisión del control electrónico, transformando especificaciones abstractas en prototipos funcionales de alta complejidad.",
       resources: [
-        { name: "Best Practices in PCB Design", url: "#" },
-        { name: "Simulación en Multisim/KiCad", url: "#" },
+        { name: "Evidencias Area 03 Drive", url: "https://drive.google.com/drive/u/1/folders/1O-TYA7JWIHOSZWaqeKgqRc4MnKlkk5El" },
         { name: "KiCad Documentation", url: "https://docs.kicad.org/" }
       ],
       link: "https://drive.google.com/drive/u/1/folders/1O-TYA7JWIHOSZWaqeKgqRc4MnKlkk5El"
     },
     {
       id: "pro4",
-      title: "Area 04 — Innovacion",
+      title: "Area 04 — Innovación e investigación en sistemas mecatrónicos",
       area: "R&D",
-      description: "Investigar e implementar soluciones innovadoras en hardware y firmware para resolver problemas no convencionales.",
+      description: "Reconocer paradigmas tecnológicos emergentes, fabricar prototipos y colaborar en la integración de nuevas tecnologías.",
       evidences: [
-        { name: "Integración LPWAN/SigFox", type: "IoT", link: "#" },
-        { name: "Algoritmos PID Pro", type: "Control", link: "#" },
-        { name: "Prototipado Rápido IoT", type: "R&D", link: "#" }
+        { name: "Lógica Discreta Lab ED1", type: "Investigación", link: "#" },
+        { name: "Arquitecturas Maestro-Esclavo", type: "TMPR", link: "#" },
+        { name: "Análisis Ishikawa PIC I", type: "Prototipado", link: "#" },
+        { name: "IoT SigFox y Gemelo Digital PIC II", type: "Innovación", link: "#" }
       ],
-      reflection: "La innovación en mecatrónica es la búsqueda constante de soluciones fuera de los marcos convencionales. Mi experiencia integrando tecnologías de bajo consumo y largo alcance (LPWAN) en dispositivos autónomos me ha permitido redefinir los límites de la conectividad en entornos que requieren autonomía total. Entiendo la innovación no solo como la adopción de tecnología de vanguardia, sino como la capacidad de transformar una necesidad técnica compleja en una implementación simplificada, robusta y eficiente que desafía las arquitecturas tradicionales de control y comunicación.",
+      reflection: "La innovación se manifiesta cuando las evidencias van más allá de la aplicación de procedimientos conocidos. En el desarrollo del PIC II, crucé la frontera de la implementación estándar para investigar el ecosistema SigFox, comprendiendo su superioridad en eficiencia energética para contextos IoT frente a alternativas como WiFi. Mi enfoque en esta competencia se basa en la validación de nuevas tecnologías mediante prototipos físicos, buscando siempre la integración de soluciones emergentes que aporten un valor diferencial y una resolución innovadora a problemas industriales complejos.",
       resources: [
-        { name: "LPWAN Technologies Overview", url: "#" },
-        { name: "Investigación: Edge Computing en IoT", url: "#" },
-        { name: "IEEE Xplore - Robotics", url: "#" }
+        { name: "Evidencias Area 04 Drive", url: "https://drive.google.com/drive/u/1/folders/1uZr0mWRwIGXNhYLFkosF35GK0HOaNPGe" },
+        { name: "IEEE Xplore - Research", url: "#" }
       ],
       link: "https://drive.google.com/drive/u/1/folders/1uZr0mWRwIGXNhYLFkosF35GK0HOaNPGe"
     }
