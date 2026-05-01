@@ -14,13 +14,15 @@ import {
   WebBadge, 
   SectionHeader, 
   VintageCard,
+  ProgressBar,
+  StatusIndicator,
   Window
 } from './components/VintageUI';
 import { CursorTrail } from './components/CursorTrail';
 import { TicTacToe } from './components/TicTacToe';
 import { Terminal } from './components/Terminal';
 import { RetroMusicPlayer } from './components/RetroMusicPlayer';
-import { Mail, Linkedin, FolderOpen, Star, AlertTriangle, Monitor, HardDrive, Cpu, Globe, Volume2, VolumeX, MessageSquare, FileText, Award, Image as ImageIcon, Gamepad2, Terminal as TerminalIcon, ShieldCheck, Music, Grid3X3, Book, Map } from 'lucide-react';
+import { Mail, Linkedin, FolderOpen, Star, AlertTriangle, Monitor, HardDrive, Cpu, Globe, Volume2, VolumeX, MessageSquare, FileText, Award, Image as ImageIcon, Gamepad2, Terminal as TerminalIcon, ShieldCheck, Music, Grid3X3, Book, Map, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   collection, 
@@ -613,61 +615,118 @@ export default function App() {
                     exit={{ opacity: 0, y: -10 }}
                     className="space-y-6"
                   >
-                    <SectionHeader title="01_PERFIL" />
+                    <SectionHeader title="01_PERFIL_INGENIERIA" />
                     <div className="flex flex-col md:flex-row gap-6">
                       <div className="shrink-0 w-full md:w-56 space-y-4">
-                         <div className="bg-[#c0c0c0] border-2 border-white border-r-gray-800 border-b-gray-800 p-1">
-                            <img src="https://picsum.photos/seed/portrait/200/250" alt="Avatar" className="w-full grayscale border border-black" />
-                            <div className="text-center text-[9px] font-bold mt-1 uppercase font-mono tracking-tighter">IMG_PROFILE_001.JPG</div>
+                         <div className="bg-[#c0c0c0] border-2 border-white border-r-gray-800 border-b-gray-800 p-1 relative group">
+                            <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-blue-600 z-10"></div>
+                            <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-right-2 border-blue-600 z-10" style={{ borderRightWidth: '2px' }}></div>
+                            <img src="https://picsum.photos/seed/sofia_mec/400/500" alt="Avatar" className="w-full grayscale border border-black transition-all group-hover:grayscale-0" />
+                            <div className="bg-black text-[#00ff00] text-[7px] font-mono p-1 mt-1 flex justify-between uppercase">
+                               <span>SCAN_ACTIVE</span>
+                               <Blink>_</Blink>
+                            </div>
                          </div>
                          
-                         <VintageCard title="Formación">
-                            <ul className="text-[11px] space-y-1 font-serif italic font-bold">
-                               <li>• UTEC: Ing. Mecatrónica</li>
-                            </ul>
-                         </VintageCard>
-                         
-                         <VintageCard title="Intereses">
-                            <ul className="text-[11px] space-y-1 font-mono tracking-tighter">
-                               <li>• Soldar</li>
-                               <li>• Prototipado</li>
-                               <li>• Documentación Técnica</li>
-                               <li>• IoT y Redes</li>
-                            </ul>
-                         </VintageCard>
+                         <div className="space-y-2">
+                           <StatusIndicator label="Estado" status="Operacional" />
+                           <StatusIndicator label="Localización" status="UTEC - ITR Suroeste" />
+                           <StatusIndicator label="Especialidad" status="Embebidos / IoT" />
+                         </div>
 
-                         <div className="flex justify-between items-center px-4 py-3 bg-white border-2 border-inset border-gray-300 group shadow-sm transition-all hover:bg-blue-50" style={{ borderStyle: 'inset' }}>
-                            <img 
-                               src="input_file_0.png" 
-                               alt="MEC" 
-                               className="h-10 object-contain grayscale hover:grayscale-0 transition-all" 
-                               referrerPolicy="no-referrer" 
-                               onError={(e) => {
-                                 (e.target as HTMLImageElement).src = "https://utec.edu.uy/wp-content/uploads/2021/11/Mecatronica.png";
-                               }}
-                            />
-                            <div className="h-8 w-px bg-gray-200" />
-                            <img 
-                               src="input_file_1.png" 
-                               alt="UTEC" 
-                               className="h-10 object-contain grayscale hover:grayscale-0 transition-all" 
-                               referrerPolicy="no-referrer"
-                               onError={(e) => {
-                                 (e.target as HTMLImageElement).src = "https://utec.edu.uy/wp-content/uploads/2018/11/logo-utec.png";
-                               }}
-                            />
-                         </div>
+                         <VintageCard title="Formación">
+                            <ul className="text-[11px] space-y-2 font-bold italic">
+                               <li className="flex gap-2">
+                                 <Monitor size={12} className="text-blue-900 shrink-0" />
+                                 <span>Carrera: Ing. Mecatrónica</span>
+                               </li>
+                               <li className="flex gap-2">
+                                 <Cpu size={12} className="text-blue-900 shrink-0" />
+                                 <span>Plan: 2023 (Semestre 5)</span>
+                               </li>
+                            </ul>
+                         </VintageCard>
+                         
+                         <VintageCard title="Hard_Stack.sys">
+                            <div className="space-y-3 pt-1">
+                               <ProgressBar label="Electrónica Análoga" value={85} color="#A21E74" />
+                               <ProgressBar label="Sistemas Embebidos" value={92} color="#00ADEF" />
+                               <ProgressBar label="Diseño PCB (KiCad)" value={88} color="#2563eb" />
+                               <ProgressBar label="Redes e IoT" value={80} color="#10b981" />
+                            </div>
+                         </VintageCard>
                       </div>
-                      <div className="flex-1 font-serif">
-                         <div className="bg-white border-2 border-inset border-gray-300 p-4 h-full" style={{ borderStyle: 'inset' }}>
-                            <h2 className="text-xl font-bold text-blue-900 border-b border-gray-200 mb-2">Sobre_mi</h2>
-                            <p className="text-sm leading-relaxed">
-                              Estudiante avanzada de mecatrónica en UTEC Fray Bentos. Me apasiona el diseño de PCBs, la programación de sistemas embebidos y la resolución de problemas industriales complejos. 
-                            </p>
-                            <p className="mt-2 text-sm leading-relaxed">
-                              He servido como <strong>Tutora Académica</strong> para estudiantes de primer año, reforzando mis propios conocimientos mientras ayudo a otros en el desafiante camino de la ingeniería.
-                            </p>
+
+                      <div className="flex-1 flex flex-col gap-4">
+                         <div className="bg-white border-2 border-inset border-gray-300 p-5 shadow-inner" style={{ borderStyle: 'inset' }}>
+                            <div className="flex justify-between items-center mb-4 border-b-2 border-blue-900 pb-2">
+                               <h2 className="text-2xl font-black italic text-blue-900 uppercase tracking-tighter">Sobre_mi.usr</h2>
+                               <div className="flex gap-1">
+                                  <div className="w-3 h-3 bg-red-600 border border-black shadow-[1px_1px_0px_white_inset]"></div>
+                                  <div className="w-3 h-3 bg-yellow-400 border border-black shadow-[1px_1px_0px_white_inset]"></div>
+                                  <div className="w-3 h-3 bg-green-500 border border-black shadow-[1px_1px_0px_white_inset]"></div>
+                               </div>
+                            </div>
+                            
+                            <div className="prose prose-sm font-serif max-w-none text-slate-800 space-y-4">
+                               <p className="leading-relaxed first-letter:text-4xl first-letter:font-black first-letter:text-blue-900 first-letter:mr-2 first-letter:float-left">
+                                 Soy estudiante avanzada de <strong>Ingeniería en Mecatrónica</strong> en la Universidad Tecnológica (UTEC) Suroeste. Mi enfoque se centra en la convergencia entre la mecánica de precisión y el control digital, con un interés particular en el desarrollo de <strong>Sistemas Embebidos</strong> y la arquitectura de soluciones <strong>IoT</strong>.
+                               </p>
+                               <p className="leading-relaxed italic border-l-4 border-blue-100 pl-4 bg-blue-50/50 py-2">
+                                 "Mi objetivo es transformar problemas industriales complejos en automatismos robustos, eficientes y escalables, integrando hardware a medida con firmware optimizado."
+                               </p>
+                               <p className="leading-relaxed">
+                                 A lo largo de mi carrera, he descubierto que la ingeniería no solo se trata de cálculos, sino de <strong>curiosidad metódica</strong>. Como tutora académica, he reforzado mi capacidad de comunicación técnica, simplificando conceptos abstractos para otros estudiantes.
+                               </p>
+                               <p className="leading-relaxed border-t border-gray-100 pt-2 text-[12px]">
+                                 Además, soy una <strong>integrante activa de la comunidad universitaria</strong> en el ITR Suroeste, participando en eventos, ferias de proyectos y espacios de co-creación estudiantil. Considero que el intercambio de ideas y la colaboración interdisciplinaria son pilares fundamentales para la innovación tecnológica.
+                               </p>
+                            </div>
+
+                            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                               <div className="bg-[#f0f0f0] border border-gray-300 p-3 hover:bg-blue-50 transition-colors group">
+                                  <h4 className="text-[10px] font-black text-blue-900 uppercase mb-2 flex items-center gap-2">
+                                     <Star size={12} className="group-hover:rotate-45 transition-transform" />
+                                     Intereses de Investigación
+                                  </h4>
+                                  <ul className="text-[11px] space-y-1 text-slate-600 font-mono italic">
+                                     <li>{">"} Instrumentación Electrónica</li>
+                                     <li>{">"} Protocolos LPWAN (SigFox)</li>
+                                     <li>{">"} Fabricación Digital</li>
+                                  </ul>
+                               </div>
+                               <div className="bg-[#f0f0f0] border border-gray-300 p-3 hover:bg-red-50 transition-colors group">
+                                  <h4 className="text-[10px] font-black text-red-800 uppercase mb-2 flex items-center gap-2">
+                                     <AlertTriangle size={12} className="group-hover:scale-110 transition-transform" />
+                                     Enfoque Práctico
+                                  </h4>
+                                  <p className="text-[11px] text-slate-600 leading-tight italic">
+                                     Me especializo en el ciclo completo de prototipado: desde la soldadura SMD hasta la implementación de gemelos digitales.
+                                  </p>
+                               </div>
+                            </div>
                          </div>
+
+
+                         <VintageCard title="Comunidad UTEC" className="mt-2 group hover:bg-purple-50 transition-colors">
+                            <div className="flex gap-4">
+                               <div className="w-14 h-14 bg-purple-100 border-2 border-purple-400 rounded-full flex items-center justify-center text-purple-600 shrink-0 shadow-sm group-hover:scale-110 transition-transform">
+                                  <Users size={28} />
+                               </div>
+                               <div className="flex-1">
+                                  <div className="text-[12px] font-black uppercase text-blue-900 border-b border-gray-200 mb-1 pb-1 flex justify-between">
+                                    <span>Participación Estudiantil</span>
+                                    <div className="flex gap-1">
+                                      <div className="w-2 h-2 bg-purple-400 animate-pulse"></div>
+                                      <div className="w-2 h-2 bg-purple-300 animate-pulse delay-75"></div>
+                                    </div>
+                                  </div>
+                                  <p className="text-[11px] text-slate-600 leading-tight italic">
+                                    Miembro comprometido del ITR Suroeste. He participado activamente en ferias tecnológicas, eventos de integración y espacios de apoyo entre pares, fomentando un ambiente académico colaborativo.
+                                  </p>
+                               </div>
+                            </div>
+                         </VintageCard>
                       </div>
                     </div>
                   </motion.div>

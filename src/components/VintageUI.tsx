@@ -136,6 +136,41 @@ export const VintageCard: React.FC<{ title: string; children: React.ReactNode; a
   );
 };
 
+export const ProgressBar: React.FC<{ label: string; value: number; color?: string }> = ({ label, value, color = '#2563eb' }) => {
+  return (
+    <div className="mb-2">
+      <div className="flex justify-between text-[9px] font-bold uppercase mb-0.5">
+        <span>{label}</span>
+        <span>{value}%</span>
+      </div>
+      <div className="h-4 bg-black border border-gray-600 p-0.5 shadow-inner">
+        <motion.div 
+          initial={{ width: 0 }}
+          animate={{ width: `${value}%` }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="h-full relative overflow-hidden"
+          style={{ backgroundColor: color }}
+        >
+          {/* Scanline effect on bar */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent w-full h-full animate-marquee" style={{ animationDuration: '3s' }}></div>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+export const StatusIndicator: React.FC<{ label: string; status: string; active?: boolean }> = ({ label, status, active = true }) => {
+  return (
+    <div className="flex items-center gap-2 bg-[#d0d0d0] border border-gray-400 px-2 py-1 shadow-sm">
+      <div className={`w-2 h-2 rounded-full ${active ? 'bg-green-500 shadow-[0_0_5px_#22c55e]' : 'bg-gray-400'} ${active ? 'animate-pulse' : ''}`} />
+      <div className="flex flex-col">
+        <span className="text-[8px] font-bold text-gray-600 uppercase leading-none">{label}</span>
+        <span className="text-[9px] font-black text-blue-900 uppercase leading-none">{status}</span>
+      </div>
+    </div>
+  );
+};
+
 export const Window: React.FC<{ 
   title: string; 
   isOpen: boolean; 
