@@ -16,6 +16,7 @@ import {
   VintageCard,
   Window
 } from './components/VintageUI';
+import { MecatronicaLogo, UtecLogo } from './components/Logos';
 import { CursorTrail } from './components/CursorTrail';
 import { TicTacToe } from './components/TicTacToe';
 import { Terminal } from './components/Terminal';
@@ -367,7 +368,7 @@ export default function App() {
       
       {/* Top Banner / Marquee Area */}
       <div className="absolute top-0 w-full bg-blue-900 text-white h-8 flex items-center border-b-2 border-black overflow-hidden z-50 shadow-md">
-        <Marquee scrollamount={3}>
+        <Marquee scrollamount={1}>
           *** PORTFOLIO DE COMPETENCIAS :: SOFIA CAROLINA MODERNELL PEÑALOZA :: UTEC - MECATRONICA :: PLAN 2023 :: 5TO SEMESTRE *** CAUTION: TOO MUCH ENGINEERING CAN CAUSE UNEXPECTED C++ COMPILATION ERRORS IN REAL LIFE *** HANDLE WITH PROPER ESD PROTECTION ***
         </Marquee>
       </div>
@@ -560,15 +561,21 @@ export default function App() {
                        </div>
                     </div>
 
-                    <div className="flex justify-center items-center gap-8 py-8 px-4 bg-gray-50 border-2 border-inset border-gray-400" style={{ borderStyle: 'inset' }}>
-                       <div className="flex flex-col items-center">
-                         <img src="mecatronica_logo.png" alt="Ingeniería en Mecatrónica" className="h-20 md:h-28 object-contain transition-transform hover:scale-105" referrerPolicy="no-referrer" />
-                         <span className="text-[9px] font-bold mt-2 text-blue-900 uppercase text-center">Ingeniería en<br/>Mecatrónica</span>
+                    <div className="flex justify-center items-center gap-12 py-10 px-6 bg-white border-2 border-inset border-gray-300 shadow-inner" style={{ borderStyle: 'inset' }}>
+                       <div className="flex flex-col items-center group">
+                         <div className="w-24 h-24 md:w-32 md:h-32 flex items-center justify-center bg-transparent transition-transform group-hover:scale-105">
+                           <MecatronicaLogo className="w-full h-full max-w-full max-h-full" />
+                         </div>
+                         <span className="text-[10px] font-bold mt-4 text-blue-900 uppercase tracking-widest text-center leading-tight border-t border-gray-100 pt-2 w-full">Ingeniería en<br/>Mecatrónica</span>
                        </div>
-                       <div className="h-16 w-px bg-gray-400 hidden md:block" />
-                       <div className="flex flex-col items-center">
-                         <img src="utec_itr_logo.png" alt="UTEC ITR Suroeste" className="h-20 md:h-28 object-contain transition-transform hover:scale-105" referrerPolicy="no-referrer" />
-                         <span className="text-[9px] font-bold mt-2 text-blue-900 uppercase text-center">UTEC ITR<br/>Suroeste</span>
+                       
+                       <div className="h-24 w-px bg-gray-200 hidden md:block" />
+                       
+                       <div className="flex flex-col items-center group">
+                         <div className="w-32 h-24 md:w-48 md:h-32 flex items-center justify-center bg-transparent transition-transform group-hover:scale-105">
+                           <UtecLogo className="w-full h-full max-w-full max-h-full" />
+                         </div>
+                         <span className="text-[10px] font-bold mt-4 text-blue-900 uppercase tracking-widest text-center leading-tight border-t border-gray-100 pt-2 w-full">UTEC ITR<br/>Suroeste</span>
                        </div>
                     </div>
 
@@ -614,10 +621,10 @@ export default function App() {
                             </ul>
                          </VintageCard>
 
-                         <div className="flex justify-between items-center px-4 py-2 bg-white border-2 border-inset border-gray-400 group" style={{ borderStyle: 'inset' }}>
-                            <img src="mecatronica_logo.png" alt="MEC" className="h-10 object-contain grayscale hover:grayscale-0 transition-all" referrerPolicy="no-referrer" />
-                            <div className="h-6 w-px bg-gray-300" />
-                            <img src="utec_itr_logo.png" alt="UTEC" className="h-10 object-contain grayscale hover:grayscale-0 transition-all" referrerPolicy="no-referrer" />
+                         <div className="flex justify-between items-center px-4 py-3 bg-white border-2 border-inset border-gray-300 group shadow-sm transition-all hover:bg-blue-50" style={{ borderStyle: 'inset' }}>
+                            <MecatronicaLogo className="h-10 w-10 grayscale group-hover:grayscale-0 transition-all" />
+                            <div className="h-8 w-px bg-gray-200" />
+                            <UtecLogo className="h-10 w-24 grayscale group-hover:grayscale-0 transition-all" />
                          </div>
                       </div>
                       <div className="flex-1 font-serif">
