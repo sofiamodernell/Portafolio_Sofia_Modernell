@@ -67,7 +67,7 @@ export default function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isPortfolioOpen, setIsPortfolioOpen] = useState(true);
   const [isTicTacToeOpen, setIsTicTacToeOpen] = useState(false);
-  const [backgroundStyle, setBackgroundStyle] = useState('classic');
+  const [backgroundStyle, setBackgroundStyle] = useState('space');
 
   useEffect(() => {
     // Visitor counter logic
@@ -138,10 +138,12 @@ export default function App() {
   }
 
   const backgrounds = {
-    classic: { bg: '#008080', pattern: 'https://www.transparenttextures.com/patterns/marble-similar.png' },
-    space: { bg: '#000000', pattern: 'https://www.transparenttextures.com/patterns/stardust.png' },
-    blueprint: { bg: '#003366', pattern: 'https://www.transparenttextures.com/patterns/grid-me.png' },
-    clouds: { bg: '#87CEEB', pattern: 'https://www.transparenttextures.com/patterns/cloudy-day.png' }
+    space: { bg: '#000000', pattern: 'https://www.transparenttextures.com/patterns/stardust.png', name: 'ESPACIO_ESTRELLADO.SYS' },
+    blueprint: { bg: '#003366', pattern: 'https://www.transparenttextures.com/patterns/grid-me.png', name: 'CUADRICULA_INGENIERIA.VXD' },
+    matrix: { bg: '#001a00', pattern: 'https://www.transparenttextures.com/patterns/carbon-fibre.png', name: 'MATRIZ_DATOS.EXE' },
+    sunset: { bg: '#ff0080', pattern: 'https://www.transparenttextures.com/patterns/asfalt-light.png', name: 'VAPORWAVE_90S.BMP' },
+    clouds: { bg: '#87CEEB', pattern: 'https://www.transparenttextures.com/patterns/cloudy-day.png', name: 'NUBES_XP.SCR' },
+    circuit: { bg: '#004d00', pattern: 'https://www.transparenttextures.com/patterns/subtle-grey.png', name: 'CIRCUITO_MECATRONICO.HEX' }
   };
 
   const cycleBackground = () => {
@@ -336,11 +338,16 @@ export default function App() {
 
   return (
     <div 
-      className="fixed inset-0 font-serif text-black selection:bg-blue-900 selection:text-white overflow-hidden select-none"
+      className="fixed inset-0 font-serif text-black selection:bg-blue-900 selection:text-white overflow-hidden select-none transition-colors duration-1000"
       style={{ 
-        backgroundImage: `url("${backgrounds[backgroundStyle as keyof typeof backgrounds].pattern}")`,
+        backgroundImage: backgroundStyle === 'sunset' 
+          ? `url("${backgrounds[backgroundStyle as keyof typeof backgrounds].pattern}"), linear-gradient(to bottom, #ff0080, #7928ca)`
+          : backgroundStyle === 'matrix'
+          ? `url("${backgrounds[backgroundStyle as keyof typeof backgrounds].pattern}"), linear-gradient(to bottom, rgba(0,255,0,0.1), rgba(0,0,0,0))`
+          : `url("${backgrounds[backgroundStyle as keyof typeof backgrounds].pattern}")`,
         backgroundColor: backgrounds[backgroundStyle as keyof typeof backgrounds].bg,
-        backgroundRepeat: 'repeat'
+        backgroundRepeat: 'repeat',
+        backgroundBlendMode: 'overlay'
       }}
     >
       <CursorTrail />
