@@ -20,7 +20,7 @@ import { CursorTrail } from './components/CursorTrail';
 import { TicTacToe } from './components/TicTacToe';
 import { Terminal } from './components/Terminal';
 import { RetroMusicPlayer } from './components/RetroMusicPlayer';
-import { Mail, Linkedin, FolderOpen, Star, AlertTriangle, Monitor, HardDrive, Cpu, Globe, Volume2, VolumeX, MessageSquare, FileText, Award, Image as ImageIcon, Gamepad2, Terminal as TerminalIcon, ShieldCheck, Music, Grid3X3, Book } from 'lucide-react';
+import { Mail, Linkedin, FolderOpen, Star, AlertTriangle, Monitor, HardDrive, Cpu, Globe, Volume2, VolumeX, MessageSquare, FileText, Award, Image as ImageIcon, Gamepad2, Terminal as TerminalIcon, ShieldCheck, Music, Grid3X3, Book, Map } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   collection, 
@@ -74,6 +74,7 @@ export default function App() {
   const [isMusicOpen, setIsMusicOpen] = useState(false);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [isAchievementsOpen, setIsAchievementsOpen] = useState(false);
+  const [isMallaOpen, setIsMallaOpen] = useState(false);
   const [backgroundStyle, setBackgroundStyle] = useState('space');
 
   useEffect(() => {
@@ -414,7 +415,13 @@ export default function App() {
           <div className="w-10 h-10 bg-gray-300 border-2 border-white border-r-gray-700 border-b-gray-700 flex items-center justify-center shadow-md group-active:translate-y-px">
              <Award size={24} className="text-yellow-600" />
           </div>
-          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Logros.exe</span>
+          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold text-center">Logros.exe</span>
+        </div>
+        <div className="group cursor-pointer flex flex-col items-center w-20" onClick={() => setIsMallaOpen(true)}>
+          <div className="w-10 h-10 bg-gray-300 border-2 border-white border-r-gray-700 border-b-gray-700 flex items-center justify-center shadow-md group-active:translate-y-px">
+             <Map size={24} className="text-emerald-700" />
+          </div>
+          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold text-center">Malla.sys</span>
         </div>
 
         {/* Column 3: Utilities & Media */}
@@ -1094,6 +1101,30 @@ export default function App() {
         <TicTacToe />
       </Window>
 
+      {/* Malla Interactiva Window */}
+      <Window
+        title="Malla_Interactiva_Mechatronics.html"
+        isOpen={isMallaOpen}
+        onClose={() => setIsMallaOpen(false)}
+        top="8%"
+        left="10%"
+        width="80%"
+        height="80%"
+        icon={<Map size={12} className="text-emerald-700" />}
+      >
+        <div className="w-full h-full bg-white border border-black overflow-hidden flex flex-col">
+          <div className="p-1 bg-gray-100 border-b border-black text-[9px] font-mono flex items-center justify-between">
+            <span>Address: https://sofiamodernell.github.io/Malla-Interactiva/</span>
+            <span className="text-blue-700 underline cursor-pointer" onClick={() => window.open('https://sofiamodernell.github.io/Malla-Interactiva/', '_blank')}>Ver en nueva pestaña</span>
+          </div>
+          <iframe 
+            src="https://sofiamodernell.github.io/Malla-Interactiva/" 
+            className="w-full flex-1 border-none"
+            title="Malla Interactiva"
+          />
+        </div>
+      </Window>
+
       {/* Terminal Window */}
       <Window
         title="Terminal_de_Consola.bat"
@@ -1259,6 +1290,16 @@ export default function App() {
           >
             <Grid3X3 size={12} className="text-orange-600" />
             Planos
+          </button>
+        )}
+        {isMallaOpen && (
+          <button 
+            onClick={() => setIsMallaOpen(!isMallaOpen)}
+            className={`h-8 px-4 border-2 flex items-center text-[10px] font-bold gap-2 ${isMallaOpen ? 'border-gray-800 bg-[#d4d0c8] shadow-[inset_2px_2px_0px_rgba(0,0,0,0.2)]' : 'border-gray-800 border-r-white border-b-white bg-[#c0c0c0] shadow-[inset_1px_1px_0px_white]'}`}
+            style={isMallaOpen ? { borderStyle: 'inset' } : {}}
+          >
+            <Map size={12} className="text-emerald-700" />
+            Malla
           </button>
         )}
         <div className="ml-auto flex items-center gap-2">
