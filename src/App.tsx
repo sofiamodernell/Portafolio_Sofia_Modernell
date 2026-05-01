@@ -18,7 +18,8 @@ import {
 } from './components/VintageUI';
 import { CursorTrail } from './components/CursorTrail';
 import { TicTacToe } from './components/TicTacToe';
-import { Mail, Linkedin, FolderOpen, Star, AlertTriangle, Monitor, HardDrive, Cpu, Globe, Volume2, VolumeX, MessageSquare, FileText, Award, Image as ImageIcon, Gamepad2 } from 'lucide-react';
+import { Terminal } from './components/Terminal';
+import { Mail, Linkedin, FolderOpen, Star, AlertTriangle, Monitor, HardDrive, Cpu, Globe, Volume2, VolumeX, MessageSquare, FileText, Award, Image as ImageIcon, Gamepad2, Terminal as TerminalIcon, ShieldCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   collection, 
@@ -67,6 +68,8 @@ export default function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isPortfolioOpen, setIsPortfolioOpen] = useState(true);
   const [isTicTacToeOpen, setIsTicTacToeOpen] = useState(false);
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+  const [isSpecsOpen, setIsSpecsOpen] = useState(false);
   const [backgroundStyle, setBackgroundStyle] = useState('space');
 
   useEffect(() => {
@@ -404,6 +407,18 @@ export default function App() {
              <Gamepad2 size={24} className="text-purple-600 animate-bounce" style={{ animationDuration: '3s' }} />
           </div>
           <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Tic_Tac_Toe.exe</span>
+        </div>
+        <div className="group cursor-pointer flex flex-col items-center" onClick={() => setIsTerminalOpen(true)}>
+          <div className="w-10 h-10 bg-gray-300 border-2 border-white border-r-gray-700 border-b-gray-700 flex items-center justify-center shadow-md group-active:translate-y-px">
+             <TerminalIcon size={24} className="text-green-600" />
+          </div>
+          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Terminal.bat</span>
+        </div>
+        <div className="group cursor-pointer flex flex-col items-center" onClick={() => setIsSpecsOpen(true)}>
+          <div className="w-10 h-10 bg-gray-300 border-2 border-white border-r-gray-700 border-b-gray-700 flex items-center justify-center shadow-md group-active:translate-y-px">
+             <ShieldCheck size={24} className="text-blue-800" />
+          </div>
+          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Hardware_Specs.sys</span>
         </div>
       </div>
 
@@ -951,6 +966,24 @@ export default function App() {
           >
             <Gamepad2 size={12} className="text-purple-700" />
             Tic Tac Toe
+          </button>
+        )}
+        {isTerminalOpen && (
+          <button 
+            onClick={() => setIsTerminalOpen(true)}
+            className="h-8 px-4 border-2 border-gray-800 border-r-white border-b-white bg-[#c0c0c0] flex items-center text-[10px] font-bold gap-2 shadow-[inset_1px_1px_0px_white]"
+          >
+            <TerminalIcon size={12} className="text-green-700" />
+            Terminal
+          </button>
+        )}
+        {isSpecsOpen && (
+          <button 
+            onClick={() => setIsSpecsOpen(true)}
+            className="h-8 px-4 border-2 border-gray-800 border-r-white border-b-white bg-[#c0c0c0] flex items-center text-[10px] font-bold gap-2 shadow-[inset_1px_1px_0px_white]"
+          >
+            <ShieldCheck size={12} className="text-blue-800" />
+            Specs
           </button>
         )}
         <div className="ml-auto flex items-center gap-2">
