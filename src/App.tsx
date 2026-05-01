@@ -19,7 +19,8 @@ import {
 import { CursorTrail } from './components/CursorTrail';
 import { TicTacToe } from './components/TicTacToe';
 import { Terminal } from './components/Terminal';
-import { Mail, Linkedin, FolderOpen, Star, AlertTriangle, Monitor, HardDrive, Cpu, Globe, Volume2, VolumeX, MessageSquare, FileText, Award, Image as ImageIcon, Gamepad2, Terminal as TerminalIcon, ShieldCheck } from 'lucide-react';
+import { RetroMusicPlayer } from './components/RetroMusicPlayer';
+import { Mail, Linkedin, FolderOpen, Star, AlertTriangle, Monitor, HardDrive, Cpu, Globe, Volume2, VolumeX, MessageSquare, FileText, Award, Image as ImageIcon, Gamepad2, Terminal as TerminalIcon, ShieldCheck, Music, Grid3X3 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   collection, 
@@ -70,6 +71,9 @@ export default function App() {
   const [isTicTacToeOpen, setIsTicTacToeOpen] = useState(false);
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [isSpecsOpen, setIsSpecsOpen] = useState(false);
+  const [isMusicOpen, setIsMusicOpen] = useState(false);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [isAchievementsOpen, setIsAchievementsOpen] = useState(false);
   const [backgroundStyle, setBackgroundStyle] = useState('space');
 
   useEffect(() => {
@@ -363,62 +367,88 @@ export default function App() {
       </div>
 
       {/* Desktop Icons */}
-      <div className="absolute top-12 left-6 grid grid-cols-1 gap-8 text-center z-10 w-24">
+      {/* Desktop Icons Container */}
+      <div className="absolute top-12 left-6 w-full h-[calc(100%-100px)] z-10 flex flex-col flex-wrap content-start gap-x-12 gap-y-8 overflow-hidden">
+        {/* Column 1: System */}
         <a 
           href="https://drive.google.com/drive/u/1/folders/1PJozcpmSTPEWUJyWsWH0GECPV4-CmeGv" 
           target="_blank" 
           rel="noreferrer"
-          className="group cursor-pointer flex flex-col items-center no-underline"
+          className="group cursor-pointer flex flex-col items-center no-underline w-20"
         >
           <div className="w-10 h-10 bg-gray-300 border-2 border-white border-r-gray-700 border-b-gray-700 flex items-center justify-center shadow-md group-active:translate-y-px">
              <FolderOpen size={24} className="text-yellow-600" />
           </div>
-          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Mis Documentos</span>
+          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold text-center">Documentos</span>
         </a>
         <div 
-          className="group cursor-pointer flex flex-col items-center" 
+          className="group cursor-pointer flex flex-col items-center w-20" 
           onClick={() => setIsPortfolioOpen(true)}
         >
           <div className="w-10 h-10 bg-gray-300 border-2 border-white border-r-gray-700 border-b-gray-700 flex items-center justify-center shadow-md group-active:translate-y-px">
              <Globe size={24} className="text-blue-800" />
           </div>
-          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold uppercase">Portfolio.exe</span>
+          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold text-center">Portfolio.sys</span>
         </div>
-        <div className="group cursor-pointer flex flex-col items-center" onClick={() => setIsGuestbookOpen(true)}>
-          <div className="w-10 h-10 bg-gray-300 border-2 border-white border-r-gray-700 border-b-gray-700 flex items-center justify-center shadow-md group-active:translate-y-px">
-             <div className="w-6 h-6 bg-yellow-400 border border-black flex items-center justify-center text-[8px] font-bold">TEXT</div>
-          </div>
-          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Guestbook.txt</span>
-        </div>
-        <div className="group cursor-pointer flex flex-col items-center" onClick={() => setIsContactOpen(true)}>
+        <div className="group cursor-pointer flex flex-col items-center w-20" onClick={() => setIsContactOpen(true)}>
           <div className="w-10 h-10 bg-gray-300 border-2 border-white border-r-gray-700 border-b-gray-700 flex items-center justify-center shadow-md group-active:translate-y-px">
              <Monitor size={24} className="text-slate-800" />
           </div>
           <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Mi PC</span>
         </div>
-        <div className="group cursor-pointer flex flex-col items-center" onClick={cycleBackground}>
+
+        {/* Column 2: Documentation & Work */}
+        <div className="group cursor-pointer flex flex-col items-center w-20" onClick={() => setIsGuestbookOpen(true)}>
           <div className="w-10 h-10 bg-gray-300 border-2 border-white border-r-gray-700 border-b-gray-700 flex items-center justify-center shadow-md group-active:translate-y-px">
-             <ImageIcon size={24} className="text-pink-600" />
+             <div className="w-6 h-6 bg-yellow-400 border border-black flex items-center justify-center text-[8px] font-bold">TEXT</div>
           </div>
-          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Personalizar</span>
+          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Guestbook.txt</span>
         </div>
-        <div className="group cursor-pointer flex flex-col items-center" onClick={() => setIsTicTacToeOpen(true)}>
+        <div className="group cursor-pointer flex flex-col items-center w-20" onClick={() => setIsGalleryOpen(true)}>
           <div className="w-10 h-10 bg-gray-300 border-2 border-white border-r-gray-700 border-b-gray-700 flex items-center justify-center shadow-md group-active:translate-y-px">
-             <Gamepad2 size={24} className="text-purple-600 animate-bounce" style={{ animationDuration: '3s' }} />
+             <Grid3X3 size={24} className="text-orange-600" />
           </div>
-          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Tic_Tac_Toe.exe</span>
+          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Planos_Mec.jpg</span>
         </div>
-        <div className="group cursor-pointer flex flex-col items-center" onClick={() => setIsTerminalOpen(true)}>
+        <div className="group cursor-pointer flex flex-col items-center w-20" onClick={() => setIsAchievementsOpen(true)}>
           <div className="w-10 h-10 bg-gray-300 border-2 border-white border-r-gray-700 border-b-gray-700 flex items-center justify-center shadow-md group-active:translate-y-px">
-             <TerminalIcon size={24} className="text-green-600" />
+             <Award size={24} className="text-yellow-600" />
           </div>
-          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Terminal.bat</span>
+          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Logros.exe</span>
         </div>
-        <div className="group cursor-pointer flex flex-col items-center" onClick={() => setIsSpecsOpen(true)}>
+
+        {/* Column 3: Utilities & Media */}
+        <div className="group cursor-pointer flex flex-col items-center w-20" onClick={() => setIsMusicOpen(true)}>
+          <div className="w-10 h-10 bg-gray-300 border-2 border-white border-r-gray-700 border-b-gray-700 flex items-center justify-center shadow-md group-active:translate-y-px">
+             <Music size={24} className="text-pink-600" />
+          </div>
+          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Musica.vxd</span>
+        </div>
+        <div className="group cursor-pointer flex flex-col items-center w-20" onClick={() => setIsSpecsOpen(true)}>
           <div className="w-10 h-10 bg-gray-300 border-2 border-white border-r-gray-700 border-b-gray-700 flex items-center justify-center shadow-md group-active:translate-y-px">
              <ShieldCheck size={24} className="text-blue-800" />
           </div>
-          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Hardware_Specs.sys</span>
+          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Hardware.sys</span>
+        </div>
+        <div className="group cursor-pointer flex flex-col items-center w-20" onClick={cycleBackground}>
+          <div className="w-10 h-10 bg-gray-300 border-2 border-white border-r-gray-700 border-b-gray-700 flex items-center justify-center shadow-md group-active:translate-y-px">
+             <ImageIcon size={24} className="text-pink-600" />
+          </div>
+          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Fondo.bmp</span>
+        </div>
+
+        {/* Column 4: Fun */}
+        <div className="group cursor-pointer flex flex-col items-center w-20" onClick={() => setIsTicTacToeOpen(true)}>
+          <div className="w-10 h-10 bg-gray-300 border-2 border-white border-r-gray-700 border-b-gray-700 flex items-center justify-center shadow-md group-active:translate-y-px">
+             <Gamepad2 size={24} className="text-purple-600 animate-bounce" style={{ animationDuration: '3s' }} />
+          </div>
+          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Game.exe</span>
+        </div>
+        <div className="group cursor-pointer flex flex-col items-center w-20" onClick={() => setIsTerminalOpen(true)}>
+          <div className="w-10 h-10 bg-gray-300 border-2 border-white border-r-gray-700 border-b-gray-700 flex items-center justify-center shadow-md group-active:translate-y-px">
+             <TerminalIcon size={24} className="text-green-600" />
+          </div>
+          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Console.bat</span>
         </div>
       </div>
 
@@ -892,21 +922,163 @@ export default function App() {
         </div>
       </Window>
 
-      {/* Tic Tac Toe Window */}
+      {/* Achievements Window */}
       <Window
-        title="Mecatronic_TicTacToe.vxd"
-        isOpen={isTicTacToeOpen}
-        onClose={() => setIsTicTacToeOpen(false)}
-        top="25%"
-        left="35%"
-        width="340px"
-        icon={<Gamepad2 size={12} className="text-purple-700" />}
+        title="Logros_Coleccionables.exe"
+        isOpen={isAchievementsOpen}
+        onClose={() => setIsAchievementsOpen(false)}
+        top="10%"
+        left="55%"
+        width="380px"
+        icon={<Award size={12} className="text-yellow-600" />}
       >
         <div className="space-y-4">
-          <SectionHeader title="IA_GAME_SIMULATION" />
-          <TicTacToe />
-          <div className="mt-2 p-2 bg-yellow-50 border border-yellow-300 text-[9px] italic">
-            "En la ingeniería, el café es el combustible y los bugs son solo características no documentadas."
+          <SectionHeader title="MEDALLERO_TECNICO" />
+          <div className="grid grid-cols-2 gap-4">
+             <div className="bg-white border-2 border-inset border-gray-400 p-2 flex flex-col items-center text-center shadow-sm" style={{ borderStyle: 'inset' }}>
+                <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center border-2 border-yellow-500 mb-2">
+                   <Award size={24} className="text-yellow-600" />
+                </div>
+                <div className="text-[9px] font-bold uppercase">UTEC_CERT</div>
+                <div className="text-[8px] italic">Ingeniería Mecatrónica</div>
+             </div>
+             <div className="bg-white border-2 border-inset border-gray-400 p-2 flex flex-col items-center text-center shadow-sm" style={{ borderStyle: 'inset' }}>
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center border-2 border-blue-500 mb-2">
+                   <ShieldCheck size={24} className="text-blue-600" />
+                </div>
+                <div className="text-[9px] font-bold uppercase">SOLIDWORKS_CSWA</div>
+                <div className="text-[8px] italic">Diseño Mecánico Pro</div>
+             </div>
+             <div className="bg-white border-2 border-inset border-gray-400 p-2 flex flex-col items-center text-center shadow-sm" style={{ borderStyle: 'inset' }}>
+                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center border-2 border-green-500 mb-2">
+                   <Cpu size={24} className="text-green-600" />
+                </div>
+                <div className="text-[9px] font-bold uppercase">IOT_FUNDAMENTALS</div>
+                <div className="text-[8px] italic">Expertise en ESP32</div>
+             </div>
+             <div className="bg-white border-2 border-inset border-gray-400 p-2 flex flex-col items-center text-center shadow-sm" style={{ borderStyle: 'inset' }}>
+                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center border-2 border-purple-500 mb-2">
+                   <Globe size={24} className="text-purple-600" />
+                </div>
+                <div className="text-[9px] font-bold uppercase">FUTURE_DEV</div>
+                <div className="text-[8px] italic">Innovación 2026</div>
+             </div>
+          </div>
+          <div className="p-2 bg-blue-50 border border-blue-200">
+             <div className="text-[9px] font-bold mb-1">PROXIMO_OBJETIVO:</div>
+             <div className="w-full bg-gray-300 h-2 border border-black">
+                <div className="w-[75%] h-full bg-blue-600" />
+             </div>
+             <div className="text-[8px] text-right mt-1">Carga al 75% - Tesis de Ingeniería</div>
+          </div>
+        </div>
+      </Window>
+
+      {/* Gallery Window */}
+      <Window
+        title="Galeria_de_Planos.jpg"
+        isOpen={isGalleryOpen}
+        onClose={() => setIsGalleryOpen(false)}
+        top="35%"
+        left="5%"
+        width="450px"
+        icon={<Grid3X3 size={12} className="text-orange-700" />}
+      >
+        <div className="space-y-4">
+          <SectionHeader title="DISEÑOS_MECANICOS_2D_3D" />
+          <div className="grid grid-cols-2 gap-2 h-64 overflow-y-auto pr-2 bg-gray-400 p-2 border-2 border-inset border-gray-600" style={{ borderStyle: 'inset' }}>
+             {[
+               { title: 'Plano_Brazo.png', color: 'bg-white' },
+               { title: 'Ensamble_CNC.png', color: 'bg-blue-50' },
+               { title: 'Circuito_ESP32.png', color: 'bg-green-50' },
+               { title: 'Engranajes_v1.png', color: 'bg-red-50' }
+             ].map((img, i) => (
+               <div key={i} className={`${img.color} border border-black p-1 shadow-md hover:scale-105 transition-transform`}>
+                  <div className="h-24 bg-slate-200 flex items-center justify-center border border-gray-400">
+                     <ImageIcon size={32} className="text-gray-400 opacity-30" />
+                  </div>
+                  <div className="text-[8px] mt-1 font-mono">{img.title}</div>
+               </div>
+             ))}
+          </div>
+          <div className="text-[9px] italic border-t border-gray-400 pt-2">
+            * Haz click en un plano para abrir en alta resolución (Simulado)
+          </div>
+        </div>
+      </Window>
+
+      {/* Music Player Window */}
+      <Window
+        title="WinAmp_Mecatronic.vxd"
+        isOpen={isMusicOpen}
+        onClose={() => setIsMusicOpen(false)}
+        top="5%"
+        left="70%"
+        width="320px"
+        icon={<Music size={12} className="text-pink-700" />}
+      >
+        <div className="space-y-4">
+          <SectionHeader title="SISTEMA_DE_AUDIO_RELE" />
+          <RetroMusicPlayer />
+          <div className="p-1 bg-black text-[#00ff00] font-mono text-[8px]">
+             EQ: [NORMAL] | BITRATE: 128KBPS | MONO
+          </div>
+        </div>
+      </Window>
+
+      {/* Terminal Window */}
+      <Window
+        title="Terminal_de_Consola.bat"
+        isOpen={isTerminalOpen}
+        onClose={() => setIsTerminalOpen(false)}
+        top="50%"
+        left="45%"
+        width="500px"
+        icon={<TerminalIcon size={12} className="text-green-700" />}
+      >
+        <Terminal />
+      </Window>
+
+      {/* Hardware Specs Window */}
+      <Window
+        title="Especificaciones_Sistema.sys"
+        isOpen={isSpecsOpen}
+        onClose={() => setIsSpecsOpen(false)}
+        top="20%"
+        left="60%"
+        width="350px"
+        icon={<ShieldCheck size={12} className="text-blue-800" />}
+      >
+        <div className="space-y-4">
+          <SectionHeader title="HARDWARE_REPORT" />
+          <div className="bg-gray-100 p-4 border border-black font-mono text-[10px]">
+             <div className="flex justify-between border-b border-gray-300 pb-1 mb-2">
+                <span className="font-bold">COMPONENT</span>
+                <span className="font-bold">STATUS</span>
+             </div>
+             <div className="space-y-1">
+                <div className="flex justify-between">
+                   <span>CPU: Core_Sofia_i9</span>
+                   <span className="text-green-600">[OPTIMAL]</span>
+                </div>
+                <div className="flex justify-between">
+                   <span>RAM: 64GB_CREATIVIDAD</span>
+                   <span className="text-green-600">[FREE]</span>
+                </div>
+                <div className="flex justify-between">
+                   <span>GPU: RTX_ENGINEERING_4k</span>
+                   <span className="text-green-600">[ACTIVE]</span>
+                </div>
+                <div className="flex justify-between">
+                   <span>SENSOR: EMPATIA_V2</span>
+                   <span className="text-blue-600">[CALIBRATING]</span>
+                </div>
+             </div>
+          </div>
+          <div className="flex justify-center">
+             <div className="w-24 h-24 bg-gray-200 border-2 border-inset border-gray-400 flex items-center justify-center p-2" style={{ borderStyle: 'inset' }}>
+                <Cpu size={48} className="text-blue-900 animate-pulse" />
+             </div>
           </div>
         </div>
       </Window>
@@ -984,6 +1156,33 @@ export default function App() {
           >
             <ShieldCheck size={12} className="text-blue-800" />
             Specs
+          </button>
+        )}
+        {isAchievementsOpen && (
+          <button 
+            onClick={() => setIsAchievementsOpen(true)}
+            className="h-8 px-4 border-2 border-gray-800 border-r-white border-b-white bg-[#c0c0c0] flex items-center text-[10px] font-bold gap-2 shadow-[inset_1px_1px_0px_white]"
+          >
+            <Award size={12} className="text-yellow-600" />
+            Logros
+          </button>
+        )}
+        {isMusicOpen && (
+          <button 
+            onClick={() => setIsMusicOpen(true)}
+            className="h-8 px-4 border-2 border-gray-800 border-r-white border-b-white bg-[#c0c0c0] flex items-center text-[10px] font-bold gap-2 shadow-[inset_1px_1px_0px_white]"
+          >
+            <Music size={12} className="text-pink-600" />
+            Musica
+          </button>
+        )}
+        {isGalleryOpen && (
+          <button 
+            onClick={() => setIsGalleryOpen(true)}
+            className="h-8 px-4 border-2 border-gray-800 border-r-white border-b-white bg-[#c0c0c0] flex items-center text-[10px] font-bold gap-2 shadow-[inset_1px_1px_0px_white]"
+          >
+            <Grid3X3 size={12} className="text-orange-600" />
+            Planos
           </button>
         )}
         <div className="ml-auto flex items-center gap-2">
