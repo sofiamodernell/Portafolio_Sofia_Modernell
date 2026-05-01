@@ -1081,6 +1081,19 @@ export default function App() {
         </div>
       </Window>
 
+      {/* Tic Tac Toe Window */}
+      <Window
+        title="Tic_Tac_Toe.exe"
+        isOpen={isTicTacToeOpen}
+        onClose={() => setIsTicTacToeOpen(false)}
+        top="40%"
+        left="40%"
+        width="280px"
+        icon={<Gamepad2 size={12} className="text-purple-700" />}
+      >
+        <TicTacToe />
+      </Window>
+
       {/* Terminal Window */}
       <Window
         title="Terminal_de_Consola.bat"
