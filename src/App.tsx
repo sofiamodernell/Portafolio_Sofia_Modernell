@@ -185,19 +185,20 @@ export default function App() {
   const professionalCompetencies = [
     {
       id: "pro1",
-      title: "Area 01 — Operacion",
+      title: "Area 01 — Operación de sistemas mecatrónicos",
       area: "PRO",
-      description: "Implementar sw/hw para procesos industriales y monitorear capacidad operacional mediante el uso de herramientas específicas de la mecatrónica.",
+      description: "Implementar software y hardware para procesos industriales, verificando la capacidad operacional mediante sistemas de monitoreo. Esta competencia asegura que el sistema funcione íntegramente según las especificaciones, validando que el proceso responda estrictamente a las instrucciones programadas.",
       evidences: [
-        { name: "Labs EAA - Transistores", type: "Doc", link: "#" },
-        { name: "Labs ED1 - Logic Gates", type: "Logic", link: "#" },
-        { name: "Proyecto PIC II (SigFox)", type: "Board", link: "#" }
+        { name: "Circuitos EAA (BJT/OPAMP)", type: "Instrumentación", link: "#" },
+        { name: "Automatismos ED1", type: "Laboratorio", link: "#" },
+        { name: "Firmware TMPR (AVR)", type: "Sistemas Embebidos", link: "#" },
+        { name: "Proyecto PIC I", type: "Pick-to-light", link: "#" },
+        { name: "Proyecto PIC II", type: "IoT/SigFox", link: "#" }
       ],
-      reflection: "A través del trabajo en laboratorios de Electrónica Analógica y Digital, logré comprender la importancia de la precisión en el monitoreo de señales industriales. La implementación en el PIC II me permitió aplicar estos conceptos en un entorno IoT real.",
+      reflection: "A lo largo de mi trayectoria, he consolidado la visión de que la operación de sistemas mecatrónicos trasciende la simple carga de un script o el ensamblaje de módulos. He aprendido que la verdadera competencia reside en la validación exhaustiva de la respuesta física frente a la lógica programada. A través de mis desarrollos en laboratorios de electrónica y proyectos integradores, entendí que un sistema no alcanza su estado operativo al 'funcionar', sino al cumplir estrictamente con los parámetros de diseño bajo monitoreo constante. Esta transición del código al movimiento mecánico sincronizado es lo que define la integridad operacional en la industria.",
       resources: [
-        { name: "Principios de Electrónica Analógica", url: "#" },
-        { name: "Datasheet ATmega328PB", url: "https://ww1.microchip.com/downloads/en/DeviceDoc/40001906A.pdf" },
-        { name: "Guía de Instrumentación Industrial", url: "#" }
+        { name: "Carpeta de Evidencias Drive", url: "https://drive.google.com/drive/u/1/folders/1vV15lVgWN9c30LRsY4HgE3z9dhCtd2Ue" },
+        { name: "Datasheet ATmega328PB", url: "https://ww1.microchip.com/downloads/en/DeviceDoc/40001906A.pdf" }
       ],
       link: "https://drive.google.com/drive/u/1/folders/1vV15lVgWN9c30LRsY4HgE3z9dhCtd2Ue"
     },
@@ -207,10 +208,11 @@ export default function App() {
       area: "PRO",
       description: "Ejecutar planes de mantenimiento preventivo y correctivo en sistemas mecatrónicos complejos para asegurar la continuidad operativa.",
       evidences: [
-        { name: "Plan de Mantenimiento PIC I", type: "Doc", link: "#" },
-        { name: "Reparación Fuente Conmutada", type: "Img", link: "#" }
+        { name: "Plan Mantenimiento PIC I", type: "Gestión", link: "#" },
+        { name: "Sistemas de Potencia (Fuentes)", type: "Diagnóstico", link: "#" },
+        { name: "Análisis Críticos TMPR", type: "Laboratorio", link: "#" }
       ],
-      reflection: "El mantenimiento no es solo arreglar lo roto, sino prever fallos. En el Lab 4 de TMPR, optimizamos los tiempos de parada mediante un análisis exhaustivo de puntos críticos.",
+      reflection: "La gestión del mantenimiento ha dejado de ser para mí una tarea reactiva para convertirse en una disciplina estratégica de prevención. Durante mi formación, especialmente en el diseño de planes para sistemas integradores, he perfeccionado la capacidad de identificar vulnerabilidades en hardware antes de que impacten la cadena de valor. Concibo el mantenimiento como un ciclo de mejora continua donde el diagnóstico preciso y la documentación técnica son los pilares que aseguran la máxima disponibilidad de los activos tecnológicos.",
       resources: [
         { name: "Manual de Mantenimiento Clase A", url: "#" },
         { name: "Normas de Seguridad Eléctrica ISA", url: "#" },
@@ -224,10 +226,11 @@ export default function App() {
       area: "ENG",
       description: "Fabricar equipos segun especificaciones y rediseñar sistemas mecatrónicos utilizando CAD/CAM y herramientas de simulación.",
       evidences: [
-        { name: "Diseño PCB en KiCad", type: "Schematic", link: "#" },
-        { name: "Modelado 3D Carcasa PIC", type: "STL", link: "#" }
+        { name: "PCB KiCad (IoT/SigFox)", type: "Hardware Design", link: "#" },
+        { name: "Modelado CAD/CAM", type: "Manufactura", link: "#" },
+        { name: "Simulación Multisim/KiCad", type: "Validación", link: "#" }
       ],
-      reflection: "El diseño es la etapa donde la creatividad se encuentra con la norma. Rediseñar la placa del PIC II para que sea SigFox-ready fue un desafío de ruteado y gestión de interferencias.",
+      reflection: "El diseño mecatrónico es el punto de encuentro entre la visión creativa y el rigor de la normativa técnica. Al desarrollar la arquitectura de hardware para sistemas de comunicación de largo alcance, enfrenté el desafío de integrar señales críticas en espacios confinados, priorizando siempre la integridad electromagnética y la eficiencia térmica. He aprendido que un diseño superior no solo soluciona un problema actual, sino que anticipa las necesidades de fabricación y la escalabilidad del sistema completo.",
       resources: [
         { name: "Best Practices in PCB Design", url: "#" },
         { name: "Simulación en Multisim/KiCad", url: "#" },
@@ -241,10 +244,11 @@ export default function App() {
       area: "R&D",
       description: "Investigar e implementar soluciones innovadoras en hardware y firmware para resolver problemas no convencionales.",
       evidences: [
-        { name: "Algoritmo PID Optimizado", type: "Code", link: "#" },
-        { name: "Integración LPWAN/SigFox", type: "IoT", link: "#" }
+        { name: "Integración LPWAN/SigFox", type: "IoT", link: "#" },
+        { name: "Algoritmos PID Pro", type: "Control", link: "#" },
+        { name: "Prototipado Rápido IoT", type: "R&D", link: "#" }
       ],
-      reflection: "La innovación en mecatrónica requiere estar al día con las nuevas tecnologías. Implementar conectividad de larga distancia en un dispositivo de bajo consumo cambió mi perspectiva sobre el alcance de mis proyectos.",
+      reflection: "La innovación en mecatrónica es la búsqueda constante de soluciones fuera de los marcos convencionales. Mi experiencia integrando tecnologías de bajo consumo y largo alcance (LPWAN) en dispositivos autónomos me ha permitido redefinir los límites de la conectividad en entornos que requieren autonomía total. Entiendo la innovación no solo como la adopción de tecnología de vanguardia, sino como la capacidad de transformar una necesidad técnica compleja en una implementación simplificada, robusta y eficiente que desafía las arquitecturas tradicionales de control y comunicación.",
       resources: [
         { name: "LPWAN Technologies Overview", url: "#" },
         { name: "Investigación: Edge Computing en IoT", url: "#" },
