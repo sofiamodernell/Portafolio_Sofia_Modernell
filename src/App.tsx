@@ -187,34 +187,84 @@ export default function App() {
   const professionalCompetencies = [
     {
       id: "pro1",
-      title: "Area 01 — Operación de sistemas mecatrónicos",
+      title: "Area 01 - Operación",
       area: "PRO",
-      description: "Implementar software y hardware para procesos industriales, verificando la capacidad operacional mediante sistemas de monitoreo. Esta competencia asegura que el sistema funcione íntegramente según las especificaciones, validando que el proceso responda estrictamente a las instrucciones programadas.",
-      evidences: [
-        { name: "Circuitos EAA (BJT/OPAMP)", type: "Instrumentación", link: "#" },
-        { name: "Automatismos ED1", type: "Laboratorio", link: "#" },
-        { name: "Firmware TMPR (AVR)", type: "Sistemas Embebidos", link: "#" },
-        { name: "Proyecto PIC I", type: "Pick-to-light", link: "#" },
-        { name: "Proyecto PIC II", type: "IoT/SigFox", link: "#" }
+      description: "Operación de Sistemas Mecatrónicos",
+      subCompetencies: [
+        {
+          id: "1.1",
+          title: "1.1 Implementar software y hardware específicos para el correcto desempeño de procesos industriales.",
+          description: "Desarrollo y despliegue de soluciones integrales que combinan programación de bajo nivel con diseño circuital robusto para automatización.",
+          evidences: [
+            { name: "Laboratorio 1 TMPR", type: "ASM / ATmega328P", link: "#" },
+            { name: "Laboratorio 2 TMPR", type: "C / Embebidos", link: "#" },
+            { name: "Laboratorio 3 TMPR", type: "C+Python / Automatización", link: "#" },
+            { name: "Laboratorio 4 TMPR", type: "Protocolos / Maestro-Esclavo", link: "#" },
+            { name: "Laboratorio 4 ED1", type: "Lógica Discreta", link: "#" },
+            { name: "PIC I - Banchio/Modernell", type: "Pick to Light", link: "#" },
+            { name: "PIC II - Etcheverry/Modernell", type: "SigFox / PCB Design", link: "#" }
+          ]
+        },
+        {
+          id: "1.2",
+          title: "1.2 Verificar la capacidad operacional de los sistemas mecatrónicos en planta usando sistemas de monitoreo.",
+          description: "Aseguramiento de la calidad y funcionalidad mediante el análisis de datos en tiempo real y pruebas de estrés en entornos industriales.",
+          evidences: [
+            { name: "PIC II (SigFox/API)", type: "Monitoreo Real-time", link: "#" },
+            { name: "Laboratorio 3 TMPR", type: "Lazo Cerrado / Python", link: "#" },
+            { name: "Laboratorio 4 TMPR", type: "Sensores / Validación", link: "#" },
+            { name: "Laboratorio 2 TMPR", type: "Simulación Proteus", link: "#" },
+            { name: "Laboratorio 1 TMPR", type: "Osciloscopio / UART", link: "#" }
+          ]
+        },
+        {
+          id: "1.3",
+          title: "1.3 Instalar y poner en servicio sistemas mecatrónicos considerando normas de calidad, seguridad y medio ambiente.",
+          description: "Integración física y lógica de equipos, garantizando el cumplimiento de normativas vigentes y la sostenibilidad del sistema.",
+          evidences: [
+            { name: "PIC I (Pick to Light)", type: "Ishikawa / Selección", link: "#" },
+            { name: "PIC II (Monitoreo)", type: "Integración Completa", link: "#" },
+            { name: "Laboratorio 4 TMPR", type: "Robustez de Protocolos", link: "#" },
+            { name: "Laboratorio 3 TMPR", type: "Metodología Sistemática", link: "#" }
+          ]
+        }
       ],
+      evidences: [],
       reflection: "A lo largo de mi trayectoria, he consolidado la visión de que la operación de sistemas mecatrónicos trasciende la simple carga de un script o el ensamblaje de módulos. He aprendido que la verdadera competencia reside en la validación exhaustiva de la respuesta física frente a la lógica programada. A través de mis desarrollos en laboratorios de electrónica y proyectos integradores, entendí que un sistema no alcanza su estado operativo al 'funcionar', sino al cumplir estrictamente con los parámetros de diseño bajo monitoreo constante. Esta transición del código al movimiento mecánico sincronizado es lo que define la integridad operacional en la industria.",
       resources: [
         { name: "Carpeta de Evidencias Drive", url: "https://drive.google.com/drive/u/1/folders/1vV15lVgWN9c30LRsY4HgE3z9dhCtd2Ue" },
-        { name: "Datasheet ATmega328PB", url: "https://ww1.microchip.com/downloads/en/DeviceDoc/40001906A.pdf" }
+        { name: "Datasheet ATmega328PB", url: "https://ww1.microchip.com/downloads/en/DeviceDoc/40001906A.pdf" },
+        { name: "Plan de Estudios 2023", url: "https://ev1.utec.edu.uy/moodle/pluginfile.php/912362/mod_resource/content/0/Resoluci%C3%B3n%20135_23%20Plan%20IMEC%202023.pdf" }
       ],
       link: "https://drive.google.com/drive/u/1/folders/1vV15lVgWN9c30LRsY4HgE3z9dhCtd2Ue"
     },
     {
       id: "pro2",
-      title: "Area 02 — Mantenimiento de sistemas mecatrónicos",
+      title: "Area 02 - Mantenimiento",
       area: "PRO",
-      description: "Aplicar procedimientos para identificar, diagnosticar y corregir fallas, verificando el correcto funcionamiento tras la intervención técnica.",
-      evidences: [
-        { name: "Análisis ED1 (Discrepancias)", type: "Diagnóstico", link: "#" },
-        { name: "Documentación EAA (Teórico/Medido)", type: "Validación", link: "#" },
-        { name: "Diagnóstico SPI/I2C/UART (TMPR)", type: "Protocolos", link: "#" },
-        { name: "Instrumentación Multímetro/Osciloscopio", type: "Hardware", link: "#" }
+      description: "Mantenimiento de Sistemas Mecatrónicos",
+      subCompetencies: [
+        {
+          id: "2.1",
+          title: "2.1. Ejecutar planes de mantenimiento (preventivos y correctivos) diseñados por especialistas.",
+          description: "Implementación técnica de rutinas de preservación y restauración de funcionalidad en equipos industriales.",
+          evidences: [
+            { name: "Análisis ED1 (Discrepancias)", type: "Diagnóstico", link: "#" },
+            { name: "Diagnóstico SPI/I2C/UART (TMPR)", type: "Protocolos", link: "#" },
+            { name: "Instrumentación Hardware", type: "Multímetro/Osciloscopio", link: "#" }
+          ]
+        },
+        {
+          id: "2.2",
+          title: "2.2. Aplicar procedimientos y seguir instrucciones relacionando la actividad con metodologías de mantenimiento basado en la confiabilidad indicada por un departamento/responsable técnico.",
+          description: "Ejecución sistemática de tareas siguiendo estándares de confiabilidad (RCM) y documentación técnica rigurosa.",
+          evidences: [
+            { name: "Documentación EAA", type: "Validación Teórico/Medido", link: "#" },
+            { name: "Guía ISA-S5.1", type: "Normativa", link: "#" }
+          ]
+        }
       ],
+      evidences: [],
       reflection: "La competencia de mantenimiento no se enseña exclusivamente en el aula, sino que se forja en el momento en que un circuito no responde y es necesario descubrir el porqué mediante un diagnóstico metódico. A través de mi experiencia en laboratorios de electrónica y sistemas embebidos, he perfeccionado la capacidad de identificar discrepancias entre el comportamiento esperado y el real, utilizando instrumentación avanzada para aislar fallas. Para mí, el mantenimiento es un proceso de descubrimiento constante que exige rigor analítico y una validación exhaustiva post-intervención.",
       resources: [
         { name: "Evidencias Area 02 Drive", url: "https://drive.google.com/drive/u/1/folders/17Retv7992rLRJWRwvWbupOL5darzVy8d" },
@@ -224,16 +274,39 @@ export default function App() {
     },
     {
       id: "pro3",
-      title: "Area 03 — Diseño de sistemas mecatrónicos",
+      title: "Area 03 - Diseño",
       area: "ENG",
-      description: "Fabricar equipos según especificaciones técnicas, incorporar y generar insumos para el diseño o rediseño integral de sistemas mecatrónicos.",
-      evidences: [
-        { name: "Amplificadores y Filtros EAA", type: "Análogo", link: "#" },
-        { name: "Diseño Digital ED1 (Karnaugh)", type: "Lógica", link: "#" },
-        { name: "Lazo Cerrado RFID (TMPR)", type: "Control", link: "#" },
-        { name: "Proyecto PIC I (Pick-to-light)", type: "Integrador", link: "#" },
-        { name: "PCB Propia IoT (SigFox) PIC II", type: "Mechatronics", link: "#" }
+      description: "Diseño de Sistemas Mecatrónicos",
+      subCompetencies: [
+        {
+          id: "3.1",
+          title: "3.1. Fabricar equipos, sistemas y procesos mecatrónicos de acuerdo con diseño.",
+          description: "Ejecución técnica de la manufactura y ensamblaje de sistemas siguiendo planos y especificaciones de diseño formal.",
+          evidences: [
+            { name: "Amplificadores y Filtros EAA", type: "Fabricación Análoga", link: "#" },
+            { name: "Diseño Digital ED1", type: "Lógica Discreta", link: "#" }
+          ]
+        },
+        {
+          id: "3.2",
+          title: "3.2. Incorporar tecnologías (ya evaluadas) a sistemas y procesos mecatrónicos.",
+          description: "Integración de módulos tecnológicos validados para potenciar la funcionalidad de sistemas mecatrónicos existentes.",
+          evidences: [
+            { name: "Lazo Cerrado RFID (TMPR)", type: "Integración", link: "#" },
+            { name: "PCB Propia IoT (SigFox) PIC II", type: "Tecnología Inalámbrica", link: "#" }
+          ]
+        },
+        {
+          id: "3.3",
+          title: "3.3 Generar insumos de procesos existentes para el diseño o rediseño de un sistema.",
+          description: "Análisis de sistemas operativos para extraer parámetros técnicos necesarios para su optimización o rediseño integral.",
+          evidences: [
+            { name: "Proyecto PIC I", type: "Rediseño de Proceso", link: "#" },
+            { name: "Optimización de Filtros EAA", type: "Insumos Técnicos", link: "#" }
+          ]
+        }
       ],
+      evidences: [],
       reflection: "El diseño es la etapa donde la creatividad técnica se encuentra con la normativa. El proyecto PIC II representó para mí el punto de mayor convergencia de diseño, donde no solo implementé un circuito, sino que fundamenté cada decisión de componentes y comparé alternativas tecnológicas para maximizar la eficiencia. He aprendido que el diseño mecatrónico robusto requiere una visión sistémica que integre la viabilidad de fabricación con la precisión del control electrónico, transformando especificaciones abstractas en prototipos funcionales de alta complejidad.",
       resources: [
         { name: "Evidencias Area 03 Drive", url: "https://drive.google.com/drive/u/1/folders/1O-TYA7JWIHOSZWaqeKgqRc4MnKlkk5El" },
@@ -243,15 +316,39 @@ export default function App() {
     },
     {
       id: "pro4",
-      title: "Area 04 — Innovación e investigación en sistemas mecatrónicos",
+      title: "Area 04 - Innovación e Investigación",
       area: "R&D",
-      description: "Reconocer paradigmas tecnológicos emergentes, fabricar prototipos y colaborar en la integración de nuevas tecnologías.",
-      evidences: [
-        { name: "Lógica Discreta Lab ED1", type: "Investigación", link: "#" },
-        { name: "Arquitecturas Maestro-Esclavo", type: "TMPR", link: "#" },
-        { name: "Análisis Ishikawa PIC I", type: "Prototipado", link: "#" },
-        { name: "IoT SigFox y Gemelo Digital PIC II", type: "Innovación", link: "#" }
+      description: "Innovación e Investigación",
+      subCompetencies: [
+        {
+          id: "4.1",
+          title: "4.1. Reconocer paradigmas tecnológicos tradicionales e innovadores presentes en una infraestructura o equipamiento industrial, con el propósito de optimizar sistemas y procesos mecatrónicos.",
+          description: "Identificación y análisis de tecnologías emergentes para su aplicación estratégica en la mejora de procesos industriales.",
+          evidences: [
+             { name: "Protocolos Maestro-Esclavo", type: "Comunicación Industrial", link: "#" },
+             { name: "Investigación Sensores", type: "Fase Experimental", link: "#" }
+          ]
+        },
+        {
+          id: "4.2",
+          title: "4.2. Fabricar prototipos para sistemas y procesos mecatrónicos.",
+          description: "Construcción de modelos funcionales experimentales para la validación de hipótesis técnicas y soluciones innovadoras.",
+          evidences: [
+            { name: "Lógica Discreta Lab ED1", type: "Prototipado", link: "#" },
+            { name: "Análisis Ishikawa PIC I", type: "Desarrollo", link: "#" }
+          ]
+        },
+        {
+          id: "4.3",
+          title: "4.3. Colaborar en la integración de nuevas tecnologías a los sistemas mecatrónicos realizando pruebas / ensayos.",
+          description: "Participación activa en el testeo y refinamiento de integraciones tecnológicas de vanguardia.",
+          evidences: [
+            { name: "IoT SigFox y Gemelo Digital PIC II", type: "Innovación", link: "#" },
+            { name: "Validación de Arquitecturas", type: "Ensayos", link: "#" }
+          ]
+        }
       ],
+      evidences: [],
       reflection: "La innovación se manifiesta cuando las evidencias van más allá de la aplicación de procedimientos conocidos. En el desarrollo del PIC II, crucé la frontera de la implementación estándar para investigar el ecosistema SigFox, comprendiendo su superioridad en eficiencia energética para contextos IoT frente a alternativas como WiFi. Mi enfoque en esta competencia se basa en la validación de nuevas tecnologías mediante prototipos físicos, buscando siempre la integración de soluciones emergentes que aporten un valor diferencial y una resolución innovadora a problemas industriales complejos.",
       resources: [
         { name: "Evidencias Area 04 Drive", url: "https://drive.google.com/drive/u/1/folders/1uZr0mWRwIGXNhYLFkosF35GK0HOaNPGe" },
@@ -797,20 +894,52 @@ export default function App() {
                              </ClassicLink>
                           )}
                        </div>
-                       <p className="text-sm mb-4 leading-relaxed">{selectedComp.description}</p>
+                       <p className="text-sm mb-4 leading-relaxed whitespace-pre-wrap">{selectedComp.description}</p>
                        
-                       <h3 className="text-sm font-bold text-slate-700 underline mb-2">Evidencias de Desempeño</h3>
-                       <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-6">
-                          {selectedComp.evidences.map((ev: any, i: number) => (
-                            <div key={i} className="flex items-center gap-2 p-2 bg-slate-50 border border-slate-200">
-                               <FileText size={14} className="text-blue-900" />
-                               <div className="flex flex-col">
-                                  <span className="text-[10px] font-bold">{ev.name}</span>
-                                  <span className="text-[8px] text-gray-500 uppercase tracking-tighter">[{ev.type}]</span>
-                               </div>
-                            </div>
-                          ))}
-                       </div>
+                       {selectedComp.subCompetencies ? (
+                          <div className="space-y-3 mb-6">
+                             {selectedComp.subCompetencies.map((sub: any) => (
+                               <details key={sub.id} className="group border border-gray-300 bg-slate-50">
+                                 <summary className="flex items-center gap-2 p-2 cursor-pointer hover:bg-slate-200 list-none font-bold text-xs border-b border-transparent group-open:border-gray-200">
+                                   <div className="w-4 h-4 flex items-center justify-center border border-gray-400 bg-white group-open:bg-blue-600 group-open:text-white shrink-0">
+                                     <span className="group-open:hidden">+</span>
+                                     <span className="hidden group-open:inline">−</span>
+                                   </div>
+                                   {sub.title}
+                                 </summary>
+                                 <div className="p-3 bg-white">
+                                   <p className="text-[11px] text-gray-600 mb-3 italic">{sub.description}</p>
+                                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                     {sub.evidences.map((ev: any, idx: number) => (
+                                       <div key={idx} className="flex items-center gap-2 p-2 bg-slate-50 border border-slate-200">
+                                         <FileText size={14} className="text-blue-900" />
+                                         <div className="flex flex-col">
+                                            <span className="text-[10px] font-bold">{ev.name}</span>
+                                            <span className="text-[8px] text-gray-500 uppercase tracking-tighter">[{ev.type}]</span>
+                                         </div>
+                                       </div>
+                                     ))}
+                                   </div>
+                                 </div>
+                               </details>
+                             ))}
+                          </div>
+                       ) : (
+                          <>
+                             <h3 className="text-sm font-bold text-slate-700 underline mb-2">Evidencias de Desempeño</h3>
+                             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-6">
+                                {selectedComp.evidences.map((ev: any, i: number) => (
+                                  <div key={i} className="flex items-center gap-2 p-2 bg-slate-50 border border-slate-200">
+                                     <FileText size={14} className="text-blue-900" />
+                                     <div className="flex flex-col">
+                                        <span className="text-[10px] font-bold">{ev.name}</span>
+                                        <span className="text-[8px] text-gray-500 uppercase tracking-tighter">[{ev.type}]</span>
+                                     </div>
+                                  </div>
+                                ))}
+                             </div>
+                          </>
+                       )}
 
                        <div className="bg-blue-50 p-4 border-l-4 border-blue-900 mb-6">
                           <h3 className="text-sm font-bold text-blue-900 mb-1 flex items-center gap-2">
