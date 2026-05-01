@@ -354,7 +354,7 @@ export default function App() {
           : `url("${backgrounds[backgroundStyle as keyof typeof backgrounds].pattern}")`,
         backgroundColor: backgrounds[backgroundStyle as keyof typeof backgrounds].bg,
         backgroundRepeat: 'repeat',
-        backgroundBlendMode: 'overlay'
+        backgroundBlendMode: backgroundStyle === 'space' ? 'normal' : 'overlay'
       }}
     >
       <CursorTrail />
@@ -1115,8 +1115,9 @@ export default function App() {
         </button>
         {isGuestbookOpen && (
           <button 
-            onClick={() => setIsGuestbookOpen(true)}
-            className="h-8 px-4 border-2 border-gray-800 border-r-white border-b-white bg-[#c0c0c0] flex items-center text-[10px] font-bold gap-2 shadow-[inset_1px_1px_0px_white]"
+            onClick={() => setIsGuestbookOpen(!isGuestbookOpen)}
+            className={`h-8 px-4 border-2 flex items-center text-[10px] font-bold gap-2 ${isGuestbookOpen ? 'border-gray-800 bg-[#d4d0c8] shadow-[inset_2px_2px_0px_rgba(0,0,0,0.2)]' : 'border-gray-800 border-r-white border-b-white bg-[#c0c0c0] shadow-[inset_1px_1px_0px_white]'}`}
+            style={isGuestbookOpen ? { borderStyle: 'inset' } : {}}
           >
             <MessageSquare size={12} className="text-blue-900" />
             Guestbook.txt
@@ -1124,8 +1125,9 @@ export default function App() {
         )}
         {isContactOpen && (
           <button 
-            onClick={() => setIsContactOpen(true)}
-            className="h-8 px-4 border-2 border-gray-800 border-r-white border-b-white bg-[#c0c0c0] flex items-center text-[10px] font-bold gap-2 shadow-[inset_1px_1px_0px_white]"
+            onClick={() => setIsContactOpen(!isContactOpen)}
+            className={`h-8 px-4 border-2 flex items-center text-[10px] font-bold gap-2 ${isContactOpen ? 'border-gray-800 bg-[#d4d0c8] shadow-[inset_2px_2px_0px_rgba(0,0,0,0.2)]' : 'border-gray-800 border-r-white border-b-white bg-[#c0c0c0] shadow-[inset_1px_1px_0px_white]'}`}
+            style={isContactOpen ? { borderStyle: 'inset' } : {}}
           >
             <Monitor size={12} className="text-slate-800" />
             Mi PC
@@ -1133,8 +1135,9 @@ export default function App() {
         )}
         {isTicTacToeOpen && (
           <button 
-            onClick={() => setIsTicTacToeOpen(true)}
-            className="h-8 px-4 border-2 border-gray-800 border-r-white border-b-white bg-[#c0c0c0] flex items-center text-[10px] font-bold gap-2 shadow-[inset_1px_1px_0px_white]"
+            onClick={() => setIsTicTacToeOpen(!isTicTacToeOpen)}
+            className={`h-8 px-4 border-2 flex items-center text-[10px] font-bold gap-2 ${isTicTacToeOpen ? 'border-gray-800 bg-[#d4d0c8] shadow-[inset_2px_2px_0px_rgba(0,0,0,0.2)]' : 'border-gray-800 border-r-white border-b-white bg-[#c0c0c0] shadow-[inset_1px_1px_0px_white]'}`}
+            style={isTicTacToeOpen ? { borderStyle: 'inset' } : {}}
           >
             <Gamepad2 size={12} className="text-purple-700" />
             Tic Tac Toe
@@ -1142,8 +1145,9 @@ export default function App() {
         )}
         {isTerminalOpen && (
           <button 
-            onClick={() => setIsTerminalOpen(true)}
-            className="h-8 px-4 border-2 border-gray-800 border-r-white border-b-white bg-[#c0c0c0] flex items-center text-[10px] font-bold gap-2 shadow-[inset_1px_1px_0px_white]"
+            onClick={() => setIsTerminalOpen(!isTerminalOpen)}
+            className={`h-8 px-4 border-2 flex items-center text-[10px] font-bold gap-2 ${isTerminalOpen ? 'border-gray-800 bg-[#d4d0c8] shadow-[inset_2px_2px_0px_rgba(0,0,0,0.2)]' : 'border-gray-800 border-r-white border-b-white bg-[#c0c0c0] shadow-[inset_1px_1px_0px_white]'}`}
+            style={isTerminalOpen ? { borderStyle: 'inset' } : {}}
           >
             <TerminalIcon size={12} className="text-green-700" />
             Terminal
@@ -1151,8 +1155,9 @@ export default function App() {
         )}
         {isSpecsOpen && (
           <button 
-            onClick={() => setIsSpecsOpen(true)}
-            className="h-8 px-4 border-2 border-gray-800 border-r-white border-b-white bg-[#c0c0c0] flex items-center text-[10px] font-bold gap-2 shadow-[inset_1px_1px_0px_white]"
+            onClick={() => setIsSpecsOpen(!isSpecsOpen)}
+            className={`h-8 px-4 border-2 flex items-center text-[10px] font-bold gap-2 ${isSpecsOpen ? 'border-gray-800 bg-[#d4d0c8] shadow-[inset_2px_2px_0px_rgba(0,0,0,0.2)]' : 'border-gray-800 border-r-white border-b-white bg-[#c0c0c0] shadow-[inset_1px_1px_0px_white]'}`}
+            style={isSpecsOpen ? { borderStyle: 'inset' } : {}}
           >
             <ShieldCheck size={12} className="text-blue-800" />
             Specs
@@ -1160,8 +1165,9 @@ export default function App() {
         )}
         {isAchievementsOpen && (
           <button 
-            onClick={() => setIsAchievementsOpen(true)}
-            className="h-8 px-4 border-2 border-gray-800 border-r-white border-b-white bg-[#c0c0c0] flex items-center text-[10px] font-bold gap-2 shadow-[inset_1px_1px_0px_white]"
+            onClick={() => setIsAchievementsOpen(!isAchievementsOpen)}
+            className={`h-8 px-4 border-2 flex items-center text-[10px] font-bold gap-2 ${isAchievementsOpen ? 'border-gray-800 bg-[#d4d0c8] shadow-[inset_2px_2px_0px_rgba(0,0,0,0.2)]' : 'border-gray-800 border-r-white border-b-white bg-[#c0c0c0] shadow-[inset_1px_1px_0px_white]'}`}
+            style={isAchievementsOpen ? { borderStyle: 'inset' } : {}}
           >
             <Award size={12} className="text-yellow-600" />
             Logros
@@ -1169,8 +1175,9 @@ export default function App() {
         )}
         {isMusicOpen && (
           <button 
-            onClick={() => setIsMusicOpen(true)}
-            className="h-8 px-4 border-2 border-gray-800 border-r-white border-b-white bg-[#c0c0c0] flex items-center text-[10px] font-bold gap-2 shadow-[inset_1px_1px_0px_white]"
+            onClick={() => setIsMusicOpen(!isMusicOpen)}
+            className={`h-8 px-4 border-2 flex items-center text-[10px] font-bold gap-2 ${isMusicOpen ? 'border-gray-800 bg-[#d4d0c8] shadow-[inset_2px_2px_0px_rgba(0,0,0,0.2)]' : 'border-gray-800 border-r-white border-b-white bg-[#c0c0c0] shadow-[inset_1px_1px_0px_white]'}`}
+            style={isMusicOpen ? { borderStyle: 'inset' } : {}}
           >
             <Music size={12} className="text-pink-600" />
             Musica
@@ -1178,8 +1185,9 @@ export default function App() {
         )}
         {isGalleryOpen && (
           <button 
-            onClick={() => setIsGalleryOpen(true)}
-            className="h-8 px-4 border-2 border-gray-800 border-r-white border-b-white bg-[#c0c0c0] flex items-center text-[10px] font-bold gap-2 shadow-[inset_1px_1px_0px_white]"
+            onClick={() => setIsGalleryOpen(!isGalleryOpen)}
+            className={`h-8 px-4 border-2 flex items-center text-[10px] font-bold gap-2 ${isGalleryOpen ? 'border-gray-800 bg-[#d4d0c8] shadow-[inset_2px_2px_0px_rgba(0,0,0,0.2)]' : 'border-gray-800 border-r-white border-b-white bg-[#c0c0c0] shadow-[inset_1px_1px_0px_white]'}`}
+            style={isGalleryOpen ? { borderStyle: 'inset' } : {}}
           >
             <Grid3X3 size={12} className="text-orange-600" />
             Planos
