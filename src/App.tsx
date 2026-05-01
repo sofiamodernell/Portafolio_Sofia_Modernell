@@ -17,7 +17,8 @@ import {
   Window
 } from './components/VintageUI';
 import { CursorTrail } from './components/CursorTrail';
-import { Mail, Linkedin, FolderOpen, Star, AlertTriangle, Monitor, HardDrive, Cpu, Globe, Volume2, VolumeX, MessageSquare, FileText, Award, Image as ImageIcon } from 'lucide-react';
+import { TicTacToe } from './components/TicTacToe';
+import { Mail, Linkedin, FolderOpen, Star, AlertTriangle, Monitor, HardDrive, Cpu, Globe, Volume2, VolumeX, MessageSquare, FileText, Award, Image as ImageIcon, Gamepad2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   collection, 
@@ -65,7 +66,7 @@ export default function App() {
   const [isGuestbookOpen, setIsGuestbookOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isPortfolioOpen, setIsPortfolioOpen] = useState(true);
-  const [isFunZoneOpen, setIsFunZoneOpen] = useState(false);
+  const [isTicTacToeOpen, setIsTicTacToeOpen] = useState(false);
   const [backgroundStyle, setBackgroundStyle] = useState('classic');
 
   useEffect(() => {
@@ -391,11 +392,11 @@ export default function App() {
           </div>
           <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Personalizar</span>
         </div>
-        <div className="group cursor-pointer flex flex-col items-center" onClick={() => setIsFunZoneOpen(true)}>
+        <div className="group cursor-pointer flex flex-col items-center" onClick={() => setIsTicTacToeOpen(true)}>
           <div className="w-10 h-10 bg-gray-300 border-2 border-white border-r-gray-700 border-b-gray-700 flex items-center justify-center shadow-md group-active:translate-y-px">
-             <Star size={24} className="text-purple-600 animate-spin-slow" style={{ animationDuration: '10s' }} />
+             <Gamepad2 size={24} className="text-purple-600 animate-bounce" style={{ animationDuration: '3s' }} />
           </div>
-          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Fun_Zone.exe</span>
+          <span className="text-[10px] text-white drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] mt-1 font-bold">Tic_Tac_Toe.exe</span>
         </div>
       </div>
 
@@ -869,37 +870,20 @@ export default function App() {
         </div>
       </Window>
 
-      {/* Fun Zone Window */}
+      {/* Tic Tac Toe Window */}
       <Window
-        title="Engineering_Fun_Zone.vxd"
-        isOpen={isFunZoneOpen}
-        onClose={() => setIsFunZoneOpen(false)}
-        top="30%"
-        left="40%"
-        width="320px"
-        icon={<Star size={12} className="text-yellow-600" />}
+        title="Mecatronic_TicTacToe.vxd"
+        isOpen={isTicTacToeOpen}
+        onClose={() => setIsTicTacToeOpen(false)}
+        top="25%"
+        left="35%"
+        width="340px"
+        icon={<Gamepad2 size={12} className="text-purple-700" />}
       >
         <div className="space-y-4">
-          <SectionHeader title="MECATRONIC_VIBES" />
-          <div className="bg-slate-900 p-4 border-2 border-inset border-slate-600" style={{ borderStyle: 'inset' }}>
-             <div className="text-center mb-4">
-               <motion.div 
-                 animate={{ rotate: 360 }}
-                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                 className="w-16 h-16 border-4 border-dashed border-yellow-500 rounded-full mx-auto flex items-center justify-center"
-               >
-                 <Cpu size={32} className="text-blue-400" />
-               </motion.div>
-             </div>
-             <div className="font-mono text-[10px] text-yellow-500 text-center uppercase tracking-widest">
-               <Blink>¡Precaución: Alta Tensión Creativa!</Blink>
-             </div>
-          </div>
-          <div className="flex flex-col gap-2">
-             <RetroButton onClick={() => alert("¡ZAP! - Estática retro descargada.")}>TEST_VOLTAGE.SH</RetroButton>
-             <RetroButton onClick={() => window.open('https://patorjk.com/software/taag/', '_blank')}>ASCII_ART_GENERATOR.EXE</RetroButton>
-          </div>
-          <div className="mt-2 p-2 bg-blue-100 border border-blue-300 text-[9px] italic">
+          <SectionHeader title="IA_GAME_SIMULATION" />
+          <TicTacToe />
+          <div className="mt-2 p-2 bg-yellow-50 border border-yellow-300 text-[9px] italic">
             "En la ingeniería, el café es el combustible y los bugs son solo características no documentadas."
           </div>
         </div>
@@ -953,13 +937,13 @@ export default function App() {
             Mi PC
           </button>
         )}
-        {isFunZoneOpen && (
+        {isTicTacToeOpen && (
           <button 
-            onClick={() => setIsFunZoneOpen(true)}
+            onClick={() => setIsTicTacToeOpen(true)}
             className="h-8 px-4 border-2 border-gray-800 border-r-white border-b-white bg-[#c0c0c0] flex items-center text-[10px] font-bold gap-2 shadow-[inset_1px_1px_0px_white]"
           >
-            <Star size={12} className="text-yellow-600" />
-            Fun Zone
+            <Gamepad2 size={12} className="text-purple-700" />
+            Tic Tac Toe
           </button>
         )}
         <div className="ml-auto flex items-center gap-2">
