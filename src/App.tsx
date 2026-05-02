@@ -216,13 +216,13 @@ export default function App() {
       title: "Proyecto Integrador II",
       tag: "EMBEDDED / IoT",
       desc: "PCB propia con ATmega328PB, sensores y SigFox IoT. Incluye gemelo digital.",
-      img: "/assets/images/project-pic2.png"
+      img: "assets/images/project-pic2.png"
     },
     {
       title: "Pick-to-Light System",
       tag: "AUTOMATION",
       desc: "Sistema de guiado lumínico para depósitos optimizado mediante análisis Ishikawa.",
-      img: "/assets/images/project-p2l.png"
+      img: "assets/images/project-p2l.png"
     },
     {
       title: "Robot Seguidor de Línea",
@@ -751,7 +751,7 @@ export default function App() {
                        <div className="flex flex-col items-center group">
                          <div className="w-24 h-24 md:w-32 md:h-32 flex items-center justify-center bg-transparent transition-transform group-hover:scale-105">
                            <img 
-                             src="/assets/images/logo-mecatronica.png" 
+                             src="assets/images/logo-mecatronica.png" 
                              alt="Ingeniería en Mecatrónica" 
                              className="max-w-full max-h-full object-contain" 
                              referrerPolicy="no-referrer"
@@ -768,7 +768,7 @@ export default function App() {
                        <div className="flex flex-col items-center group">
                          <div className="w-32 h-24 md:w-48 md:h-32 flex items-center justify-center bg-transparent transition-transform group-hover:scale-105">
                            <img 
-                             src="/assets/images/logo-utec.png" 
+                             src="assets/images/logo-utec.png" 
                              alt="UTEC ITR Suroeste" 
                              className="max-w-full max-h-full object-contain" 
                              referrerPolicy="no-referrer"
@@ -1548,10 +1548,10 @@ export default function App() {
           <SectionHeader title="DISEÑOS_MECANICOS_2D_3D" />
           <div className="grid grid-cols-2 gap-2 h-64 overflow-y-auto pr-2 bg-gray-400 p-2 border-2 border-inset border-gray-600" style={{ borderStyle: 'inset' }}>
              {[
-               { title: 'Plano_Gavetas.png', file: '/assets/images/plano-gavetas.png', color: 'bg-white' },
-               { title: 'Ensamblaje.png', file: '/assets/images/ensamblaje.png', color: 'bg-blue-50' },
-               { title: 'Circuito_PCB.png', file: '/assets/images/circuito-pcb.png', color: 'bg-green-50' },
-               { title: 'Modulo_Ref.png', file: '/assets/images/modulo.png', color: 'bg-red-50' }
+               { title: 'Plano_Gavetas.png', file: 'assets/images/plano-gavetas.png', color: 'bg-white' },
+               { title: 'Ensamblaje.png', file: 'assets/images/ensamblaje.png', color: 'bg-blue-50' },
+               { title: 'Circuito_PCB.png', file: 'assets/images/circuito-pcb.png', color: 'bg-green-50' },
+               { title: 'Modulo_Ref.png', file: 'assets/images/modulo.png', color: 'bg-red-50' }
              ].map((img, i) => (
                <div key={i} className={`${img.color} border border-black p-1 shadow-md hover:scale-105 transition-transform`}>
                   <div className="h-24 bg-slate-200 flex items-center justify-center border border-gray-400 overflow-hidden">
