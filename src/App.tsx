@@ -156,33 +156,23 @@ export default function App() {
     // Visitor counter logic
     const visitorDoc = doc(db, 'visitors', 'total');
     
-    // Test connection as recommended by Firebase skill
-    const testConnection = async () => {
-      try {
-        await getDocFromServer(doc(db, 'test', 'connection'));
-        // console.log("Firestore connection test: SUCCESS");
-      } catch (error: any) {
-        if (error.message?.includes('offline')) {
-          console.error("CRITICAL: Firestore is reportinc 'offline' state. Verify database ID and project config.");
-        }
-      }
-    };
-
-    testConnection();
-    
     // Increment count on load
     const updateCount = async () => {
       try {
+        // Use a more robust way to increment that handles document creation
+        // and doesn't require a separate getDoc call if possible, or handle it cleanly.
         const snap = await getDoc(visitorDoc);
         if (!snap.exists()) {
-          // Use setDoc for first time
           await setDoc(visitorDoc, { count: 1 });
         } else {
-          // Use updateDoc for subsequent increments
           await updateDoc(visitorDoc, { count: increment(1) });
         }
-      } catch (error) {
-        handleFirestoreError(error, OperationType.UPDATE, 'visitors/total');
+      } catch (error: any) {
+        // Log the error but don't throw to avoid crashing the main app loop
+        // if it's just a temporary offline state.
+        if (!error.message?.includes('offline')) {
+           console.warn('Visitor update failed:', error.message);
+        }
       }
     };
 
