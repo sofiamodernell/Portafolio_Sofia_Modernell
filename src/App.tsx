@@ -1457,7 +1457,7 @@ export default function App() {
                 title: "Buddy Program y Networking",
                 desc: "Facilitadora en la integración de estudiantes de intercambio y gestión intercultural.",
                 link: "Ver Brochure »",
-                url: "https://drive.google.com/file/d/1cfY_dWsGxZAxkClCPtGftTW_0B94Fvaz/view?usp=drive_link",
+                url: "https://drive.google.com/file/d/172GdTCqQ9zAv-CzrXd_uTjmEOTxD-yGm/view?usp=sharing",
                 icon: <Globe size={16} className="text-cyan-600" />
               },
               {
@@ -1508,16 +1508,16 @@ export default function App() {
             ))}
           </div>
 
-          <div className="p-3 bg-blue-100 border-2 border-blue-300">
-             <div className="flex justify-between items-center mb-1 text-[10px] font-bold text-blue-900 uppercase">
-                <span>Estado Finalización Carrera</span>
-                <span>85%</span>
+          <div className="p-3 bg-green-50 border-2 border-green-300">
+             <div className="flex justify-between items-center mb-1 text-[10px] font-bold text-green-900 uppercase">
+                <span>Estado Finalización Créditos Especiales</span>
+                <span>100%</span>
              </div>
              <div className="w-full bg-gray-300 h-3 border border-black p-0.5">
-                <div className="w-[85%] h-full bg-blue-600" />
+                <div className="w-[100%] h-full bg-[#33cb47]" />
              </div>
-             <div className="mt-2 text-[9px] text-blue-800 italic text-right">
-                * Calculado según créditos acumulados a Mayo 2026
+             <div className="mt-2 text-[9px] text-green-800 italic text-right">
+                * Actualizado satisfactoriamente al 100%
              </div>
           </div>
         </div>
