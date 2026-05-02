@@ -37,6 +37,7 @@ import {
   increment,
   setDoc,
   getDoc,
+  getDocFromServer,
   limit
 } from 'firebase/firestore';
 import { onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut, User } from 'firebase/auth';
@@ -154,6 +155,20 @@ export default function App() {
 
     // Visitor counter logic
     const visitorDoc = doc(db, 'visitors', 'total');
+    
+    // Test connection as recommended by Firebase skill
+    const testConnection = async () => {
+      try {
+        await getDocFromServer(doc(db, 'test', 'connection'));
+        // console.log("Firestore connection test: SUCCESS");
+      } catch (error: any) {
+        if (error.message?.includes('offline')) {
+          console.error("CRITICAL: Firestore is reportinc 'offline' state. Verify database ID and project config.");
+        }
+      }
+    };
+
+    testConnection();
     
     // Increment count on load
     const updateCount = async () => {
