@@ -228,7 +228,7 @@ export default function App() {
       title: "Robot Seguidor de Línea",
       tag: "ROBOTICS",
       desc: "Robot de competencia con control PID ajustado para máxima velocidad en trayectorias curvas.",
-      img: "https://placehold.co/600x400/1e3a8a/ffffff?text=Robot+PID"
+      img: "https://images.unsplash.com/photo-1546776310-eef45dd6d63c?auto=format&fit=crop&q=80&w=800"
     }
   ];
 
@@ -532,7 +532,10 @@ export default function App() {
     } catch (error: any) {
       console.error("Login failed", error);
       if (error.code === 'auth/unauthorized-domain') {
-        alert("ERROR: Este dominio no está autorizado en la consola de Firebase. Debes añadirlo en Authentication > Settings > Authorized domains.");
+        const currentDomain = window.location.hostname;
+        alert(`ERROR DE DOMINIO: El dominio "${currentDomain}" no está autorizado en Firebase.\n\nINSTRUCCIONES:\n1. Ve a Firebase Console.\n2. Autenticación > Configuración > Dominios autorizados.\n3. Añade "${currentDomain}" a la lista.\n4. Espera 1-2 minutos y recarga la página.`);
+      } else if (error.code === 'auth/popup-blocked') {
+        alert("El navegador bloqueó la ventana emergente. Por favor, habilita las ventanas emergentes para este sitio.");
       } else {
         alert("Error de sesión: " + (error.message || "Inténtalo de nuevo."));
       }

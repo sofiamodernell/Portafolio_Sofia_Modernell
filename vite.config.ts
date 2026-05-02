@@ -7,7 +7,7 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
   return {
-    base: '/Portafolio_Sofia_Modernell/',
+    base: './',
     plugins: [
       react(),
       tailwindcss(),
