@@ -11,20 +11,6 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       tailwindcss(),
-      ViteImageOptimizer({
-        png: {
-          quality: 80,
-        },
-        jpeg: {
-          quality: 80,
-        },
-        jpg: {
-          quality: 80,
-        },
-        webp: {
-          lossless: true,
-        },
-      }),
     ],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),

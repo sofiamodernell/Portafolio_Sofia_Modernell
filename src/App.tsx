@@ -122,28 +122,21 @@ export default function App() {
   const [isReplying, setIsReplying] = useState(false);
 
   // Use project base URL for images
-  const baseUrl = import.meta.env.BASE_URL;
   const getImgPath = (path: string) => {
-    // If we're in the AI Studio preview, we want to use root-relative paths
-    // because the preview server doesn't serve from the subpath.
-    // In production (GitHub Pages), the baseUrl (e.g. /Portafolio_Sofia_Modernell/) will be used.
-    const isAISPreview = typeof window !== 'undefined' && 
-      (window.location.hostname.includes('ais-dev') || window.location.hostname.includes('ais-pre'));
+    if (!path) return '';
+    if (path.startsWith('http')) return path;
     
-    const activeBase = isAISPreview ? '/' : baseUrl;
+    // Remove leading slash for consistency
+    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
     
-    // Safety check: remove double slashes
-    const fullPath = `${activeBase}/${path}`.replace(/\/+/g, '/');
+    // For GitHub Pages or AIS Preview, we need to handle the base path correctly.
+    // Vite provides import.meta.env.BASE_URL which defaults to '/'
+    const base = import.meta.env.BASE_URL || '/';
     
-    // Ensure it starts with a / for absolute pathing relative to domain root
-    const finalPath = fullPath.startsWith('/') ? fullPath : `/${fullPath}`;
+    // Create a normalized path that definitely has a leading slash and respects the base
+    const fullPath = `${base}/${cleanPath}`.replace(/\/+/g, '/');
     
-    // Debug log to help the user identify path issues in the console
-    if (import.meta.env.DEV) {
-      // console.log(`[getImgPath] input: ${path}, output: ${finalPath}`);
-    }
-    
-    return finalPath;
+    return fullPath;
   };
 
   const isAdmin = !!user && user.email?.toLowerCase() === 'sofiamodernell336@gmail.com';
@@ -159,8 +152,7 @@ export default function App() {
     // Increment count on load
     const updateCount = async () => {
       try {
-        // Use a more robust way to increment that handles document creation
-        // and doesn't require a separate getDoc call if possible, or handle it cleanly.
+        // First check if we can reach the server
         const snap = await getDoc(visitorDoc);
         if (!snap.exists()) {
           await setDoc(visitorDoc, { count: 1 });
@@ -168,21 +160,36 @@ export default function App() {
           await updateDoc(visitorDoc, { count: increment(1) });
         }
       } catch (error: any) {
-        // Log the error but don't throw to avoid crashing the main app loop
-        // if it's just a temporary offline state.
-        if (!error.message?.includes('offline')) {
-           console.warn('Visitor update failed:', error.message);
+        // Silently handle "offline" or connection errors
+        const msg = error.message?.toLowerCase() || '';
+        if (msg.includes('offline') || 
+            msg.includes('database not found') ||
+            msg.includes('missing or insufficient permissions') ||
+            msg.includes('quota exceeded')) {
+           // This is expected in some environments or states, don't crash
+           return;
         }
+        console.warn('Visitor update failed:', error.message);
       }
     };
 
     updateCount();
 
     // Listen to count
-    const unsubVisitors = onSnapshot(visitorDoc, (doc) => {
-      if (doc.exists()) {
-        setVisitorCount(doc.data().count);
+    const unsubVisitors = onSnapshot(visitorDoc, (snapshot) => {
+      if (snapshot.exists()) {
+        setVisitorCount(snapshot.data().count);
       }
+    }, (error: any) => {
+      // Silently handle expected connection errors
+      const msg = error.message?.toLowerCase() || '';
+      if (msg.includes('offline') || 
+          msg.includes('database not found') ||
+          msg.includes('missing or insufficient permissions') ||
+          msg.includes('quota exceeded')) {
+        return;
+      }
+      console.error('Visitor listener error:', error);
     });
 
     // Guestbook real-time listener
@@ -205,8 +212,19 @@ export default function App() {
   }, []);
 
   function handleFirestoreError(error: unknown, operationType: OperationType, path: string | null) {
+    const msg = error instanceof Error ? error.message : String(error);
+    const lowerMsg = msg.toLowerCase();
+    
+    // Silently skip expected offline/quota errors
+    if (lowerMsg.includes('offline') || 
+        lowerMsg.includes('quota exceeded') || 
+        lowerMsg.includes('database not found') ||
+        lowerMsg.includes('missing or insufficient permissions')) {
+      return;
+    }
+
     const errInfo = {
-      error: error instanceof Error ? error.message : String(error),
+      error: msg,
       authInfo: {
         userId: auth.currentUser?.uid,
         email: auth.currentUser?.email,
@@ -246,13 +264,13 @@ export default function App() {
       title: "Proyecto Integrador II",
       tag: "EMBEDDED / IoT",
       desc: "PCB propia con ATmega328PB, sensores y SigFox IoT. Incluye gemelo digital.",
-      img: getImgPath('images/project-pic2.png')
+      img: getImgPath('assets/images/project-pic2.png')
     },
     {
       title: "Pick-to-Light System",
       tag: "AUTOMATION",
       desc: "Sistema de guiado lumínico para depósitos optimizado mediante análisis Ishikawa.",
-      img: getImgPath('images/project-p2l.png')
+      img: getImgPath('assets/images/project-p2l.png')
     },
     {
       title: "Robot Seguidor de Línea",
@@ -784,7 +802,7 @@ export default function App() {
                        <div className="flex flex-col items-center group">
                          <div className="w-24 h-24 md:w-32 md:h-32 flex items-center justify-center bg-transparent transition-transform group-hover:scale-105">
                            <img 
-                             src={getImgPath('images/logo-mecatronica.png')} 
+                             src={getImgPath('assets/images/logo-mecatronica.png')} 
                              alt="Ingeniería en Mecatrónica" 
                              className="max-w-full max-h-full object-contain" 
                              referrerPolicy="no-referrer"
@@ -801,7 +819,7 @@ export default function App() {
                        <div className="flex flex-col items-center group">
                          <div className="w-32 h-24 md:w-48 md:h-32 flex items-center justify-center bg-transparent transition-transform group-hover:scale-105">
                            <img 
-                             src={getImgPath('images/logo-utec.png')} 
+                             src={getImgPath('assets/images/logo-utec.png')} 
                              alt="UTEC ITR Suroeste" 
                              className="max-w-full max-h-full object-contain" 
                              referrerPolicy="no-referrer"
@@ -1581,10 +1599,10 @@ export default function App() {
           <SectionHeader title="DISEÑOS_MECANICOS_2D_3D" />
           <div className="grid grid-cols-2 gap-2 h-64 overflow-y-auto pr-2 bg-gray-400 p-2 border-2 border-inset border-gray-600" style={{ borderStyle: 'inset' }}>
              {[
-               { title: 'Plano_Gavetas.png', file: getImgPath('images/plano-gavetas.png'), color: 'bg-white' },
-               { title: 'Ensamblaje.png', file: getImgPath('images/ensamblaje.png'), color: 'bg-blue-50' },
-               { title: 'Circuito_PCB.png', file: getImgPath('images/circuito-pcb.png'), color: 'bg-green-50' },
-               { title: 'Modulo_Ref.png', file: getImgPath('images/modulo.png'), color: 'bg-red-50' }
+               { title: 'Plano_Gavetas.png', file: getImgPath('assets/images/plano-gavetas.png'), color: 'bg-white' },
+               { title: 'Ensamblaje.png', file: getImgPath('assets/images/ensamblaje.png'), color: 'bg-blue-50' },
+               { title: 'Circuito_PCB.png', file: getImgPath('assets/images/circuito-pcb.png'), color: 'bg-green-50' },
+               { title: 'Modulo_Ref.png', file: getImgPath('assets/images/modulo.png'), color: 'bg-red-50' }
              ].map((img, i) => (
                <div key={i} className={`${img.color} border border-black p-1 shadow-md hover:scale-105 transition-transform`}>
                   <div className="h-24 bg-slate-200 flex items-center justify-center border border-gray-400 overflow-hidden">
