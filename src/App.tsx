@@ -120,7 +120,7 @@ export default function App() {
   const [replyingTo, setReplyingTo] = useState<string | null>(null);
   const [isReplying, setIsReplying] = useState(false);
 
-  const isAdmin = !!user && user.email === 'sofiamodernell336@gmail.com';
+  const isAdmin = !!user && user.email?.toLowerCase() === 'sofiamodernell336@gmail.com';
 
   useEffect(() => {
     const unsubAuth = onAuthStateChanged(auth, (u) => {
@@ -216,19 +216,19 @@ export default function App() {
       title: "Proyecto Integrador II",
       tag: "EMBEDDED / IoT",
       desc: "PCB propia con ATmega328PB, sensores y SigFox IoT. Incluye gemelo digital.",
-      img: "/assets/images/project-pic2.png"
+      img: "assets/images/project-pic2.png"
     },
     {
       title: "Pick-to-Light System",
       tag: "AUTOMATION",
       desc: "Sistema de guiado lumínico para depósitos optimizado mediante análisis Ishikawa.",
-      img: "/assets/images/project-p2l.png"
+      img: "assets/images/project-p2l.png"
     },
     {
       title: "Robot Seguidor de Línea",
       tag: "ROBOTICS",
       desc: "Robot de competencia con control PID ajustado para máxima velocidad en trayectorias curvas.",
-      img: "/assets/images/project-robot.jpg"
+      img: "https://placehold.co/600x400/1e3a8a/ffffff?text=Robot+PID"
     }
   ];
 
@@ -529,8 +529,13 @@ export default function App() {
     const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Login failed", error);
+      if (error.code === 'auth/unauthorized-domain') {
+        alert("ERROR: Este dominio no está autorizado en la consola de Firebase. Debes añadirlo en Authentication > Settings > Authorized domains.");
+      } else {
+        alert("Error de sesión: " + (error.message || "Inténtalo de nuevo."));
+      }
     }
   };
 
@@ -802,7 +807,7 @@ export default function App() {
                             <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-blue-600 z-10"></div>
                             <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-right-2 border-blue-600 z-10" style={{ borderRightWidth: '2px' }}></div>
                                                          <img 
-                                src="assets/images/profile.png" 
+                                src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sofia" 
                                 alt="Avatar" 
                                 className="w-full grayscale border border-black transition-all group-hover:grayscale-0" 
                                 onError={(e) => {
@@ -1543,10 +1548,10 @@ export default function App() {
           <SectionHeader title="DISEÑOS_MECANICOS_2D_3D" />
           <div className="grid grid-cols-2 gap-2 h-64 overflow-y-auto pr-2 bg-gray-400 p-2 border-2 border-inset border-gray-600" style={{ borderStyle: 'inset' }}>
              {[
-               { title: 'Plano_Gavetas.png', file: '/assets/images/plano-gavetas.png', color: 'bg-white' },
-               { title: 'Ensamblaje.png', file: '/assets/images/ensamblaje.png', color: 'bg-blue-50' },
-               { title: 'Circuito_PCB.png', file: '/assets/images/circuito-pcb.png', color: 'bg-green-50' },
-               { title: 'Modulo_Ref.png', file: '/assets/images/modulo.png', color: 'bg-red-50' }
+               { title: 'Plano_Gavetas.png', file: 'assets/images/plano-gavetas.png', color: 'bg-white' },
+               { title: 'Ensamblaje.png', file: 'assets/images/ensamblaje.png', color: 'bg-blue-50' },
+               { title: 'Circuito_PCB.png', file: 'assets/images/circuito-pcb.png', color: 'bg-green-50' },
+               { title: 'Modulo_Ref.png', file: 'assets/images/modulo.png', color: 'bg-red-50' }
              ].map((img, i) => (
                <div key={i} className={`${img.color} border border-black p-1 shadow-md hover:scale-105 transition-transform`}>
                   <div className="h-24 bg-slate-200 flex items-center justify-center border border-gray-400 overflow-hidden">
