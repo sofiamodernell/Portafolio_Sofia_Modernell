@@ -41,7 +41,7 @@ import {
 } from 'firebase/firestore';
 import { onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut, User } from 'firebase/auth';
 import { db, auth } from './lib/firebase';
-import { Trash2, Reply, Send, LogIn, LogOut, Smile } from 'lucide-react';
+import { Trash2, Reply, Send, LogIn, LogOut, Smile, Download } from 'lucide-react';
 
 enum OperationType {
   CREATE = 'create',
@@ -62,17 +62,16 @@ interface GuestbookMessage {
 }
 
 const RETRO_VISUALS = [
-  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/smileys/smiley_cool.gif", label: "cool" },
-  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/smileys/smiley_wink.gif", label: "wink" },
-  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/tech/mail.gif", label: "mail" },
-  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/under_construction/construction2.gif", label: "construction" },
-  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/tech/mac3.gif", label: "mac" },
-  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/tech/netscape.gif", label: "netscape" },
-  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/tech/disk.gif", label: "disk" },
-  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/arrows/arrow11.gif", label: "arrow" }
+  { url: "https://web.archive.org/web/20091027005011im_/http://geocities.com/SiliconValley/Vista/5544/animated_gifs/smiley.gif", label: "smiley" },
+  { url: "https://web.archive.org/web/20090829103859im_/http://geocities.com/SiliconValley/Lakes/8144/gifs/mail.gif", label: "mail" },
+  { url: "https://web.archive.org/web/20090831102604im_/http://www.geocities.com/SiliconValley/Pines/4155/images/ani_undercon.gif", label: "construction" },
+  { url: "https://web.archive.org/web/20091022212952im_/http://geocities.com/SiliconValley/Way/1400/netscape.gif", label: "netscape" },
+  { url: "https://web.archive.org/web/20090830155209im_/http://www.geocities.com/SiliconValley/Haven/1932/images/ani_new.gif", label: "new" },
+  { url: "https://web.archive.org/web/20091027063044im_/http://geocities.com/SouthBeach/Sands/2513/cool.gif", label: "cool" },
+  { url: "https://web.archive.org/web/20090830043818im_/http://www.geocities.com/SiliconValley/Lab/5983/computer.gif", label: "pc" }
 ];
 
-function AnimatedRetroIcon({ url, label, onClick }: { url: string, label: string, onClick?: () => void }) {
+const AnimatedRetroIcon: React.FC<{ url: string, label: string, onClick?: () => void }> = ({ url, label, onClick }) => {
   return (
     <motion.button
       type="button"
@@ -85,7 +84,7 @@ function AnimatedRetroIcon({ url, label, onClick }: { url: string, label: string
         src={url} 
         alt={label} 
         className="w-4 h-4 md:w-5 md:h-5 object-contain pixelated" 
-        style={{ imageRendering: 'pixelated' }} 
+        style={{ imageRendering: 'pixelated' } as React.CSSProperties} 
         referrerPolicy="no-referrer"
         onError={(e) => {
           (e.target as HTMLImageElement).src = `https://api.dicebear.com/7.x/pixel-art/svg?seed=${label}`;
@@ -93,7 +92,7 @@ function AnimatedRetroIcon({ url, label, onClick }: { url: string, label: string
       />
     </motion.button>
   );
-}
+};
 
 export default function App() {
   const [visitorCount, setVisitorCount] = useState(0);
@@ -1156,8 +1155,8 @@ export default function App() {
         isOpen={isGuestbookOpen} 
         onClose={() => setIsGuestbookOpen(false)}
         top="15%"
-        left="20%"
-        width="300px"
+        left="15%"
+        width="550px"
         icon={<MessageSquare size={12} className="text-blue-900" />}
       >
         <div className="relative overflow-hidden">
@@ -1185,7 +1184,7 @@ export default function App() {
             />
           </div>
 
-          <div className="space-y-3 mb-2 max-h-[180px] overflow-y-auto pr-1 custom-scrollbar p-1 relative z-10">
+          <div className="space-y-3 mb-2 max-h-[160px] overflow-y-auto pr-1 custom-scrollbar p-1 relative z-10">
           <AnimatePresence initial={false}>
             {messages.map(m => (
               <motion.div 
@@ -1289,7 +1288,7 @@ export default function App() {
              </div>
            </div>
            
-           <div className="grid grid-cols-1 gap-1">
+           <div className="grid grid-cols-2 gap-2">
              <div className="flex flex-col gap-0.5">
                <label className="text-[8px] font-bold text-gray-600 uppercase">Remitente:</label>
                <input 
@@ -1307,7 +1306,7 @@ export default function App() {
                <label className="text-[8px] font-bold text-gray-600 uppercase">Mensaje:</label>
                <textarea 
                   placeholder="Escribe algo..." 
-                  className="w-full text-[9px] p-1 border-2 border-inset border-gray-500 bg-white h-12 shadow-inner focus:outline-none focus:border-blue-500 custom-scrollbar"
+                  className="w-full text-[9px] p-1 border-2 border-inset border-gray-500 bg-white h-10 shadow-inner focus:outline-none focus:border-blue-500 custom-scrollbar"
                   style={{ borderStyle: 'inset' }}
                   value={newMessage}
                   onChange={e => setNewMessage(e.target.value)}
@@ -1419,6 +1418,7 @@ export default function App() {
                 title: "Inglés B2/C1 — LinguaSkill (2023)",
                 desc: "Certificación de nivel B2 en inglés académico y técnico, emitida por Cambridge Assessment English.",
                 link: "Ver certificado »",
+                url: "https://drive.google.com/file/d/1AW7DZFOkqdJeglgT9ue_hvrppzP255iC/view?usp=drive_link",
                 icon: <Globe size={16} className="text-blue-600" />
               },
               {
@@ -1426,6 +1426,7 @@ export default function App() {
                 title: "Curso de Soldadura",
                 desc: "Certificación en técnicas de soldadura para fabricación electrónica y mecánica, UTEC.",
                 link: "Ver certificado »",
+                url: "https://drive.google.com/file/d/16jrBM1rOO43Z3RpYLKcQNxoeHx_wIeJ9/view?usp=drive_link",
                 icon: <Cpu size={16} className="text-orange-600" />
               },
               {
@@ -1437,9 +1438,10 @@ export default function App() {
               },
               {
                 category: "SEGURIDAD • ITR",
-                title: "Jornada Emergencias y Evacuación (2025)",
+                title: "Jornada Emergencias y Evacuación (2024)",
                 desc: "Capacitación en evacuación de ITR, teoría del fuego y uso de extintores portátiles.",
                 link: "Ver certificado »",
+                url: "https://drive.google.com/file/d/1z--lMDFwVvERVv1GQHV9BxkZV1In3zDb/view?usp=drive_link",
                 icon: <ShieldCheck size={16} className="text-red-600" />
               },
               {
@@ -1447,13 +1449,15 @@ export default function App() {
                 title: "Introducción al Corte Láser (2024)",
                 desc: "Curso de fabricación digital. Proyecto final: Diseño y construcción de Mariposa Autómata.",
                 link: "Ver trabajo final »",
+                url: "https://drive.google.com/file/d/1cfY_dWsGxZAxkClCPtGftTW_0B94Fvaz/view?usp=drive_link",
                 icon: <Grid3X3 size={16} className="text-green-600" />
               },
               {
                 category: "RELACIONES INTERNACIONALES • UTEC",
                 title: "Buddy Program y Networking",
                 desc: "Facilitadora en la integración de estudiantes de intercambio y gestión intercultural.",
-                link: "Networking & Colaboración",
+                link: "Ver Brochure »",
+                url: "https://drive.google.com/file/d/1cfY_dWsGxZAxkClCPtGftTW_0B94Fvaz/view?usp=drive_link",
                 icon: <Globe size={16} className="text-cyan-600" />
               },
               {
@@ -1481,8 +1485,21 @@ export default function App() {
                     <div className="text-[11px] font-bold text-gray-800">{item.title}</div>
                     <div className="text-[10px] text-gray-600 mt-1 leading-tight">{item.desc}</div>
                     {item.link && (
-                      <div className="mt-2 text-[9px] text-blue-700 font-bold hover:underline cursor-pointer flex items-center gap-1">
-                        <FileText size={10} /> {item.link}
+                      <div className="mt-2 flex items-center gap-2">
+                        {item.url ? (
+                          <a 
+                            href={item.url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-[9px] text-blue-700 font-bold hover:underline flex items-center gap-1 border border-blue-200 px-1 bg-blue-50"
+                          >
+                            <Download size={10} /> {item.link}
+                          </a>
+                        ) : (
+                          <div className="text-[9px] text-gray-400 font-bold flex items-center gap-1">
+                            <FileText size={10} /> {item.link}
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
