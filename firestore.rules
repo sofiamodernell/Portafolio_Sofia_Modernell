@@ -24,13 +24,19 @@ service cloud.firestore {
              data.count >= 0;
     }
 
-    function isValidGuestbookEntry(data) {
+    function isOwner() {
+      return request.auth != null && 
+             request.auth.token.email == 'sofiamodernell336@gmail.com';
+    }
+
+    function isValidGuestbookEntry(data, isUpdate) {
       return data.keys().hasAll(['name', 'text', 'date', 'createdAt']) &&
-             data.keys().size() == 4 &&
+             (data.keys().size() == 4 || (data.keys().size() == 5 && data.keys().hasAll(['reply']))) &&
              data.name is string && data.name.size() > 0 && data.name.size() <= 64 &&
              data.text is string && data.text.size() > 0 && data.text.size() <= 500 &&
              data.date is string &&
-             data.createdAt == request.time;
+             (isUpdate || data.createdAt == request.time) &&
+             (!data.keys().hasAll(['reply']) || (data.reply is string && data.reply.size() <= 600));
     }
 
     match /visitors/total {
@@ -45,7 +51,12 @@ service cloud.firestore {
     match /guestbook/{entryId} {
       allow list: if true;
       allow get: if true;
-      allow create: if isValidId(entryId) && isValidGuestbookEntry(incoming());
+      allow create: if isValidId(entryId) && isValidGuestbookEntry(incoming(), false);
+      allow delete: if isOwner();
+      allow update: if isOwner() && (
+        incoming().diff(existing()).affectedKeys().hasOnly(['reply']) ||
+        incoming().diff(existing()).affectedKeys().hasAny(['reply'])
+      );
     }
   }
 }

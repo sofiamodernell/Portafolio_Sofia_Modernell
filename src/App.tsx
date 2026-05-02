@@ -31,6 +31,7 @@ import {
   onSnapshot, 
   addDoc, 
   updateDoc,
+  deleteDoc,
   serverTimestamp, 
   doc, 
   increment,
@@ -38,7 +39,9 @@ import {
   getDoc,
   limit
 } from 'firebase/firestore';
+import { onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut, User } from 'firebase/auth';
 import { db, auth } from './lib/firebase';
+import { Trash2, Reply, Send, LogIn, LogOut, Smile } from 'lucide-react';
 
 enum OperationType {
   CREATE = 'create',
@@ -55,6 +58,41 @@ interface GuestbookMessage {
   date: string;
   text: string;
   createdAt: any;
+  reply?: string;
+}
+
+const RETRO_VISUALS = [
+  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/smileys/smiley_cool.gif", label: "cool" },
+  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/smileys/smiley_wink.gif", label: "wink" },
+  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/tech/mail.gif", label: "mail" },
+  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/under_construction/construction2.gif", label: "construction" },
+  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/tech/mac3.gif", label: "mac" },
+  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/tech/netscape.gif", label: "netscape" },
+  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/tech/disk.gif", label: "disk" },
+  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/arrows/arrow11.gif", label: "arrow" }
+];
+
+function AnimatedRetroIcon({ url, label, onClick }: { url: string, label: string, onClick?: () => void }) {
+  return (
+    <motion.button
+      type="button"
+      whileHover={{ scale: 1.3, zIndex: 10 }}
+      whileTap={{ scale: 0.9 }}
+      onClick={onClick}
+      className={`p-1 cursor-pointer bg-white border border-gray-400 shadow-sm ${onClick ? 'hover:bg-yellow-50' : ''}`}
+    >
+      <img 
+        src={url} 
+        alt={label} 
+        className="w-6 h-6 md:w-8 md:h-8 object-contain pixelated" 
+        style={{ imageRendering: 'pixelated' }} 
+        referrerPolicy="no-referrer"
+        onError={(e) => {
+          (e.target as HTMLImageElement).src = `https://api.dicebear.com/7.x/pixel-art/svg?seed=${label}`;
+        }}
+      />
+    </motion.button>
+  );
 }
 
 export default function App() {
@@ -78,8 +116,18 @@ export default function App() {
   const [isAchievementsOpen, setIsAchievementsOpen] = useState(false);
   const [isMallaOpen, setIsMallaOpen] = useState(false);
   const [backgroundStyle, setBackgroundStyle] = useState('space');
+  const [user, setUser] = useState<User | null>(null);
+  const [replyText, setReplyText] = useState("");
+  const [replyingTo, setReplyingTo] = useState<string | null>(null);
+  const [isReplying, setIsReplying] = useState(false);
+
+  const isAdmin = !!user && user.email === 'sofiamodernell336@gmail.com';
 
   useEffect(() => {
+    const unsubAuth = onAuthStateChanged(auth, (u) => {
+      setUser(u);
+    });
+
     // Visitor counter logic
     const visitorDoc = doc(db, 'visitors', 'total');
     
@@ -123,6 +171,7 @@ export default function App() {
     return () => {
       unsubVisitors();
       unsubGuestbook();
+      unsubAuth();
     };
   }, []);
 
@@ -447,6 +496,46 @@ export default function App() {
       handleFirestoreError(error, OperationType.WRITE, path);
     }
   };
+
+  const handleDeleteMessage = async (id: string) => {
+    if (!isAdmin) return;
+    if (!confirm("¿Desea eliminar este mensaje del sistema?")) return;
+
+    try {
+      await deleteDoc(doc(db, 'guestbook', id));
+    } catch (error) {
+      handleFirestoreError(error, OperationType.DELETE, `guestbook/${id}`);
+    }
+  };
+
+  const handleReplyMessage = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!isAdmin || !replyingTo || !replyText) return;
+
+    setIsReplying(true);
+    try {
+      await updateDoc(doc(db, 'guestbook', replyingTo), {
+        reply: replyText
+      });
+      setReplyText("");
+      setReplyingTo(null);
+    } catch (error) {
+      handleFirestoreError(error, OperationType.UPDATE, `guestbook/${replyingTo}`);
+    } finally {
+      setIsReplying(false);
+    }
+  };
+
+  const handleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      await signInWithPopup(auth, provider);
+    } catch (error) {
+      console.error("Login failed", error);
+    }
+  };
+
+  const handleLogout = () => signOut(auth);
 
   return (
     <div 
@@ -1071,34 +1160,195 @@ export default function App() {
         width="450px"
         icon={<MessageSquare size={12} className="text-blue-900" />}
       >
-        <div className="space-y-3 mb-4 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
-          {messages.map(m => (
-            <div key={m.id} className="text-[11px] border-b border-dotted border-gray-300 pb-2">
-               <div className="flex justify-between font-bold text-blue-900">
-                  <span>{m.name}</span>
-                  <span className="text-gray-400">{m.date}</span>
-               </div>
-               <p className="italic">"{m.text}"</p>
+        <div className="relative overflow-hidden">
+          {/* Admin Indicator */}
+          {isAdmin && (
+            <div className="absolute top-0 right-0 z-50 bg-yellow-400 border border-black px-2 py-0.5 text-[8px] font-black italic shadow-md rotate-3 translate-x-2 -translate-y-1">
+              ADMIN MODE ACTIVE
             </div>
-          ))}
+          )}
+          {/* Floating artifacts */}
+          <div className="absolute inset-0 pointer-events-none opacity-10">
+            <motion.img 
+              src="https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/tech/ufo.gif" 
+              animate={{ y: [0, -200], x: [0, 80], opacity: [0, 1, 0] }} 
+              transition={{ duration: 12, repeat: Infinity }} 
+              className="absolute bottom-0 left-1/4 w-12"
+              referrerPolicy="no-referrer"
+            />
+            <motion.img 
+              src="https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/smileys/smiley_alien.gif" 
+              animate={{ y: [0, -250], x: [0, -50], opacity: [0, 1, 0] }} 
+              transition={{ duration: 18, repeat: Infinity, delay: 3 }} 
+              className="absolute bottom-0 right-1/4 w-12"
+              referrerPolicy="no-referrer"
+            />
+            <motion.img 
+              src="https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/tech/disk.gif" 
+              animate={{ rotate: [0, 360], scale: [0.8, 1.2, 0.8], opacity: [0.1, 0.4, 0.1] }} 
+              transition={{ duration: 6, repeat: Infinity }} 
+              className="absolute top-1/4 left-1/2 w-16"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+
+          <div className="space-y-4 mb-4 max-h-[350px] overflow-y-auto pr-2 custom-scrollbar p-1 relative z-10">
+          <AnimatePresence initial={false}>
+            {messages.map(m => (
+              <motion.div 
+                key={m.id} 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                className="text-[11px] border-2 border-white border-r-gray-400 border-b-gray-400 bg-gray-100 p-2 shadow-sm"
+              >
+                 <div className="flex justify-between items-center font-bold text-blue-900 mb-1">
+                    <div className="flex items-center gap-1">
+                      <span className="bg-blue-900 text-white px-1">USR:</span>
+                      <span>{m.name}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-gray-500 font-mono text-[9px]">{m.date}</span>
+                      {isAdmin && (
+                        <div className="flex gap-1">
+                          <button 
+                            onClick={() => setReplyingTo(replyingTo === m.id ? null : m.id)}
+                            className="text-blue-600 hover:text-blue-800 p-0.5 border border-transparent hover:border-gray-400 bg-gray-200"
+                            title="Responder"
+                          >
+                            <Reply size={10} />
+                          </button>
+                          <button 
+                            onClick={() => handleDeleteMessage(m.id)}
+                            className="text-red-600 hover:text-red-800 p-0.5 border border-transparent hover:border-gray-400 bg-gray-200"
+                            title="Eliminar"
+                          >
+                            <Trash2 size={10} />
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                 </div>
+                 <p className="italic bg-white p-2 border border-inset border-gray-300" style={{ borderStyle: 'inset' }}>
+                   {m.text}
+                 </p>
+
+                 {m.reply && (
+                   <motion.div 
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mt-2 ml-4 p-2 bg-[#ffffcc] border-l-4 border-yellow-500 shadow-sm relative overflow-hidden"
+                   >
+                     <div className="absolute top-0 right-0 opacity-10 rotate-12">
+                       <ShieldCheck size={24} />
+                     </div>
+                     <div className="text-[9px] font-bold text-yellow-800 uppercase flex items-center gap-1 mb-1">
+                       <Reply size={10} /> Respuesta del Sistema (ADMIN):
+                     </div>
+                     <p className="italic text-slate-700 font-bold">{m.reply}</p>
+                   </motion.div>
+                 )}
+
+                 {isAdmin && replyingTo === m.id && (
+                   <form onSubmit={handleReplyMessage} className="mt-2 ml-4 space-y-1">
+                     <textarea 
+                        className="w-full text-[10px] p-1 border-2 border-gray-800 border-r-white border-b-white bg-[#ffffcc] h-12"
+                        placeholder="Escribir respuesta..."
+                        value={replyText}
+                        onChange={e => setReplyText(e.target.value)}
+                        autoFocus
+                     />
+                     <div className="flex justify-end gap-2">
+                       <button type="button" onClick={() => setReplyingTo(null)} className="text-[9px] px-2 py-0.5 bg-gray-300 border border-gray-600">CANCELAR</button>
+                       <button 
+                        type="submit" 
+                        disabled={isReplying}
+                        className={`text-[9px] px-2 py-0.5 border border-black flex items-center gap-1 ${isReplying ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-900 text-white'}`}
+                       >
+                         {isReplying ? 'ENVIANDO...' : <><Send size={10} /> ENVIAR</>}
+                       </button>
+                     </div>
+                   </form>
+                 )}
+              </motion.div>
+            ))}
+          </AnimatePresence>
+          {messages.length === 0 && (
+            <div className="text-center py-10 opacity-40 italic text-[11px]">
+              No hay transmisiones registradas en el buffer...
+            </div>
+          )}
         </div>
-        <form onSubmit={handleSignGuestbook} className="bg-[#c0c0c0] p-3 border-2 border-white border-r-gray-800 border-b-gray-800 space-y-2">
-           <div className="text-[10px] font-bold mb-1">FIRMAR LIBRO:</div>
-           <input 
-              type="text" 
-              placeholder="Identidad..." 
-              className="w-full text-[10px] p-1 border-2 border-gray-800 border-r-white border-b-white bg-white"
-              value={newName}
-              onChange={e => setNewName(e.target.value)}
-           />
-           <textarea 
-              placeholder="Mensaje para el sistema..." 
-              className="w-full text-[10px] p-1 border-2 border-gray-800 border-r-white border-b-white bg-white h-16"
-              value={newMessage}
-              onChange={e => setNewMessage(e.target.value)}
-           ></textarea>
-           <div className="text-right">
-             <RetroButton>ENVIAR_FIRMA.EXE</RetroButton>
+      </div>
+        
+        <form onSubmit={handleSignGuestbook} className="bg-[#c0c0c0] p-4 border-2 border-white border-r-gray-800 border-b-gray-800 space-y-3 shadow-inner">
+           <div className="flex justify-between items-center border-b border-gray-400 pb-1 mb-1">
+             <div className="text-[10px] font-black uppercase text-blue-900 tracking-tighter">FIRMAR_LIBRO_VISITAS.DAT</div>
+             <div className="flex gap-1 overflow-x-auto py-1 scrollbar-hide">
+               {RETRO_VISUALS.map(item => (
+                 <AnimatedRetroIcon 
+                  key={item.label}
+                  url={item.url}
+                  label={item.label}
+                  onClick={() => setNewMessage(prev => prev + ` [${item.label}] `)}
+                 />
+               ))}
+             </div>
+           </div>
+           
+           <div className="grid grid-cols-1 gap-2">
+             <div className="flex flex-col gap-1">
+               <label className="text-[9px] font-bold text-gray-600 uppercase">Remitente:</label>
+               <input 
+                  type="text" 
+                  placeholder="Tu alias o identidad..." 
+                  className="w-full text-[10px] p-1 border-2 border-inset border-gray-500 bg-white shadow-inner focus:outline-none focus:border-blue-500"
+                  style={{ borderStyle: 'inset' }}
+                  value={newName}
+                  onChange={e => setNewName(e.target.value)}
+                  required
+               />
+             </div>
+             
+             <div className="flex flex-col gap-1">
+               <label className="text-[9px] font-bold text-gray-600 uppercase">Transmisión:</label>
+               <textarea 
+                  placeholder="Escribe un mensaje para el muro..." 
+                  className="w-full text-[10px] p-1 border-2 border-inset border-gray-500 bg-white h-16 shadow-inner focus:outline-none focus:border-blue-500 custom-scrollbar"
+                  style={{ borderStyle: 'inset' }}
+                  value={newMessage}
+                  onChange={e => setNewMessage(e.target.value)}
+                  required
+               ></textarea>
+             </div>
+           </div>
+
+           <div className="flex justify-between items-center pt-1 mt-2 border-t border-gray-400">
+             <div className="flex gap-1">
+               <div className="w-2 h-2 bg-blue-900"></div>
+               <div className="w-2 h-2 bg-blue-600"></div>
+               <div className="w-2 h-2 bg-blue-300"></div>
+             </div>
+             
+             {user ? (
+               <div className="flex items-center gap-2">
+                 <span className="text-[8px] font-mono text-blue-900 truncate max-w-[100px]">{user.email}</span>
+                 <button type="button" onClick={handleLogout} className="text-[8px] px-1 bg-red-100 border border-red-800 flex items-center gap-1">
+                   <LogOut size={8} /> SALIR
+                 </button>
+               </div>
+             ) : (
+               <button type="button" onClick={handleLogin} className="text-[8px] px-1 bg-gray-200 border border-gray-800 flex items-center gap-1 opacity-20 hover:opacity-100 transition-opacity">
+                 <ShieldCheck size={8} /> ADMIN_AUTH
+               </button>
+             )}
+
+             <RetroButton type="submit">
+               <div className="flex items-center gap-2">
+                 <Send size={12} />
+                 <span>ENVIAR_FIRMA.EXE</span>
+               </div>
+             </RetroButton>
            </div>
         </form>
       </Window>
@@ -1129,7 +1379,18 @@ export default function App() {
           </div>
           
           <div className="bg-slate-800 text-green-500 p-2 font-mono text-[9px] border-2 border-inset border-slate-500" style={{ borderStyle: 'inset' }}>
-             <div>SYSTEM_INFO_REPORT :: 2026</div>
+             <div className="flex justify-between">
+               <div>SYSTEM_INFO_REPORT :: 2026</div>
+               {user ? (
+                 <button onClick={handleLogout} className="text-red-400 hover:underline flex items-center gap-1">
+                   <LogOut size={10} /> LOGOUT
+                 </button>
+               ) : (
+                 <button onClick={handleLogin} className="text-blue-400 hover:underline flex items-center gap-1">
+                   <LogIn size={10} /> ADMIN_LOGIN
+                 </button>
+               )}
+             </div>
              <hr className="border-green-800 my-1"/>
              <div>LOC: Fray Bentos, Uruguay</div>
              <div>TZ: UTC-3</div>
