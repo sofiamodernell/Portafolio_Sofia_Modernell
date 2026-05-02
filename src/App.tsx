@@ -62,13 +62,13 @@ interface GuestbookMessage {
 }
 
 const RETRO_VISUALS = [
-  { url: "https://web.archive.org/web/20091027005011im_/http://geocities.com/SiliconValley/Vista/5544/animated_gifs/smiley.gif", label: "smiley" },
-  { url: "https://web.archive.org/web/20090829103859im_/http://geocities.com/SiliconValley/Lakes/8144/gifs/mail.gif", label: "mail" },
-  { url: "https://web.archive.org/web/20090831102604im_/http://www.geocities.com/SiliconValley/Pines/4155/images/ani_undercon.gif", label: "construction" },
-  { url: "https://web.archive.org/web/20091022212952im_/http://geocities.com/SiliconValley/Way/1400/netscape.gif", label: "netscape" },
-  { url: "https://web.archive.org/web/20090830155209im_/http://www.geocities.com/SiliconValley/Haven/1932/images/ani_new.gif", label: "new" },
-  { url: "https://web.archive.org/web/20091027063044im_/http://geocities.com/SouthBeach/Sands/2513/cool.gif", label: "cool" },
-  { url: "https://web.archive.org/web/20090830043818im_/http://www.geocities.com/SiliconValley/Lab/5983/computer.gif", label: "pc" }
+  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/smileys/smiley.gif", label: "smiley" },
+  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/tech/mail.gif", label: "mail" },
+  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/under_construction/uc1.gif", label: "construction" },
+  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/tech/netscape.gif", label: "netscape" },
+  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/smileys/alien.gif", label: "alien" },
+  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/smileys/cool.gif", label: "cool" },
+  { url: "https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/tech/pc.gif", label: "pc" }
 ];
 
 const AnimatedRetroIcon: React.FC<{ url: string, label: string, onClick?: () => void }> = ({ url, label, onClick }) => {
@@ -216,19 +216,19 @@ export default function App() {
       title: "Proyecto Integrador II",
       tag: "EMBEDDED / IoT",
       desc: "PCB propia con ATmega328PB, sensores y SigFox IoT. Incluye gemelo digital.",
-      img: "assets/images/project-pic2.png"
+      img: "/assets/images/project-pic2.png"
     },
     {
       title: "Pick-to-Light System",
       tag: "AUTOMATION",
       desc: "Sistema de guiado lumínico para depósitos optimizado mediante análisis Ishikawa.",
-      img: "assets/images/project-p2l.png"
+      img: "/assets/images/project-p2l.png"
     },
     {
       title: "Robot Seguidor de Línea",
       tag: "ROBOTICS",
       desc: "Robot de competencia con control PID ajustado para máxima velocidad en trayectorias curvas.",
-      img: "assets/images/project-robot.jpg"
+      img: "/assets/images/project-robot.jpg"
     }
   ];
 
@@ -1162,25 +1162,31 @@ export default function App() {
         <div className="relative overflow-hidden">
           {/* Admin Indicator */}
           {isAdmin && (
-            <div className="absolute top-0 right-0 z-50 bg-yellow-400 border border-black px-1 py-0.5 text-[7px] font-black italic shadow-md rotate-3 translate-x-1 -translate-y-1">
-              ADMIN_ON
-            </div>
+            <motion.div 
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="absolute top-2 right-2 z-50 bg-red-600 text-white border-2 border-black px-2 py-1 text-[10px] font-black italic shadow-lg rotate-3 flex items-center gap-1 animate-pulse"
+            >
+              <ShieldCheck size={12} /> MODO ADMIN ACTIVADO
+            </motion.div>
           )}
           {/* Floating artifacts */}
-          <div className="absolute inset-0 pointer-events-none opacity-5">
+          <div className="absolute inset-0 pointer-events-none opacity-20">
             <motion.img 
               src="https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/tech/ufo.gif" 
               animate={{ y: [0, -150], x: [0, 40], opacity: [0, 0.5, 0] }} 
               transition={{ duration: 12, repeat: Infinity }} 
               className="absolute bottom-0 left-1/4 w-8"
               referrerPolicy="no-referrer"
+              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
             />
             <motion.img 
-              src="https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/smileys/smiley_alien.gif" 
+              src="https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/smileys/alien.gif" 
               animate={{ y: [0, -200], x: [0, -30], opacity: [0, 0.5, 0] }} 
               transition={{ duration: 18, repeat: Infinity, delay: 3 }} 
               className="absolute bottom-0 right-1/4 w-8"
               referrerPolicy="no-referrer"
+              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
             />
           </div>
 
@@ -1372,7 +1378,7 @@ export default function App() {
           
           <div className="bg-slate-800 text-green-500 p-2 font-mono text-[9px] border-2 border-inset border-slate-500" style={{ borderStyle: 'inset' }}>
              <div className="flex justify-between">
-               <div>SYSTEM_INFO_REPORT :: 2026</div>
+               <div>{user ? `ADMIN_LOGGED_IN: ${user.email}` : 'SYSTEM_INFO_REPORT :: 2026'}</div>
                {user ? (
                  <button onClick={handleLogout} className="text-red-400 hover:underline flex items-center gap-1">
                    <LogOut size={10} /> LOGOUT
@@ -1537,10 +1543,10 @@ export default function App() {
           <SectionHeader title="DISEÑOS_MECANICOS_2D_3D" />
           <div className="grid grid-cols-2 gap-2 h-64 overflow-y-auto pr-2 bg-gray-400 p-2 border-2 border-inset border-gray-600" style={{ borderStyle: 'inset' }}>
              {[
-               { title: 'Plano_Gavetas.png', file: 'assets/images/plano-gavetas.png', color: 'bg-white' },
-               { title: 'Ensamblaje.png', file: 'assets/images/ensamblaje.png', color: 'bg-blue-50' },
-               { title: 'Circuito_PCB.png', file: 'assets/images/circuito-pcb.png', color: 'bg-green-50' },
-               { title: 'Modulo_Ref.png', file: 'assets/images/modulo.png', color: 'bg-red-50' }
+               { title: 'Plano_Gavetas.png', file: '/assets/images/plano-gavetas.png', color: 'bg-white' },
+               { title: 'Ensamblaje.png', file: '/assets/images/ensamblaje.png', color: 'bg-blue-50' },
+               { title: 'Circuito_PCB.png', file: '/assets/images/circuito-pcb.png', color: 'bg-green-50' },
+               { title: 'Modulo_Ref.png', file: '/assets/images/modulo.png', color: 'bg-red-50' }
              ].map((img, i) => (
                <div key={i} className={`${img.color} border border-black p-1 shadow-md hover:scale-105 transition-transform`}>
                   <div className="h-24 bg-slate-200 flex items-center justify-center border border-gray-400 overflow-hidden">
