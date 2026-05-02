@@ -120,7 +120,30 @@ export default function App() {
   const [replyingTo, setReplyingTo] = useState<string | null>(null);
   const [isReplying, setIsReplying] = useState(false);
 
-  const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+  // Use project base URL for images
+  const baseUrl = import.meta.env.BASE_URL;
+  const getImgPath = (path: string) => {
+    // If we're in the AI Studio preview, we want to use root-relative paths
+    // because the preview server doesn't serve from the subpath.
+    // In production (GitHub Pages), the baseUrl (e.g. /Portafolio_Sofia_Modernell/) will be used.
+    const isAISPreview = typeof window !== 'undefined' && 
+      (window.location.hostname.includes('ais-dev') || window.location.hostname.includes('ais-pre'));
+    
+    const activeBase = isAISPreview ? '/' : baseUrl;
+    
+    // Safety check: remove double slashes
+    const fullPath = `${activeBase}/${path}`.replace(/\/+/g, '/');
+    
+    // Ensure it starts with a / for absolute pathing relative to domain root
+    const finalPath = fullPath.startsWith('/') ? fullPath : `/${fullPath}`;
+    
+    // Debug log to help the user identify path issues in the console
+    if (import.meta.env.DEV) {
+      // console.log(`[getImgPath] input: ${path}, output: ${finalPath}`);
+    }
+    
+    return finalPath;
+  };
 
   const isAdmin = !!user && user.email?.toLowerCase() === 'sofiamodernell336@gmail.com';
 
@@ -218,13 +241,13 @@ export default function App() {
       title: "Proyecto Integrador II",
       tag: "EMBEDDED / IoT",
       desc: "PCB propia con ATmega328PB, sensores y SigFox IoT. Incluye gemelo digital.",
-      img: `${baseUrl}images/project-pic2.png`
+      img: getImgPath('images/project-pic2.png')
     },
     {
       title: "Pick-to-Light System",
       tag: "AUTOMATION",
       desc: "Sistema de guiado lumínico para depósitos optimizado mediante análisis Ishikawa.",
-      img: `${baseUrl}images/project-p2l.png`
+      img: getImgPath('images/project-p2l.png')
     },
     {
       title: "Robot Seguidor de Línea",
@@ -752,11 +775,11 @@ export default function App() {
                        </div>
                     </div>
 
-                    <div className="flex justify-center items-center gap-12 py-10 px-6 bg-white border-2 border-inset border-gray-300 shadow-inner" style={{ borderStyle: 'inset' }}>
+                       <div className="flex justify-center items-center gap-12 py-10 px-6 bg-white border-2 border-inset border-gray-300 shadow-inner" style={{ borderStyle: 'inset' }}>
                        <div className="flex flex-col items-center group">
                          <div className="w-24 h-24 md:w-32 md:h-32 flex items-center justify-center bg-transparent transition-transform group-hover:scale-105">
                            <img 
-                             src={`${baseUrl}images/logo-mecatronica.png`} 
+                             src={getImgPath('images/logo-mecatronica.png')} 
                              alt="Ingeniería en Mecatrónica" 
                              className="max-w-full max-h-full object-contain" 
                              referrerPolicy="no-referrer"
@@ -773,7 +796,7 @@ export default function App() {
                        <div className="flex flex-col items-center group">
                          <div className="w-32 h-24 md:w-48 md:h-32 flex items-center justify-center bg-transparent transition-transform group-hover:scale-105">
                            <img 
-                             src={`${baseUrl}images/logo-utec.png`} 
+                             src={getImgPath('images/logo-utec.png')} 
                              alt="UTEC ITR Suroeste" 
                              className="max-w-full max-h-full object-contain" 
                              referrerPolicy="no-referrer"
@@ -1553,10 +1576,10 @@ export default function App() {
           <SectionHeader title="DISEÑOS_MECANICOS_2D_3D" />
           <div className="grid grid-cols-2 gap-2 h-64 overflow-y-auto pr-2 bg-gray-400 p-2 border-2 border-inset border-gray-600" style={{ borderStyle: 'inset' }}>
              {[
-               { title: 'Plano_Gavetas.png', file: `${baseUrl}images/plano-gavetas.png`, color: 'bg-white' },
-               { title: 'Ensamblaje.png', file: `${baseUrl}images/ensamblaje.png`, color: 'bg-blue-50' },
-               { title: 'Circuito_PCB.png', file: `${baseUrl}images/circuito-pcb.png`, color: 'bg-green-50' },
-               { title: 'Modulo_Ref.png', file: `${baseUrl}images/modulo.png`, color: 'bg-red-50' }
+               { title: 'Plano_Gavetas.png', file: getImgPath('images/plano-gavetas.png'), color: 'bg-white' },
+               { title: 'Ensamblaje.png', file: getImgPath('images/ensamblaje.png'), color: 'bg-blue-50' },
+               { title: 'Circuito_PCB.png', file: getImgPath('images/circuito-pcb.png'), color: 'bg-green-50' },
+               { title: 'Modulo_Ref.png', file: getImgPath('images/modulo.png'), color: 'bg-red-50' }
              ].map((img, i) => (
                <div key={i} className={`${img.color} border border-black p-1 shadow-md hover:scale-105 transition-transform`}>
                   <div className="h-24 bg-slate-200 flex items-center justify-center border border-gray-400 overflow-hidden">
