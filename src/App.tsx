@@ -79,12 +79,12 @@ function AnimatedRetroIcon({ url, label, onClick }: { url: string, label: string
       whileHover={{ scale: 1.3, zIndex: 10 }}
       whileTap={{ scale: 0.9 }}
       onClick={onClick}
-      className={`p-1 cursor-pointer bg-white border border-gray-400 shadow-sm ${onClick ? 'hover:bg-yellow-50' : ''}`}
+      className={`p-0.5 cursor-pointer bg-white border border-gray-400 shadow-sm ${onClick ? 'hover:bg-yellow-50' : ''}`}
     >
       <img 
         src={url} 
         alt={label} 
-        className="w-6 h-6 md:w-8 md:h-8 object-contain pixelated" 
+        className="w-4 h-4 md:w-5 md:h-5 object-contain pixelated" 
         style={{ imageRendering: 'pixelated' }} 
         referrerPolicy="no-referrer"
         onError={(e) => {
@@ -1157,42 +1157,35 @@ export default function App() {
         onClose={() => setIsGuestbookOpen(false)}
         top="15%"
         left="20%"
-        width="450px"
+        width="300px"
         icon={<MessageSquare size={12} className="text-blue-900" />}
       >
         <div className="relative overflow-hidden">
           {/* Admin Indicator */}
           {isAdmin && (
-            <div className="absolute top-0 right-0 z-50 bg-yellow-400 border border-black px-2 py-0.5 text-[8px] font-black italic shadow-md rotate-3 translate-x-2 -translate-y-1">
-              ADMIN MODE ACTIVE
+            <div className="absolute top-0 right-0 z-50 bg-yellow-400 border border-black px-1 py-0.5 text-[7px] font-black italic shadow-md rotate-3 translate-x-1 -translate-y-1">
+              ADMIN_ON
             </div>
           )}
           {/* Floating artifacts */}
-          <div className="absolute inset-0 pointer-events-none opacity-10">
+          <div className="absolute inset-0 pointer-events-none opacity-5">
             <motion.img 
               src="https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/tech/ufo.gif" 
-              animate={{ y: [0, -200], x: [0, 80], opacity: [0, 1, 0] }} 
+              animate={{ y: [0, -150], x: [0, 40], opacity: [0, 0.5, 0] }} 
               transition={{ duration: 12, repeat: Infinity }} 
-              className="absolute bottom-0 left-1/4 w-12"
+              className="absolute bottom-0 left-1/4 w-8"
               referrerPolicy="no-referrer"
             />
             <motion.img 
               src="https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/smileys/smiley_alien.gif" 
-              animate={{ y: [0, -250], x: [0, -50], opacity: [0, 1, 0] }} 
+              animate={{ y: [0, -200], x: [0, -30], opacity: [0, 0.5, 0] }} 
               transition={{ duration: 18, repeat: Infinity, delay: 3 }} 
-              className="absolute bottom-0 right-1/4 w-12"
-              referrerPolicy="no-referrer"
-            />
-            <motion.img 
-              src="https://raw.githubusercontent.com/AnestisK/old-web-graphics/master/gifs/tech/disk.gif" 
-              animate={{ rotate: [0, 360], scale: [0.8, 1.2, 0.8], opacity: [0.1, 0.4, 0.1] }} 
-              transition={{ duration: 6, repeat: Infinity }} 
-              className="absolute top-1/4 left-1/2 w-16"
+              className="absolute bottom-0 right-1/4 w-8"
               referrerPolicy="no-referrer"
             />
           </div>
 
-          <div className="space-y-4 mb-4 max-h-[350px] overflow-y-auto pr-2 custom-scrollbar p-1 relative z-10">
+          <div className="space-y-3 mb-2 max-h-[180px] overflow-y-auto pr-1 custom-scrollbar p-1 relative z-10">
           <AnimatePresence initial={false}>
             {messages.map(m => (
               <motion.div 
@@ -1281,9 +1274,9 @@ export default function App() {
         </div>
       </div>
         
-        <form onSubmit={handleSignGuestbook} className="bg-[#c0c0c0] p-4 border-2 border-white border-r-gray-800 border-b-gray-800 space-y-3 shadow-inner">
+        <form onSubmit={handleSignGuestbook} className="bg-[#c0c0c0] p-2 border-2 border-white border-r-gray-800 border-b-gray-800 space-y-2 shadow-inner">
            <div className="flex justify-between items-center border-b border-gray-400 pb-1 mb-1">
-             <div className="text-[10px] font-black uppercase text-blue-900 tracking-tighter">FIRMAR_LIBRO_VISITAS.DAT</div>
+             <div className="text-[9px] font-black uppercase text-blue-900 tracking-tighter">GUESTBOOK.DAT</div>
              <div className="flex gap-1 overflow-x-auto py-1 scrollbar-hide">
                {RETRO_VISUALS.map(item => (
                  <AnimatedRetroIcon 
@@ -1296,13 +1289,13 @@ export default function App() {
              </div>
            </div>
            
-           <div className="grid grid-cols-1 gap-2">
-             <div className="flex flex-col gap-1">
-               <label className="text-[9px] font-bold text-gray-600 uppercase">Remitente:</label>
+           <div className="grid grid-cols-1 gap-1">
+             <div className="flex flex-col gap-0.5">
+               <label className="text-[8px] font-bold text-gray-600 uppercase">Remitente:</label>
                <input 
                   type="text" 
-                  placeholder="Tu alias o identidad..." 
-                  className="w-full text-[10px] p-1 border-2 border-inset border-gray-500 bg-white shadow-inner focus:outline-none focus:border-blue-500"
+                  placeholder="Tu alias..." 
+                  className="w-full text-[9px] p-1 border-2 border-inset border-gray-500 bg-white shadow-inner focus:outline-none focus:border-blue-500"
                   style={{ borderStyle: 'inset' }}
                   value={newName}
                   onChange={e => setNewName(e.target.value)}
@@ -1310,11 +1303,11 @@ export default function App() {
                />
              </div>
              
-             <div className="flex flex-col gap-1">
-               <label className="text-[9px] font-bold text-gray-600 uppercase">Transmisión:</label>
+             <div className="flex flex-col gap-0.5">
+               <label className="text-[8px] font-bold text-gray-600 uppercase">Mensaje:</label>
                <textarea 
-                  placeholder="Escribe un mensaje para el muro..." 
-                  className="w-full text-[10px] p-1 border-2 border-inset border-gray-500 bg-white h-16 shadow-inner focus:outline-none focus:border-blue-500 custom-scrollbar"
+                  placeholder="Escribe algo..." 
+                  className="w-full text-[9px] p-1 border-2 border-inset border-gray-500 bg-white h-12 shadow-inner focus:outline-none focus:border-blue-500 custom-scrollbar"
                   style={{ borderStyle: 'inset' }}
                   value={newMessage}
                   onChange={e => setNewMessage(e.target.value)}
