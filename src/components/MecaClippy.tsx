@@ -3,25 +3,25 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X } from 'lucide-react';
 
 const TIPS = [
-  "¡Hola! Soy Meca-Clippy. ¿Necesitas ayuda para explorar este portafolio?",
-  "Parece que estás viendo los proyectos de Sofia. ¡El del Pick-to-Light es mi favorito!",
-  "¿Sabías que Sofia es una crack en SolidWorks? Deberías ver sus planos mecánicos.",
-  "¡Vaya! Veo que este sitio usa tecnología SigFox e IoT. ¡Muy avanzado!",
-  "Si te gusta lo que ves, ¡no olvides dejar un mensaje en el Guestbook.txt!",
-  "¡Atención! Demasiada ingeniería en una sola página puede causar bugs de felicidad.",
-  "Sofia está cursando el 5to semestre. ¡Mira cuánto ha progresado en su matriz de competencias!",
-  "¿Buscas contacto profesional? Haz click en el icono de 'Mi PC' o en el sobre de abajo."
+  "¡Hola Sofia! ¿Necesitas ayuda con los planos de SolidWorks?",
+  "He revisado tu Malla Curricular... ¡Vas por muy buen camino en Mecatrónica!",
+  "¿Viste el proyecto del brazo robótico? ¡Está genial!",
+  "Si quieres ver mis circuitos, abre el archivo Proyectos.exe",
+  "¡No te olvides de pasar por el Guestbook para dejar un saludo!",
+  "Ingeniería + Diseño = Un portafolio increíble. ¡Sigamos explorando!",
+  "He detectado un alto nivel de eficiencia en este sistema. ¡Buen trabajo!",
+  "¿Buscas contacto? Haz click en el sobre de abajo para enviar un correo."
 ];
 
-// Actual direct links for Tenor GIFs provided
+// Mapped direct links for the specific Tenor GIFs
 const ANIMS = {
-  IDLE: "https://media.tenor.com/vNEXyvJq0QatfHRE1g/clippy.gif", // 23777925
-  TAP: "https://media.tenor.com/Z8XJkLpS1pAAAAAC/clippy.gif",   // 23777969
-  MUSIC: "https://media.tenor.com/0mF8oG_vN9AAAAAC/clippy.gif", // 23777861
-  LOOK: "https://media.tenor.com/u7V_iH_f7kAAAAC/clippy.gif",  // 23777959
-  BIKE: "https://media.tenor.com/M6Lp-i8g3vMAAAAC/clippy.gif",  // 23777902
-  PLANE: "https://media.tenor.com/G9F8oG_vN9AAAAAC/clippy.gif", // 23777960
-  SCRATCH: "https://media.tenor.com/7-F8oG_vN9AAAAAC/clippy.gif" // 23777923
+  IDLE: "https://media.tenor.com/vNEXyvJq0QatfHRE1g/clippy.gif",      // 23777925 (IDLE/Tapping)
+  TAP: "https://media.tenor.com/Z8XJkLpS1pAAAAAC/clippy.gif",        // 23777969
+  MUSIC: "https://media.tenor.com/6D_6-Vv4W80AAAAC/clippy.gif",      // 23777861
+  LOOK: "https://media.tenor.com/u7V_iH_f7kAAAAC/clippy.gif",       // 23777959
+  BIKE: "https://media.tenor.com/M6Lp-i8g3vMAAAAC/clippy.gif",       // 23777902
+  PLANE: "https://media.tenor.com/G9F8oG_vN9AAAAAC/clippy.gif",      // 23777960
+  SCRATCH: "https://media.tenor.com/7-F8oG_vN9AAAAAC/clippy.gif"     // 23777923
 };
 
 export const MecaClippy: React.FC = () => {
@@ -29,12 +29,13 @@ export const MecaClippy: React.FC = () => {
   const [currentTip, setCurrentTip] = useState("");
   const [showBubble, setShowBubble] = useState(false);
   const [currentAnim, setCurrentAnim] = useState(ANIMS.IDLE);
+  const [loadError, setLoadError] = useState(false);
 
   useEffect(() => {
-    // Show up quickly with an intro
+    // Show up quickly
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 1000);
+    }, 1500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -42,10 +43,11 @@ export const MecaClippy: React.FC = () => {
     const randomIdx = Math.floor(Math.random() * TIPS.length);
     setCurrentTip(TIPS[randomIdx]);
     
-    // Choose a random animation (excluding IDLE for variety during talk)
-    const animKeys = Object.keys(ANIMS).filter(k => k !== 'IDLE');
+    // Choose a random animation for interaction
+    const animKeys: (keyof typeof ANIMS)[] = ['TAP', 'MUSIC', 'LOOK', 'BIKE', 'PLANE', 'SCRATCH'];
     const randomKey = animKeys[Math.floor(Math.random() * animKeys.length)];
-    setCurrentAnim(ANIMS[randomKey as keyof typeof ANIMS]);
+    setCurrentAnim(ANIMS[randomKey]);
+    setLoadError(false);
   };
 
   const handleInteraction = () => {
@@ -54,7 +56,8 @@ export const MecaClippy: React.FC = () => {
       setShowBubble(true);
     } else {
       setShowBubble(false);
-      setCurrentAnim(ANIMS.IDLE); // Return to idle when bubble closed
+      setCurrentAnim(ANIMS.IDLE);
+      setLoadError(false);
     }
   };
 
@@ -64,9 +67,9 @@ export const MecaClippy: React.FC = () => {
     <motion.div
       drag
       dragMomentum={false}
-      initial={{ opacity: 0, scale: 0.5, y: 100 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      className="fixed bottom-12 right-6 z-[100] flex flex-col items-center pointer-events-auto cursor-grab active:cursor-grabbing select-none"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      className="fixed bottom-16 right-8 z-[9999] flex flex-col items-center pointer-events-auto cursor-grab active:cursor-grabbing select-none"
     >
       <AnimatePresence>
         {showBubble && (
@@ -74,20 +77,19 @@ export const MecaClippy: React.FC = () => {
             initial={{ opacity: 0, scale: 0.8, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 10 }}
-            className="mb-2 p-3 bg-[#FFFFE1] border border-black shadow-[3px_3px_0px_rgba(0,0,0,0.3)] max-w-[180px] relative pointer-events-auto"
-            onPointerDown={(e) => e.stopPropagation()} // Allow interaction inside bubble
+            className="mb-2 p-3 bg-[#FFFFE1] border border-black shadow-[4px_4px_0px_rgba(0,0,0,0.2)] max-w-[180px] relative pointer-events-auto"
+            onPointerDown={(e) => e.stopPropagation()}
           >
-            {/* Speech bubble tail */}
             <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#FFFFE1] border-r border-b border-black rotate-45"></div>
             
             <button 
               onClick={(e) => { e.stopPropagation(); setShowBubble(false); setCurrentAnim(ANIMS.IDLE); }}
-              className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-white text-black border border-black flex items-center justify-center text-[8px] hover:bg-gray-100 shadow-sm"
+              className="absolute -top-2 -right-2 w-5 h-5 bg-white text-black border border-black flex items-center justify-center text-[10px] hover:bg-gray-100 shadow-sm"
             >
-              <X size={8} />
+              <X size={10} />
             </button>
             
-            <p className="text-[10px] font-sans text-black text-center pr-1 leading-tight font-medium">
+            <p className="text-[11px] font-sans text-black text-center leading-tight font-medium">
               {currentTip}
             </p>
           </motion.div>
@@ -98,22 +100,27 @@ export const MecaClippy: React.FC = () => {
         onClick={handleInteraction}
         className="relative flex flex-col items-center"
       >
-        <div className="relative w-24 h-24 flex items-center justify-center">
-           <motion.img 
-             key={currentAnim} // Force re-render on anim change to restart GIF
-             src={currentAnim}
-             alt="Clippy"
-             className="w-full h-full object-contain filter drop-shadow-md"
-             animate={!showBubble ? { y: [0, -2, 0] } : {}}
-             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-             onError={(e) => {
-                (e.target as HTMLImageElement).src = "https://win98icons.alexmeub.com/icons/png/clippy-0.png";
-             }}
-           />
+        <div className="relative w-28 h-28 flex items-center justify-center bg-transparent">
+           {!loadError ? (
+             <motion.img 
+               key={currentAnim}
+               src={currentAnim}
+               alt="Clippy"
+               className="w-full h-full object-contain"
+               animate={!showBubble ? { y: [0, -3, 0] } : {}}
+               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+               onError={() => setLoadError(true)}
+             />
+           ) : (
+             <div className="w-full h-full flex flex-col items-center justify-center bg-yellow-100 border-2 border-dashed border-yellow-600 rounded-lg p-2 text-center">
+               <span className="text-[8px] font-bold text-yellow-800">CLIPPY OFFLINE</span>
+               <img src="https://win98icons.alexmeub.com/icons/png/clippy-0.png" className="w-10 h-10 mt-1" />
+             </div>
+           )}
         </div>
         
-        <div className="mt-[-8px] bg-[#c0c0c0] text-black px-2 py-0.5 border-t border-l border-white border-r-gray-800 border-b-gray-800 text-[8px] font-bold uppercase shadow-sm z-10 pointer-events-none">
-          Meca-Bot v1.2
+        <div className="mt-[-10px] bg-[#c0c0c0] text-black px-2 py-0.5 border-t border-l border-white border-r-gray-800 border-b-gray-800 text-[10px] font-bold uppercase shadow-md z-10 pointer-events-none">
+          Meca-Clippy
         </div>
       </div>
     </motion.div>
