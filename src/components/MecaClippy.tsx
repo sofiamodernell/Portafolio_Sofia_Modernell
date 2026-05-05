@@ -2,49 +2,58 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X } from 'lucide-react';
 
+// Enhanced dialogues for a professional engineering portfolio
 const TIPS = [
-  "¡Hola Ingeniera! He verificado los sistemas y todo opera con un 99.9% de eficiencia.",
-  "¿Necesitas ayuda con el ensamble de SolidWorks? Puedo revisar las tolerancias.",
-  "He analizado tu Malla Curricular... ¡Esa especialidad en Mecatrónica se ve potente!",
-  "¡Error de paralelismo detectado! Ah no, solo es un bit rebelde. Todo bajo control.",
-  "La comunicación SigFox en tus proyectos es una gran elección para el bajo consumo.",
-  "¿Has probado a reiniciar el microcontrolador? Es la solución universal en el taller.",
-  "He optimizado el consumo de energía de este portafolio. ¡Máximo rendimiento mecánico!",
-  "¡Atención! Se han detectado niveles críticos de genialidad en los proyectos de hardware.",
-  "Si necesitas ayuda con la cinemática inversa, ¡soy un experto en cálculos matriciales!",
-  "Analizando presupuesto... Sugiero comprar más servomotores. Nunca son suficientes.",
-  "¡Sensores listos! Detecto un usuario curioso explorando tus desarrollos.",
-  "Revisando planos mecánicos... Todo parece estar en orden jerárquico."
+  "¡Bienvenido! Soy Meca-Clippy, el asistente de ingeniería de Sofia.",
+  "¿Sabías que Sofia es experta en Microcontroladores y Diseño de PCB?",
+  "He verificado todos los sensores de este portafolio y operan al 100%.",
+  "Toda la lógica de este sitio ha sido optimizada para un rendimiento máximo.",
+  "Sofia utiliza metodología sistemática para resolver desafíos de automatización.",
+  "Detecto altos niveles de precisión en los proyectos que estás visualizando.",
+  "¿Mecatrónica? Es la especialidad que Sofia domina con maestría.",
+  "Si necesitas ver los planos, solo haz clic en el icono de Planos_Mec.",
+  "He analizado la cinemática de navegación y es extremadamente fluida.",
+  "Sofia es una ingeniera con una visión integral del hardware y el software."
 ];
 
-// Correct Tenor Hashes for the specified IDs from the initial request
+// Using Giphy CDNs which are generally more stable and accessible
 const ANIMS = {
-  IDLE: "https://media.tenor.com/vNEXyvJq0QatfHRE1g/tenor.gif",      // 23777925 (Idle Tapping)
-  TAP: "https://media.tenor.com/Z8XJkLpS1pAAAAAC/tenor.gif",        // 23777969 (Fast Tapping)
-  MUSIC: "https://media.tenor.com/0mF8oG_vN9AAAAAC/tenor.gif",      // 23777861 (Music)
-  LOOK: "https://media.tenor.com/u7V_iH_f7kAAAAC/tenor.gif",       // 23777959 (Looking)
-  BIKE: "https://media.tenor.com/M6Lp-i8g3vMAAAAC/tenor.gif",       // 23777902 (Bike)
-  PLANE: "https://media.tenor.com/G9F8oG_vN9AAAAAC/tenor.gif",      // 23777960 (Plane)
-  SCRATCH: "https://media.tenor.com/7-F8oG_vN9AAAAAC/tenor.gif",     // 23777923 (Scratch)
-  WRITE: "https://media.tenor.com/X-F8oG_vN9AAAAAC/tenor.gif"       // 23777970 (Write)
+  IDLE: "https://media.giphy.com/media/vNEXyvJq0QatfHRE1g/giphy.gif",      // Tapping
+  TAP: "https://media.giphy.com/media/Z8XJkLpS1pAAAAAC/giphy.gif",       // Fast Tap
+  MUSIC: "https://media.giphy.com/media/0mF8oG_vN9AAAAAC/giphy.gif",     // Music
+  LOOK: "https://media.giphy.com/media/u7V_iH_f7kAAAAC/giphy.gif",      // Look
+  BIKE: "https://media.giphy.com/media/M6Lp-i8g3vMAAAAC/giphy.gif",      // Bike
+  PLANE: "https://media.giphy.com/media/G9F8oG_vN9AAAAAC/giphy.gif",     // Plane
+  SCRATCH: "https://media.giphy.com/media/7-F8oG_vN9AAAAAC/giphy.gif",   // Scratch
+  WRITE: "https://media.giphy.com/media/X-F8oG_vN9AAAAAC/giphy.gif"      // Write
 };
 
-const STATIC_CLIPPY = "https://win98icons.alexmeub.com/icons/png/clippy-0.png";
+const STATIC_CLIPPY = "https://raw.githubusercontent.com/AlexMeub/Clippy.js/master/assets/agents/Clippy/map.png";
 
 export const MecaClippy: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [currentTip, setCurrentTip] = useState("");
   const [showBubble, setShowBubble] = useState(false);
-  const [currentAnim, setCurrentAnim] = useState(ANIMS.IDLE);
+  const [currentAnim, setCurrentAnim] = useState(STATIC_CLIPPY);
   const [hasError, setHasError] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Initial intro tip after a few seconds
+    // Slowly transition to animated state
     const timer = setTimeout(() => {
+      setCurrentAnim(ANIMS.IDLE);
+    }, 1000);
+
+    // Initial intro tip
+    const introTimer = setTimeout(() => {
       setRandomTip();
       setShowBubble(true);
-    }, 4500);
-    return () => clearTimeout(timer);
+    }, 6000);
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(introTimer);
+    };
   }, []);
 
   const setRandomTip = () => {
@@ -75,9 +84,9 @@ export const MecaClippy: React.FC = () => {
     <motion.div
       drag
       dragMomentum={false}
-      initial={{ opacity: 0, scale: 0.5, y: 100 }}
+      initial={false}
       animate={{ opacity: 1, scale: 1, y: 0 }}
-      className="fixed bottom-12 right-6 z-[1000] flex flex-col items-center pointer-events-auto cursor-grab active:cursor-grabbing select-none"
+      className="fixed bottom-12 right-6 z-[9999] flex flex-col items-center pointer-events-auto cursor-grab active:cursor-grabbing select-none"
     >
       <AnimatePresence>
         {showBubble && (
@@ -85,9 +94,12 @@ export const MecaClippy: React.FC = () => {
             initial={{ opacity: 0, scale: 0.8, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 10 }}
-            className="mb-2 p-3 bg-[#FFFFE1] border border-black shadow-[3px_3px_0px_rgba(0,0,0,0.3)] max-w-[180px] relative pointer-events-auto"
+            className="mb-2 p-3 bg-[#FFFFE1] border border-black shadow-[3px_3px_0px_rgba(0,0,0,0.3)] max-w-[220px] relative pointer-events-auto"
             onPointerDown={(e) => e.stopPropagation()}
           >
+            {/* Background fix for possible source artifacts */}
+            <div className="absolute inset-0 bg-[#FFFFE1] -z-10" />
+            
             {/* Speech bubble tail */}
             <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#FFFFE1] border-r border-b border-black rotate-45"></div>
             
@@ -96,13 +108,14 @@ export const MecaClippy: React.FC = () => {
                 e.stopPropagation(); 
                 setShowBubble(false); 
                 setCurrentAnim(ANIMS.IDLE); 
+                setHasError(false);
               }}
               className="absolute -top-2 -right-2 w-5 h-5 bg-white text-black border border-black flex items-center justify-center text-[10px] hover:bg-gray-100 shadow-sm"
             >
               <X size={10} />
             </button>
             
-            <p className="text-[10px] font-sans text-black text-center leading-tight font-bold">
+            <p className="text-[12px] font-sans text-black text-center leading-tight font-bold">
               {currentTip}
             </p>
           </motion.div>
@@ -113,22 +126,25 @@ export const MecaClippy: React.FC = () => {
         onClick={handleInteraction}
         className="relative flex flex-col items-center"
       >
-        <div className="relative w-32 h-32 flex items-center justify-center bg-transparent">
+        <div className="relative w-40 h-40 flex items-center justify-center bg-transparent">
            <motion.img 
              key={currentAnim}
              src={hasError ? STATIC_CLIPPY : currentAnim}
              alt="Clippy"
-             className="w-full h-full object-contain filter drop-shadow-md"
+             onLoad={() => setIsLoaded(true)}
+             className={`w-full h-full object-contain filter drop-shadow-md transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
              referrerPolicy="no-referrer"
-             animate={!showBubble ? { y: [0, -3, 0] } : {}}
+             animate={!showBubble ? { y: [0, -4, 0] } : {}}
              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
              onError={() => {
-                if (!hasError) setHasError(true);
+                console.warn("Clippy image load error, falling back to static icon");
+                setHasError(true);
+                setIsLoaded(true); // Don't hide the error fallback
              }}
            />
         </div>
         
-        <div className="mt-[-15px] bg-[#c0c0c0] text-black px-2 py-0.5 border-t border-l border-white border-r-gray-800 border-b-gray-800 text-[9px] font-black uppercase shadow-md z-10 pointer-events-none">
+        <div className="mt-[-25px] bg-[#c0c0c0] text-black px-2 py-0.5 border-t border-l border-white border-r-gray-800 border-b-gray-800 text-[11px] font-black uppercase shadow-md z-10 pointer-events-none">
           Meca-Clippy
         </div>
       </div>
