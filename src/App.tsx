@@ -612,12 +612,14 @@ export default function App() {
       
       {/* Top Banner / Marquee Area */}
       <div className="absolute top-0 w-full bg-blue-900 text-white h-8 flex items-center border-b-2 border-black overflow-hidden z-50 shadow-md">
-        <Marquee scrollamount={1}>
-          :: PORTAFOLIO DE COMPETENCIAS :: SOFIA CAROLINA MODERNELL PEÑALOZA :: UTEC - MECATRÓNICA :: 5TO SEMESTRE :: &nbsp;&nbsp;&nbsp;&nbsp;
-          <Blink>SITE UNDER CONSTRUCTION. PLEASE PARDON THE DUST!</Blink> :: &nbsp;&nbsp;&nbsp;&nbsp;
-          ACTUALIZADO: 05/05/2026 :: &nbsp;&nbsp;&nbsp;&nbsp;
-          ERES EL VISITANTE NÚMERO: {visitorCount} :: &nbsp;&nbsp;&nbsp;&nbsp;
-          ¡ESCRÍBEME! ✉️ ::&nbsp;&nbsp;&nbsp;&nbsp;
+        <Marquee scrollamount={2}>
+          <span className="font-mono text-sm tracking-widest">
+            :: PORTAFOLIO DE COMPETENCIAS :: SOFIA CAROLINA MODERNELL PEÑALOZA :: UTEC - MECATRÓNICA :: 5TO SEMESTRE :: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            SITE UNDER CONSTRUCTION. PLEASE PARDON THE DUST! :: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            ACTUALIZADO: 05/05/2026 :: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            ERES EL VISITANTE NÚMERO: {visitorCount} :: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            ¡ESCRÍBEME! ✉️ :: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>
         </Marquee>
       </div>
 
