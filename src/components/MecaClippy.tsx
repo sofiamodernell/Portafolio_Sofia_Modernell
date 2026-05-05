@@ -3,39 +3,47 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X } from 'lucide-react';
 
 const TIPS = [
-  "¡Hola Sofia! ¿Necesitas ayuda con los planos de SolidWorks?",
-  "He revisado tu Malla Curricular... ¡Vas por muy buen camino en Mecatrónica!",
-  "¿Viste el proyecto del brazo robótico? ¡Está genial!",
-  "Si quieres ver mis circuitos, abre el archivo Proyectos.exe",
-  "¡No te olvides de pasar por el Guestbook para dejar un saludo!",
-  "Ingeniería + Diseño = Un portafolio increíble. ¡Sigamos explorando!",
-  "He detectado un alto nivel de eficiencia en este sistema. ¡Buen trabajo!",
-  "¿Buscas contacto? Haz click en el sobre de abajo para enviar un correo."
+  "¡Hola Ingeniera! He verificado los sistemas y todo opera con un 99.9% de eficiencia.",
+  "¿Necesitas ayuda con el ensamble de SolidWorks? Puedo revisar las tolerancias.",
+  "He analizado tu Malla Curricular... ¡Esa especialidad en Mecatrónica se ve potente!",
+  "¡Error de paralelismo detectado! Ah no, solo es un bit rebelde. Todo bajo control.",
+  "La comunicación SigFox en tus proyectos es una gran elección para el bajo consumo.",
+  "¿Has probado a reiniciar el microcontrolador? Es la solución universal en el taller.",
+  "He optimizado el consumo de energía de este portafolio. ¡Máximo rendimiento mecánico!",
+  "¡Atención! Se han detectado niveles críticos de genialidad en los proyectos de hardware.",
+  "Si necesitas ayuda con la cinemática inversa, ¡soy un experto en cálculos matriciales!",
+  "Analizando presupuesto... Sugiero comprar más servomotores. Nunca son suficientes.",
+  "¡Sensores listos! Detecto un usuario curioso explorando tus desarrollos.",
+  "Revisando planos mecánicos... Todo parece estar en orden jerárquico."
 ];
 
-// Mapped direct links for the specific Tenor GIFs
+// Correct Tenor Hashes for the specified IDs from the initial request
 const ANIMS = {
-  IDLE: "https://media.tenor.com/vNEXyvJq0QatfHRE1g/clippy.gif",      // 23777925 (IDLE/Tapping)
-  TAP: "https://media.tenor.com/Z8XJkLpS1pAAAAAC/clippy.gif",        // 23777969
-  MUSIC: "https://media.tenor.com/6D_6-Vv4W80AAAAC/clippy.gif",      // 23777861
-  LOOK: "https://media.tenor.com/u7V_iH_f7kAAAAC/clippy.gif",       // 23777959
-  BIKE: "https://media.tenor.com/M6Lp-i8g3vMAAAAC/clippy.gif",       // 23777902
-  PLANE: "https://media.tenor.com/G9F8oG_vN9AAAAAC/clippy.gif",      // 23777960
-  SCRATCH: "https://media.tenor.com/7-F8oG_vN9AAAAAC/clippy.gif"     // 23777923
+  IDLE: "https://media.tenor.com/vNEXyvJq0QatfHRE1g/tenor.gif",      // 23777925 (Idle Tapping)
+  TAP: "https://media.tenor.com/Z8XJkLpS1pAAAAAC/tenor.gif",        // 23777969 (Fast Tapping)
+  MUSIC: "https://media.tenor.com/0mF8oG_vN9AAAAAC/tenor.gif",      // 23777861 (Music)
+  LOOK: "https://media.tenor.com/u7V_iH_f7kAAAAC/tenor.gif",       // 23777959 (Looking)
+  BIKE: "https://media.tenor.com/M6Lp-i8g3vMAAAAC/tenor.gif",       // 23777902 (Bike)
+  PLANE: "https://media.tenor.com/G9F8oG_vN9AAAAAC/tenor.gif",      // 23777960 (Plane)
+  SCRATCH: "https://media.tenor.com/7-F8oG_vN9AAAAAC/tenor.gif",     // 23777923 (Scratch)
+  WRITE: "https://media.tenor.com/X-F8oG_vN9AAAAAC/tenor.gif"       // 23777970 (Write)
 };
 
+const STATIC_CLIPPY = "https://win98icons.alexmeub.com/icons/png/clippy-0.png";
+
 export const MecaClippy: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [currentTip, setCurrentTip] = useState("");
   const [showBubble, setShowBubble] = useState(false);
   const [currentAnim, setCurrentAnim] = useState(ANIMS.IDLE);
-  const [loadError, setLoadError] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    // Show up quickly
+    // Initial intro tip after a few seconds
     const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 1500);
+      setRandomTip();
+      setShowBubble(true);
+    }, 4500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -43,11 +51,11 @@ export const MecaClippy: React.FC = () => {
     const randomIdx = Math.floor(Math.random() * TIPS.length);
     setCurrentTip(TIPS[randomIdx]);
     
-    // Choose a random animation for interaction
-    const animKeys: (keyof typeof ANIMS)[] = ['TAP', 'MUSIC', 'LOOK', 'BIKE', 'PLANE', 'SCRATCH'];
-    const randomKey = animKeys[Math.floor(Math.random() * animKeys.length)];
+    // Choose a thematic animation
+    const keys = Object.keys(ANIMS) as (keyof typeof ANIMS)[];
+    const randomKey = keys[Math.floor(Math.random() * keys.length)];
     setCurrentAnim(ANIMS[randomKey]);
-    setLoadError(false);
+    setHasError(false);
   };
 
   const handleInteraction = () => {
@@ -57,7 +65,7 @@ export const MecaClippy: React.FC = () => {
     } else {
       setShowBubble(false);
       setCurrentAnim(ANIMS.IDLE);
-      setLoadError(false);
+      setHasError(false);
     }
   };
 
@@ -67,9 +75,9 @@ export const MecaClippy: React.FC = () => {
     <motion.div
       drag
       dragMomentum={false}
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      className="fixed bottom-16 right-8 z-[9999] flex flex-col items-center pointer-events-auto cursor-grab active:cursor-grabbing select-none"
+      initial={{ opacity: 0, scale: 0.5, y: 100 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      className="fixed bottom-12 right-6 z-[1000] flex flex-col items-center pointer-events-auto cursor-grab active:cursor-grabbing select-none"
     >
       <AnimatePresence>
         {showBubble && (
@@ -77,19 +85,24 @@ export const MecaClippy: React.FC = () => {
             initial={{ opacity: 0, scale: 0.8, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 10 }}
-            className="mb-2 p-3 bg-[#FFFFE1] border border-black shadow-[4px_4px_0px_rgba(0,0,0,0.2)] max-w-[180px] relative pointer-events-auto"
+            className="mb-2 p-3 bg-[#FFFFE1] border border-black shadow-[3px_3px_0px_rgba(0,0,0,0.3)] max-w-[180px] relative pointer-events-auto"
             onPointerDown={(e) => e.stopPropagation()}
           >
+            {/* Speech bubble tail */}
             <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#FFFFE1] border-r border-b border-black rotate-45"></div>
             
             <button 
-              onClick={(e) => { e.stopPropagation(); setShowBubble(false); setCurrentAnim(ANIMS.IDLE); }}
+              onClick={(e) => { 
+                e.stopPropagation(); 
+                setShowBubble(false); 
+                setCurrentAnim(ANIMS.IDLE); 
+              }}
               className="absolute -top-2 -right-2 w-5 h-5 bg-white text-black border border-black flex items-center justify-center text-[10px] hover:bg-gray-100 shadow-sm"
             >
               <X size={10} />
             </button>
             
-            <p className="text-[11px] font-sans text-black text-center leading-tight font-medium">
+            <p className="text-[10px] font-sans text-black text-center leading-tight font-bold">
               {currentTip}
             </p>
           </motion.div>
@@ -100,26 +113,22 @@ export const MecaClippy: React.FC = () => {
         onClick={handleInteraction}
         className="relative flex flex-col items-center"
       >
-        <div className="relative w-28 h-28 flex items-center justify-center bg-transparent">
-           {!loadError ? (
-             <motion.img 
-               key={currentAnim}
-               src={currentAnim}
-               alt="Clippy"
-               className="w-full h-full object-contain"
-               animate={!showBubble ? { y: [0, -3, 0] } : {}}
-               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-               onError={() => setLoadError(true)}
-             />
-           ) : (
-             <div className="w-full h-full flex flex-col items-center justify-center bg-yellow-100 border-2 border-dashed border-yellow-600 rounded-lg p-2 text-center">
-               <span className="text-[8px] font-bold text-yellow-800">CLIPPY OFFLINE</span>
-               <img src="https://win98icons.alexmeub.com/icons/png/clippy-0.png" className="w-10 h-10 mt-1" />
-             </div>
-           )}
+        <div className="relative w-32 h-32 flex items-center justify-center bg-transparent">
+           <motion.img 
+             key={currentAnim}
+             src={hasError ? STATIC_CLIPPY : currentAnim}
+             alt="Clippy"
+             className="w-full h-full object-contain filter drop-shadow-md"
+             referrerPolicy="no-referrer"
+             animate={!showBubble ? { y: [0, -3, 0] } : {}}
+             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+             onError={() => {
+                if (!hasError) setHasError(true);
+             }}
+           />
         </div>
         
-        <div className="mt-[-10px] bg-[#c0c0c0] text-black px-2 py-0.5 border-t border-l border-white border-r-gray-800 border-b-gray-800 text-[10px] font-bold uppercase shadow-md z-10 pointer-events-none">
+        <div className="mt-[-15px] bg-[#c0c0c0] text-black px-2 py-0.5 border-t border-l border-white border-r-gray-800 border-b-gray-800 text-[9px] font-black uppercase shadow-md z-10 pointer-events-none">
           Meca-Clippy
         </div>
       </div>
