@@ -120,6 +120,7 @@ export default function App() {
   const [replyText, setReplyText] = useState("");
   const [replyingTo, setReplyingTo] = useState<string | null>(null);
   const [isReplying, setIsReplying] = useState(false);
+  const [showMobileNav, setShowMobileNav] = useState(false);
 
   // Use project base URL for images
   const getImgPath = (path: string) => {
@@ -617,7 +618,7 @@ export default function App() {
 
       {/* Desktop Icons */}
       {/* Desktop Icons Container */}
-      <div className="absolute top-12 left-6 w-full h-[calc(100%-100px)] z-10 flex flex-col flex-wrap content-start gap-x-12 gap-y-8 overflow-hidden">
+      <div className="absolute top-12 left-2 md:left-6 w-[calc(100%-1rem)] md:w-full h-[calc(100%-100px)] z-10 flex flex-row md:flex-col flex-wrap content-start items-start gap-x-4 md:gap-x-12 gap-y-4 md:gap-y-8 overflow-y-auto md:overflow-hidden p-2">
         {/* Column 1: System */}
         <a 
           href="https://drive.google.com/drive/u/1/folders/1PJozcpmSTPEWUJyWsWH0GECPV4-CmeGv" 
@@ -720,10 +721,24 @@ export default function App() {
         noPadding
       >
         <div className="flex h-full flex-col overflow-hidden bg-white">
+          {/* Mobile Top Nav Toggle */}
+          <div className="md:hidden flex items-center justify-between bg-slate-300 p-2 border-b border-gray-400">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 bg-blue-900 flex items-center justify-center text-[10px] font-bold text-yellow-400 italic">SM</div>
+              <span className="text-[10px] font-bold text-blue-900 uppercase">Menú Navegación</span>
+            </div>
+            <button 
+              onClick={() => setShowMobileNav(!showMobileNav)}
+              className="bg-gray-300 border border-white border-r-gray-700 border-b-gray-700 px-2 py-1 text-[10px] font-bold active:bg-gray-400"
+            >
+              {showMobileNav ? 'CERRAR' : 'ABRIR'}
+            </button>
+          </div>
+
           <div className="flex flex-1 flex-col md:flex-row overflow-hidden bg-white">
             {/* Internal Sidebar - The Nav Frame */}
-            <aside className="w-full md:w-[150px] bg-slate-300 border-r-2 border-gray-600 p-2 flex flex-col gap-2 overflow-y-auto overflow-x-hidden shrink-0 font-sans">
-             <div className="bg-[#a0a0a0] border-2 border-inset border-slate-500 p-2 text-center mb-2" style={{ borderStyle: 'inset' }}>
+            <aside className={`${showMobileNav ? 'flex' : 'hidden'} md:flex w-full md:w-[150px] bg-slate-300 border-r-2 border-gray-600 p-2 flex-col gap-2 overflow-y-auto overflow-x-hidden shrink-0 font-sans z-20`}>
+             <div className="hidden md:block bg-[#a0a0a0] border-2 border-inset border-slate-500 p-2 text-center mb-2" style={{ borderStyle: 'inset' }}>
               <div className="w-10 h-10 bg-blue-900 border-2 border-slate-300 mx-auto mb-1 flex items-center justify-center text-lg font-bold text-yellow-400 italic shadow-md">
                 SM
               </div>
@@ -732,19 +747,19 @@ export default function App() {
              
              <SidebarBox title="Explorar">
                 <div className="flex flex-col gap-1 w-full overflow-hidden">
-                  <RetroButton className="w-full text-[9px] px-2" active={activeSection === 'home'} onClick={() => {setActiveSection('home'); setSelectedComp(null);}}>
+                  <RetroButton className="w-full text-[9px] px-2" active={activeSection === 'home'} onClick={() => {setActiveSection('home'); setSelectedComp(null); setShowMobileNav(false);}}>
                     INICIO
                   </RetroButton>
-                  <RetroButton className="w-full text-[9px] px-2" active={activeSection === 'about'} onClick={() => {setActiveSection('about'); setSelectedComp(null);}}>
+                  <RetroButton className="w-full text-[9px] px-2" active={activeSection === 'about'} onClick={() => {setActiveSection('about'); setSelectedComp(null); setShowMobileNav(false);}}>
                     SOBRE_MI
                   </RetroButton>
-                  <RetroButton className="w-full text-[9px] px-2" active={activeSection === 'competencias'} onClick={() => {setActiveSection('competencias'); setSelectedComp(null);}}>
+                  <RetroButton className="w-full text-[9px] px-2" active={activeSection === 'competencias'} onClick={() => {setActiveSection('competencias'); setSelectedComp(null); setShowMobileNav(false);}}>
                     COMPETENCIAS
                   </RetroButton>
-                  <RetroButton className="w-full text-[9px] px-2" active={activeSection === 'proyectos'} onClick={() => {setActiveSection('proyectos'); setSelectedComp(null);}}>
+                  <RetroButton className="w-full text-[9px] px-2" active={activeSection === 'proyectos'} onClick={() => {setActiveSection('proyectos'); setSelectedComp(null); setShowMobileNav(false);}}>
                     PROYECTOS
                   </RetroButton>
-                  <RetroButton className="w-full text-[9px] px-2" active={activeSection === 'contacto'} onClick={() => {setActiveSection('contacto'); setSelectedComp(null);}}>
+                  <RetroButton className="w-full text-[9px] px-2" active={activeSection === 'contacto'} onClick={() => {setActiveSection('contacto'); setSelectedComp(null); setShowMobileNav(false);}}>
                     CONTACTO
                   </RetroButton>
                 </div>

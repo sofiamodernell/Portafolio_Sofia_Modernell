@@ -182,21 +182,37 @@ export const Window: React.FC<{
   left?: string;
   icon?: React.ReactNode;
   noPadding?: boolean;
-}> = ({ title, isOpen, onClose, children, width = "400px", height = "auto", top = "20%", left = "30%", icon, noPadding = false }) => {
+  className?: string;
+}> = ({ title, isOpen, onClose, children, width = "400px", height = "auto", top = "20%", left = "30%", icon, noPadding = false, className = "" }) => {
   const dragControls = useDragControls();
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   if (!isOpen) return null;
 
+  const mobileStyles = {
+    width: "95vw",
+    height: "85vh",
+    top: "7.5vh",
+    left: "2.5vw",
+  };
+
   return (
     <motion.div 
-      drag
+      drag={!isMobile}
       dragMomentum={false}
       dragListener={false}
       dragControls={dragControls}
       initial={{ scale: 0.95, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      className="absolute bg-[#c0c0c0] border-2 border-white border-r-gray-800 border-b-gray-800 shadow-2xl flex flex-col z-[40]"
-      style={{ width, height, top, left }}
+      className={`absolute bg-[#c0c0c0] border-2 border-white border-r-gray-800 border-b-gray-800 shadow-2xl flex flex-col z-[40] ${className}`}
+      style={isMobile ? mobileStyles : { width, height, top, left }}
     >
       {/* Title Bar */}
       <div 
