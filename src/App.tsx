@@ -22,6 +22,7 @@ import { CursorTrail } from './components/CursorTrail';
 import { TicTacToe } from './components/TicTacToe';
 import { Terminal } from './components/Terminal';
 import { RetroMusicPlayer } from './components/RetroMusicPlayer';
+import { MecaClippy } from './components/MecaClippy';
 import { Mail, Linkedin, FolderOpen, Star, AlertTriangle, Monitor, HardDrive, Cpu, Globe, Volume2, VolumeX, MessageSquare, FileText, Award, Image as ImageIcon, Gamepad2, Terminal as TerminalIcon, ShieldCheck, Music, Grid3X3, Book, Map, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
@@ -1887,6 +1888,8 @@ export default function App() {
       <div className="fixed inset-0 opacity-[0.03] pointer-events-none z-[100] overflow-hidden" 
            style={{ backgroundImage: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))', backgroundSize: '100% 2px, 3px 100%' }}>
       </div>
+
+      <MecaClippy />
     </div>
   );
 }
