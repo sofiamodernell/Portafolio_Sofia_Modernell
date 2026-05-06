@@ -807,7 +807,7 @@ export default function App() {
                     <div className="bg-yellow-50 border-2 border-yellow-400 p-3 italic text-[11px] flex items-center gap-3">
                        <MessageSquare size={20} className="text-yellow-600 shrink-0" />
                        <div>
-                         <span className="font-bold">¿Te gusta lo que ves?</span> Déjame un saludo en el <button onClick={() => setIsGuestbookOpen(true)} className="text-blue-700 underline font-bold hover:text-blue-900 cursor-pointer">Guestbook.txt</button> para saber que pasaste por aquí. ¡Tus comentarios son muy valorados!
+                         <span className="font-bold">¿Te gusta lo que ves?</span> Déjame un comentario en el <button onClick={() => setIsGuestbookOpen(true)} className="text-blue-700 underline font-bold hover:text-blue-900 cursor-pointer">Guestbook.txt</button> para saber que pasaste por acá. ¡Tus comentarios son muy valorados!
                        </div>
                     </div>
 
@@ -850,10 +850,7 @@ export default function App() {
                         <Blink>
                           <span className="text-sm font-bold text-red-600 border-2 border-red-600 px-4 py-1">*** WORK IN PROGRESS ***</span>
                         </Blink>
-                      </div>
-                      <p className="text-[10px] text-gray-400 uppercase tracking-widest">Optimizado para resolución de 800 x 600 píxeles</p>
-                    </div>
-                  </motion.div>
+                        </motion.div>
                 )}
 
                 {activeSection === 'about' && (
@@ -864,13 +861,13 @@ export default function App() {
                     exit={{ opacity: 0, y: -10 }}
                     className="space-y-6"
                   >
-                    <SectionHeader title="01_PERFIL_INGENIERIA" />
+                    <SectionHeader title="01_PERFIL" />
                     <div className="flex flex-col md:flex-row gap-6">
                       <div className="shrink-0 w-full md:w-56 space-y-4">
                          <div className="bg-[#c0c0c0] border-2 border-white border-r-gray-800 border-b-gray-800 p-1 relative group">
                             <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-blue-600 z-10"></div>
                             <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-right-2 border-blue-600 z-10" style={{ borderRightWidth: '2px' }}></div>
-                                                         <img 
+                             <img 
                                 src={getImgPath('assets/images/profile.jpg')} 
                                 alt="Sofia Modernell" 
                                 className="w-full grayscale border border-black transition-all group-hover:grayscale-0" 
@@ -913,7 +910,7 @@ export default function App() {
                             
                             <div className="prose prose-sm font-serif max-w-none text-slate-800 space-y-4">
                                <p className="leading-relaxed first-letter:text-4xl first-letter:font-black first-letter:text-blue-900 first-letter:mr-2 first-letter:float-left">
-                                 Soy estudiante avanzada de <strong>Ingeniería en Mecatrónica</strong> en la Universidad Tecnológica (UTEC) Suroeste. Mi enfoque se centra en la convergencia entre la mecánica de precisión y el control digital, con un interés particular en el desarrollo de <strong>Sistemas Embebidos</strong> y la arquitectura de soluciones <strong>IoT</strong>.
+                                 Soy estudiante avanzada de <strong>Ingeniería en Mecatrónica</strong> en la Universidad Tecnológica (UTEC). Mi enfoque se centra en la convergencia entre la mecánica de precisión y el control digital, con un interés particular en el desarrollo de <strong>Sistemas Embebidos</strong> y la arquitectura de soluciones <strong>IoT</strong>.
                                </p>
                                <p className="leading-relaxed italic border-l-4 border-blue-100 pl-4 bg-blue-50/50 py-2">
                                  "Mi objetivo es transformar problemas industriales complejos en automatismos robustos, eficientes y escalables, integrando hardware a medida con firmware optimizado."
