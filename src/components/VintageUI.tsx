@@ -7,18 +7,24 @@ export const Marquee: React.FC<{ children: React.ReactNode; scrollamount?: numbe
   direction = 'left' 
 }) => {
   return (
-    <div className="overflow-hidden whitespace-nowrap bg-blue-900 shadow-inner text-white h-8 flex items-center border-b-2 border-black">
+    <div className="overflow-hidden whitespace-nowrap bg-blue-900 shadow-inner text-white h-7 md:h-8 flex items-center border-b-2 border-black w-full">
       <motion.div
-        initial={{ x: direction === 'left' ? '100%' : '-100%' }}
-        animate={{ x: direction === 'left' ? '-100%' : '100%' }}
+        animate={{ 
+          x: direction === 'left' ? [0, '-50%'] : ['-50%', 0] 
+        }}
         transition={{ 
           duration: 30 / (scrollamount / 3), 
           repeat: Infinity, 
           ease: "linear" 
         }}
-        className="flex space-x-12 px-4 text-sm font-bold"
+        className="flex items-center"
       >
-        {children}
+        <div className="flex items-center gap-6 md:gap-12 px-6 md:px-12 text-[10px] md:text-sm font-bold font-mono tracking-tight shrink-0">
+          {children}
+        </div>
+        <div className="flex items-center gap-6 md:gap-12 px-6 md:px-12 text-[10px] md:text-sm font-bold font-mono tracking-tight shrink-0">
+          {children}
+        </div>
       </motion.div>
     </div>
   );
@@ -116,7 +122,7 @@ export const WebBadge: React.FC<{ text: string; subtext?: string; color?: string
 
 export const SectionHeader: React.FC<{ title: string; id?: string }> = ({ title, id }) => {
   return (
-    <div id={id} className="bg-gradient-to-r from-gray-700 to-gray-500 text-white font-sans font-bold text-[11px] px-2 py-1 my-3 tracking-widest uppercase border border-white border-r-gray-800 border-b-gray-800">
+    <div id={id} className="bg-gradient-to-r from-gray-700 to-gray-500 text-white font-sans font-bold text-[11px] px-2 py-1 my-3 tracking-wide md:tracking-widest uppercase border border-white border-r-gray-800 border-b-gray-800">
       {title}
     </div>
   );

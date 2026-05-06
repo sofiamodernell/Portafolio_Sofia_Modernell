@@ -22,7 +22,6 @@ import { CursorTrail } from './components/CursorTrail';
 import { TicTacToe } from './components/TicTacToe';
 import { Terminal } from './components/Terminal';
 import { RetroMusicPlayer } from './components/RetroMusicPlayer';
-import { MecaClippy } from './components/MecaClippy';
 import { Mail, Linkedin, FolderOpen, Star, AlertTriangle, Monitor, HardDrive, Cpu, Globe, Volume2, VolumeX, MessageSquare, FileText, Award, Image as ImageIcon, Gamepad2, Terminal as TerminalIcon, ShieldCheck, Music, Grid3X3, Book, Map, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
@@ -612,15 +611,13 @@ export default function App() {
       
       {/* Top Banner / Marquee Area */}
       <div className="absolute top-0 w-full bg-blue-900 text-white h-8 flex items-center border-b-2 border-black overflow-hidden z-50 shadow-md">
-        <Marquee scrollamount={2}>
-          <span className="font-mono text-sm tracking-widest">
-            :: PORTAFOLIO DE COMPETENCIAS :: SOFIA CAROLINA MODERNELL PEÑALOZA :: UTEC - MECATRÓNICA :: 5TO SEMESTRE :: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            SITE UNDER CONSTRUCTION. PLEASE PARDON THE DUST! :: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            ACTUALIZADO: 05/05/2026 :: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            ERES EL VISITANTE NÚMERO: {visitorCount} :: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            ¡ESCRÍBEME! ✉️ :: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          </span>
-        </Marquee>
+          <Marquee scrollamount={2}>
+            <span>:: PORTAFOLIO DE COMPETENCIAS - SOFIA CAROLINA MODERNELL PEÑALOZA - UTEC MECATRÓNICA - 5TO SEMESTRE ::</span>
+            <span>SITE UNDER CONSTRUCTION - PLEASE PARDON THE DUST! ::</span>
+            <span>ACTUALIZADO: 05/05/2026 ::</span>
+            <span>ERES EL VISITANTE NÚMERO: {visitorCount} ::</span>
+            <span>¡ESCRÍBEME! ✉️ ::</span>
+          </Marquee>
       </div>
 
       {/* Desktop Icons */}
@@ -1763,11 +1760,11 @@ export default function App() {
       </Window>
 
       {/* Status Bar */}
-      <div className="absolute bottom-10 w-full h-6 bg-[#c0c0c0] border-t-2 border-white flex items-center px-1 text-[10px] gap-4 z-40">
-           <div className="flex-1 flex gap-4 truncate">
-             <span>Objeto(s): 12</span>
-             <span>Libre: 3.4 GB</span>
-             <span className="text-blue-900 font-bold italic">CONECTADO: 56K MODEM</span>
+      <div className="absolute bottom-10 w-full h-6 bg-[#c0c0c0] border-t-2 border-white flex items-center px-1 text-[9px] md:text-[10px] gap-2 md:gap-4 z-40 overflow-hidden">
+           <div className="flex-1 flex gap-2 md:gap-4 truncate">
+             <span>OBJ: 12</span>
+             <span>LIBRE: 3.4 GB</span>
+             <span className="text-blue-900 font-bold italic hidden sm:inline">CONECTADO: 56K MODEM</span>
            </div>
            <div className="w-16 h-4 border border-gray-500 bg-gray-300 px-1">
              <div className="h-full bg-blue-900" style={{ width: '65%' }}></div>
@@ -1781,16 +1778,16 @@ export default function App() {
           className="h-8 px-4 border-2 border-white border-r-gray-800 border-b-gray-800 bg-[#c0c0c0] flex items-center gap-2 active:border-r-white active:border-b-white active:border-gray-800 group"
         >
           <div className="w-4 h-4 bg-blue-600 rounded-sm group-active:translate-x-0.5 group-active:translate-y-0.5"></div>
-          <span className="font-bold text-sm italic group-active:translate-x-0.5 group-active:translate-y-0.5 uppercase tracking-tighter">Inicio</span>
+          <span className="font-bold text-xs md:text-sm italic group-active:translate-x-0.5 group-active:translate-y-0.5 uppercase">Inicio</span>
         </button>
         <div className="w-[1px] h-6 bg-gray-500 mx-1"></div>
         <button 
-          className={`h-8 px-4 border-2 flex items-center text-[10px] font-bold gap-2 ${isPortfolioOpen ? 'border-gray-800 bg-[#d4d0c8] shadow-[inset_2px_2px_0px_rgba(0,0,0,0.2)]' : 'border-gray-800 border-r-white border-b-white bg-[#c0c0c0] shadow-[inset_1px_1px_0px_white]'}`} 
+          className={`h-8 px-2 md:px-4 border-2 flex items-center text-[9px] md:text-[10px] font-bold gap-1 md:gap-2 ${isPortfolioOpen ? 'border-gray-800 bg-[#d4d0c8] shadow-[inset_2px_2px_0px_rgba(0,0,0,0.2)]' : 'border-gray-800 border-r-white border-b-white bg-[#c0c0c0] shadow-[inset_1px_1px_0px_white]'}`} 
           style={isPortfolioOpen ? { borderStyle: 'inset' } : {}}
           onClick={() => setIsPortfolioOpen(!isPortfolioOpen)}
         >
-          <Globe size={14} className="text-blue-900" />
-          Portfolio_v2.0
+          <Globe size={14} className="text-blue-900 shrink-0" />
+          <span className="truncate">Portfolio_v2.0</span>
         </button>
         {isGuestbookOpen && (
           <button 
@@ -1894,8 +1891,6 @@ export default function App() {
       <div className="fixed inset-0 opacity-[0.03] pointer-events-none z-[100] overflow-hidden" 
            style={{ backgroundImage: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))', backgroundSize: '100% 2px, 3px 100%' }}>
       </div>
-
-      <MecaClippy />
     </div>
   );
 }
