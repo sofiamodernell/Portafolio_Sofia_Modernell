@@ -272,12 +272,6 @@ export default function App() {
       tag: "AUTOMATION",
       desc: "Sistema de guiado lumínico para depósitos optimizado mediante análisis Ishikawa.",
       img: getImgPath('assets/images/project-p2l.png')
-    },
-    {
-      title: "Robot Seguidor de Línea",
-      tag: "ROBOTICS",
-      desc: "Robot de competencia con control PID ajustado para máxima velocidad en trayectorias curvas.",
-      img: "https://images.unsplash.com/photo-1546776310-eef45dd6d63c?auto=format&fit=crop&q=80&w=800"
     }
   ];
 
