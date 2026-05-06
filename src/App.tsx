@@ -871,11 +871,11 @@ export default function App() {
                             <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-blue-600 z-10"></div>
                             <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-right-2 border-blue-600 z-10" style={{ borderRightWidth: '2px' }}></div>
                                                          <img 
-                                src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sofia" 
-                                alt="Avatar" 
+                                src={getImgPath('assets/images/profile.jpg')} 
+                                alt="Sofia Modernell" 
                                 className="w-full grayscale border border-black transition-all group-hover:grayscale-0" 
                                 onError={(e) => {
-                                   (e.target as HTMLImageElement).src = "https://picsum.photos/seed/sofia_mec/400/500";
+                                   (e.target as HTMLImageElement).src = "https://api.dicebear.com/7.x/avataaars/svg?seed=Sofia";
                                 }}
                              />
                             <div className="bg-black text-[#00ff00] text-[7px] font-mono p-1 mt-1 flex justify-between uppercase">
