@@ -807,7 +807,7 @@ export default function App() {
                     <div className="bg-yellow-50 border-2 border-yellow-400 p-3 italic text-[11px] flex items-center gap-3">
                        <MessageSquare size={20} className="text-yellow-600 shrink-0" />
                        <div>
-                         <span className="font-bold">¿Te gusta lo que ves?</span> Déjame un comentario en el <button onClick={() => setIsGuestbookOpen(true)} className="text-blue-700 underline font-bold hover:text-blue-900 cursor-pointer">Guestbook.txt</button> para saber que pasaste por acá. ¡Tus comentarios son muy valorados!
+                         <span className="font-bold">¿Te gusta mi portfolio?</span> Déjame un comentario en el <button onClick={() => setIsGuestbookOpen(true)} className="text-blue-700 underline font-bold hover:text-blue-900 cursor-pointer">Guestbook.txt</button> para saber que pasaste por acá. ¡Tus comentarios son muy valorados!
                        </div>
                     </div>
 
