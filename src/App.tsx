@@ -286,11 +286,11 @@ export default function App() {
           title: "1.1 Implementar software y hardware específicos para el correcto desempeño de procesos industriales.",
           description: "Desarrollo y despliegue de soluciones integrales que combinan programación de bajo nivel con diseño circuital robusto para automatización.",
           evidences: [
-            { name: "Laboratorio 1 TMPR", type: "ATmega328P / Ensamblador / UART / GPIO / DAC R-2R", url: "https://drive.google.com/file/d/1NXQSYHN2ltbnLsJ9agiUTe_sG3_E0GKU/view?usp=drive_link" },
-            { name: "Laboratorio 2 TMPR", type: "Pen Plotter / UART / EEPROM", link: "https://drive.google.com/file/d/1E4UumDUg6E0UXkpHhlxfGIRlxUSbwrMJ/view?usp=drive_link" },
-            { name: "Laboratorio 3 TMPR", type: "PWM / Python / I2C / SPI / UART", link: "https://drive.google.com/file/d/1inv05FgKHeb75ErSzuFv0p4lAdz8C2xE/view?usp=drive_link" },
-            { name: "Laboratorio 4 TMPR", type: "Robótica móvil / Maestro-Esclavo / I2C / SPI / UART", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" },
-            { name: "Laboratorio 4 ED1", type: "Lógica Combinacional / Logica Secuencial / Flip-Flops", link: "https://drive.google.com/file/d/1e-8MCmhZ-o2Soz5FVYluZlWawZygTaC_/view?usp=drive_link" },
+            { name: "Laboratorio 1 - TMPR", type: "ATmega328P / Ensamblador / UART / GPIO / DAC R-2R", link: "https://drive.google.com/file/d/1NXQSYHN2ltbnLsJ9agiUTe_sG3_E0GKU/view?usp=drive_link" },
+            { name: "Laboratorio 2 - TMPR", type: "Pen Plotter / UART / EEPROM", link: "https://drive.google.com/file/d/1E4UumDUg6E0UXkpHhlxfGIRlxUSbwrMJ/view?usp=drive_link" },
+            { name: "Laboratorio 3 - TMPR", type: "PWM / Python / I2C / SPI / UART", link: "https://drive.google.com/file/d/1inv05FgKHeb75ErSzuFv0p4lAdz8C2xE/view?usp=drive_link" },
+            { name: "Laboratorio 4 - TMPR", type: "Robótica móvil / Maestro-Esclavo / I2C / SPI / UART", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" },
+            { name: "Laboratorio 4 - ED1", type: "Lógica Combinacional / Logica Secuencial / Flip-Flops", link: "https://drive.google.com/file/d/1e-8MCmhZ-o2Soz5FVYluZlWawZygTaC_/view?usp=drive_link" },
             { name: "PIC I - Sistema Pick to Light", type: "Arduino Uno / Sistema Pick to Light / Control de procesos ", link: "https://drive.google.com/file/d/1plyUhsnvwbN44AVKBbYR7dW_YFSk3E4b/view?usp=drive_link" },
             { name: "PIC II - Modulo de recolección de datos", type: "ATmega328PB / Sensores ambientales / Comunicación inalámbrica", link: "https://drive.google.com/file/d/1xBhtIRChTQFm7XlxNTK4xA_YoCdC-O2O/view?usp=drive_link" }
           ]
@@ -301,10 +301,10 @@ export default function App() {
           description: "Aseguramiento de la calidad y funcionalidad mediante el análisis de datos en tiempo real y pruebas de estrés en entornos industriales.",
           evidences: [
             { name: "PIC II - Modulo de recolección de datos", type: "ATmega328PB / Sensores ambientales / Telemetría inalámbrica / Monitoreo en campo", link: "https://drive.google.com/file/d/1xBhtIRChTQFm7XlxNTK4xA_YoCdC-O2O/view?usp=drive_link" },
-            { name: "Laboratorio 3 TMPR", type: "LM35 / Control de temperatura / Lazo cerrado / Python / Visualización en tiempo real", link: "https://drive.google.com/file/d/1inv05FgKHeb75ErSzuFv0p4lAdz8C2xE/view?usp=drive_link" },
-            { name: "Laboratorio 4 TMPR", type: "DHT11 / MQ135 / Sensor de llama / Maestro-Esclavo SPI-I2C / Monitoreo ambiental / LCD", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" },
-            { name: "Laboratorio 2 TMPR", type: "ATmega328P / Proteus / PicSimLab / Simulación y validación dual / Lenguaje C", link: "https://drive.google.com/file/d/1E4UumDUg6E0UXkpHhlxfGIRlxUSbwrMJ/view?usp=drive_link" },
-            { name: "Laboratorio 1 TMPR", type: "ATmega328P / Osciloscopio / DAC R-2R / UART / Validación de señal analógica", link: "https://drive.google.com/file/d/1NXQSYHN2ltbnLsJ9agiUTe_sG3_E0GKU/view?usp=drive_link" }
+            { name: "Laboratorio 3 - TMPR", type: "LM35 / Control de temperatura / Lazo cerrado / Python / Visualización en tiempo real", link: "https://drive.google.com/file/d/1inv05FgKHeb75ErSzuFv0p4lAdz8C2xE/view?usp=drive_link" },
+            { name: "Laboratorio 4 - TMPR", type: "DHT11 / MQ135 / Sensor de llama / Maestro-Esclavo SPI-I2C / Monitoreo ambiental / LCD", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" },
+            { name: "Laboratorio 2 - TMPR", type: "ATmega328P / Proteus / PicSimLab / Simulación y validación dual / Lenguaje C", link: "https://drive.google.com/file/d/1E4UumDUg6E0UXkpHhlxfGIRlxUSbwrMJ/view?usp=drive_link" },
+            { name: "Laboratorio 1 - TMPR", type: "ATmega328P / Osciloscopio / DAC R-2R / UART / Validación de señal analógica", link: "https://drive.google.com/file/d/1NXQSYHN2ltbnLsJ9agiUTe_sG3_E0GKU/view?usp=drive_link" }
           ]
         },
         {
@@ -312,10 +312,10 @@ export default function App() {
           title: "1.3 Instalar y poner en servicio sistemas mecatrónicos considerando normas de calidad, seguridad y medio ambiente.",
           description: "Integración física y lógica de equipos, garantizando el cumplimiento de normativas vigentes y la sostenibilidad del sistema.",
           evidences: [
-            { name: "PIC I - Sistema Pick to Light", type: "Arduino Uno / Tinkercad / Autodesk Inventor / Ishikawa / Matriz multicriterio / Diseño y simulación", link: "https://drive.google.com/file/u/1/d/1xBhtIRChTQFm7XlxNTK4xA_YoCdC-O2O/view?usp=drive_link" },
+            { name: "PIC I - Sistema Pick to Light", type: "Arduino Uno / Tinkercad / Autodesk Inventor / Ishikawa / Matriz multicriterio / Diseño y simulación", link: "https://drive.google.com/file/d/1plyUhsnvwbN44AVKBbYR7dW_YFSk3E4b/view?usp=drive_link" },
             { name: "PIC II - Modulo de recolección de datos", type: "ATmega328PB / PCB / Soldadura SMD / Carcasa 3D / Sigfox / Bajo consumo / Gemelo digital", link: "https://drive.google.com/file/d/1xBhtIRChTQFm7XlxNTK4xA_YoCdC-O2O/view?usp=drive_link" },
-            { name: "Laboratorio 4 TMPR", type: "ATmega328P / SPI / I2C / Maestro-Esclavo / Integración física / Validación dual simulación-físico", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" },
-            { name: "Laboratorio 3 TMPR", type: "ATmega328P / Proteus / PicSimLab / Metodología dual simulación-físico / Control de temperatura / RFID / Lenguaje C", link: "https://drive.google.com/file/d/1inv05FgKHeb75ErSzuFv0p4lAdz8C2xE/view?usp=drive_link" }
+            { name: "Laboratorio 4 - TMPR", type: "ATmega328P / SPI / I2C / Maestro-Esclavo / Integración física / Validación dual simulación-físico", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" },
+            { name: "Laboratorio 3 - TMPR", type: "ATmega328P / Proteus / PicSimLab / Metodología dual simulación-físico / Control de temperatura / RFID / Lenguaje C", link: "https://drive.google.com/file/d/1inv05FgKHeb75ErSzuFv0p4lAdz8C2xE/view?usp=drive_link" }
           ]
         }
       ],
@@ -341,7 +341,7 @@ export default function App() {
           title: "2.1. Ejecutar planes de mantenimiento (preventivos y correctivos) diseñados por especialistas.",
           description: "Implementación técnica de rutinas de preservación y restauración de funcionalidad en equipos industriales.",
           evidences: [
-            { name: "Análisis de Discrepancias - ED1", type: "Lógica Combinacional / Simulink / Karnaugh / Diagnóstico de discrepancias físico-simulado / Multímetro", link: "#" },
+            { name: "Análisis de Discrepancias - ED1", type: "Lógica Combinacional / Simulink / Karnaugh / Diagnóstico de discrepancias físico-simulado / Multímetro", link: "https://drive.google.com/drive/folders/1ILz2xo_BhUhRl8Nj1SYwn0h7qUEUbfyR?usp=drive_link" },
             { name: "Diagnóstico SPI/I2C/UART - TMPR", type: "ATmega328P / SPI vs I2C / Detección de interferencias / Corrección de fallas en protoboard / Validación física", link: "#" },
             { name: "Instrumentación", type: "Multímetro / Osciloscopio / Caracterización de componentes / Teórico vs Práctico vs Simulado", link: "#" }
           ]
@@ -351,14 +351,18 @@ export default function App() {
           title: "2.2. Aplicar procedimientos y seguir instrucciones relacionando la actividad con metodologías de mantenimiento basado en la confiabilidad indicada por un departamento/responsable técnico.",
           description: "Ejecución sistemática de tareas siguiendo estándares de confiabilidad y documentación técnica rigurosa.",
           evidences: [
-
+          { name: "PIC II - Módulo de recolección de datos", type: "MCDM / Especificaciones técnicas / Requisitos / Sigfox / PCB", link: "https://drive.google.com/file/d/1NG68cr_0O1v8qQ1I6DqEAsurz2-cTDu-/view?usp=drive_link" },
+          { name: "Laboratorio 4 - EAA", type: "JFET J112 / Metodología teórico-simulado-experimental / Osciloscopio / Documentación técnica", link: "https://drive.google.com/file/d/1kFWPtIoi_q9vrhxNoyPmm7ETjEBK0FpQ/view?usp=drive_link" },
+          { name: "Laboratorio 3 - ED1 ", type: "Flip-Flop JK / Anti-rebote / Corrección de fallas / Simulink / Implementación física", link: "https://drive.google.com/file/d/1RGe4BT1VF0zTUtIiPjs26i65c9oYCJZN/view?usp=drive_link" }
           ]
         }
       ],
       evidences: [],
-      reflection: "La competencia de mantenimiento no se enseña exclusivamente en el aula, sino que se forja en el momento en que un circuito no responde y es necesario descubrir el porqué mediante un diagnóstico metódico. A través de mi experiencia en laboratorios de electrónica y sistemas embebidos, he perfeccionado la capacidad de identificar discrepancias entre el comportamiento esperado y el real, utilizando instrumentación avanzada para aislar fallas. Para mí, el mantenimiento es un proceso de descubrimiento constante que exige rigor analítico y una validación exhaustiva post-intervención.",
+      reflection: "La competencia de mantenimiento se forja tanto en el diagnóstico como en la disciplina de seguir procedimientos. A través de mis laboratorios aprendí que identificar discrepancias entre el comportamiento esperado y el real requiere instrumentación precisa y análisis metódico, pero también que ejecutar correctamente un plan técnico definido por especialistas exige rigor documental y trazabilidad. En el PIC II, los requisitos impuestos por los docentes responsables me enseñaron que el mantenimiento preventivo empieza en el diseño: cada decisión técnica justificada con matrices multicriterio es una falla futura evitada. El mantenimiento no es solo reparar, es anticipar, documentar y validar.",
       resources: [
         { name: "Carpeta de Evidencias", url: "https://drive.google.com/drive/u/1/folders/17Retv7992rLRJWRwvWbupOL5darzVy8d" },
+        { name: "Documentación Proteus", url: "https://www.labcenter.com/resources/" },
+        { name: "Documentación Simulink/MATLAB ", url: "https://www.mathworks.com/products/simulink.html" },
       ],
       link: "https://drive.google.com/drive/u/1/folders/17Retv7992rLRJWRwvWbupOL5darzVy8d"
     },
