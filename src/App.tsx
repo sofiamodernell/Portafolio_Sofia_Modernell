@@ -341,26 +341,24 @@ export default function App() {
           title: "2.1. Ejecutar planes de mantenimiento (preventivos y correctivos) diseñados por especialistas.",
           description: "Implementación técnica de rutinas de preservación y restauración de funcionalidad en equipos industriales.",
           evidences: [
-            { name: "Análisis ED1 (Discrepancias)", type: "Diagnóstico", link: "#" },
-            { name: "Diagnóstico SPI/I2C/UART (TMPR)", type: "Protocolos", link: "#" },
-            { name: "Instrumentación Hardware", type: "Multímetro/Osciloscopio", link: "#" }
+            { name: "Análisis de Discrepancias - ED1", type: "Lógica Combinacional / Simulink / Karnaugh / Diagnóstico de discrepancias físico-simulado / Multímetro", link: "#" },
+            { name: "Diagnóstico SPI/I2C/UART - TMPR", type: "ATmega328P / SPI vs I2C / Detección de interferencias / Corrección de fallas en protoboard / Validación física", link: "#" },
+            { name: "Instrumentación", type: "Multímetro / Osciloscopio / Caracterización de componentes / Teórico vs Práctico vs Simulado", link: "#" }
           ]
         },
         {
           id: "2.2",
           title: "2.2. Aplicar procedimientos y seguir instrucciones relacionando la actividad con metodologías de mantenimiento basado en la confiabilidad indicada por un departamento/responsable técnico.",
-          description: "Ejecución sistemática de tareas siguiendo estándares de confiabilidad (RCM) y documentación técnica rigurosa.",
+          description: "Ejecución sistemática de tareas siguiendo estándares de confiabilidad y documentación técnica rigurosa.",
           evidences: [
-            { name: "Documentación EAA", type: "Validación Teórico/Medido", link: "#" },
-            { name: "Guía ISA-S5.1", type: "Normativa", link: "#" }
+
           ]
         }
       ],
       evidences: [],
       reflection: "La competencia de mantenimiento no se enseña exclusivamente en el aula, sino que se forja en el momento en que un circuito no responde y es necesario descubrir el porqué mediante un diagnóstico metódico. A través de mi experiencia en laboratorios de electrónica y sistemas embebidos, he perfeccionado la capacidad de identificar discrepancias entre el comportamiento esperado y el real, utilizando instrumentación avanzada para aislar fallas. Para mí, el mantenimiento es un proceso de descubrimiento constante que exige rigor analítico y una validación exhaustiva post-intervención.",
       resources: [
-        { name: "Evidencias Area 02 Drive", url: "https://drive.google.com/drive/u/1/folders/17Retv7992rLRJWRwvWbupOL5darzVy8d" },
-        { name: "Guía ISA-S5.1", url: "#" }
+        { name: "Carpeta de Evidencias", url: "https://drive.google.com/drive/u/1/folders/17Retv7992rLRJWRwvWbupOL5darzVy8d" },
       ],
       link: "https://drive.google.com/drive/u/1/folders/17Retv7992rLRJWRwvWbupOL5darzVy8d"
     },
