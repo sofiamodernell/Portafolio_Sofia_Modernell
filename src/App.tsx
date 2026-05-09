@@ -477,22 +477,15 @@ export default function App() {
       area: "SOFT",
       description: "Colaboracion efectiva en entornos multidisciplinarios, asumiendo roles de liderazgo o apoyo según la necesidad del proyecto.",
      evidences: [
-        { name: "International Buddy Program - UTEC", 
-          type: "Mentoría intercultural / Liderazgo / Acompañamiento a estudiante internacional", 
-          link: "https://drive.google.com/file/d/172GdTCqQ9zAv-CzrXd_uTjmEOTxD-yGm/view" },
-        { name: "XV Congreso CTG - Voluntaria", 
-          type: "Trabajo en equipo internacional / Logística / Colaboración multidisciplinaria", 
-          link: "https://drive.google.com/file/d/1X4jI-7knJR73lKpkvu9aUKpVHVVlBcX5/view" },
-        { name: "PIC I y PIC II - Proyectos grupales", 
-          type: "Roles definidos / Trabajo colaborativo / Entregas coordinadas en equipo" },
-        { name: "Laboratorios - Trabajos grupales", 
-          type: "Informes coautorados / Laboratorios en equipo / División de tareas técnicas" }
+        { name: "International Buddy Program - UTEC", type: "Mentoría intercultural / Liderazgo / Acompañamiento a estudiante internacional", link: "https://drive.google.com/file/d/172GdTCqQ9zAv-CzrXd_uTjmEOTxD-yGm/view" },
+        { name: "XV Congreso CTG - Voluntaria", type: "Trabajo en equipo internacional / Logística / Colaboración multidisciplinaria", link: "https://drive.google.com/file/d/1X4jI-7knJR73lKpkvu9aUKpVHVVlBcX5/view" },
+        { name: "PIC I y PIC II - Proyectos grupales", type: "Roles definidos / Trabajo colaborativo / Entregas coordinadas en equipo" },
+        { name: "Laboratorios - Trabajos grupales", type: "Informes coautorados / Laboratorios en equipo / División de tareas técnicas" }
       ],
       reflection: "Ningún sistema mecatrónico se construye solo. Todos mis proyectos e informes fueron desarrollados en equipo, lo que me enseñó que la colaboración efectiva exige tanto competencia técnica como habilidades interpersonales. En el PIC I y PIC II coordiné con mis compañeras la división de tareas entre hardware, software y documentación. Fuera del aula, el International Buddy Program me asignó la responsabilidad de acompañar a un estudiante internacional en su integración a UTEC, un rol que requirió empatía, planificación y comunicación sostenida. En el XV Congreso CTG trabajé con un equipo de voluntarios de distintas carreras y países durante cuatro días de logística real. Aprendí que un equipo funciona cuando cada persona entiende su rol y confía en el del otro.",
       resources: [
-        { name: "Repositorio Tecnologías de Microprocesamiento", url: "https://github.com/Victoriaetch/Microcontroladores" }
+        { name: "Repositorio Tecnologías de Microprocesamiento", url: "https://github.com/Victoriaetch/Microcontroladores" },
         { name: "Repositorio PIC II", url: "https://github.com/sosaguadalupe/Modulo_recolector_de_datos" }
-       
       ]
     },
     {
@@ -501,16 +494,10 @@ export default function App() {
       area: "EXE",
       description: "Gestión autónoma del aprendizaje y mejora continua de habilidades mecatrónicas, adaptándose a nuevos desafíos.",
      evidences: [
-        { name: "IV Taller de Soldadura - 20hs", 
-          type: "Formación extracurricular / Soldadura industrial / Normas IPC", 
-          link: "https://drive.google.com/file/d/16jrBM1rOO43Z3RpYLKcQNxoeHx_wIeJ9/view" },
-        { name: "Taller Seguridad Laboral y Salud Ocupacional - Extintores", 
-          type: "Formación complementaria / Seguridad industrial / Actuación ante emergencias", 
-          link: "https://drive.google.com/file/d/1z--lMDFwVvERVv1GQHV9BxkZV1In3zDb/view" },
-        { name: "International Buddy Program - UTEC", 
-          type: "Iniciativa propia / Gestión de programa extracurricular / Desarrollo intercultural" },
-        { name: "LinguaSkill - Preparación autónoma", 
-          type: "Autoaprendizaje / Inglés técnico / Certificación internacional Cambridge" }
+        { name: "IV Taller de Soldadura - 20hs",  type: "Formación extracurricular / Soldadura industrial / Normas IPC",    link: "https://drive.google.com/file/d/16jrBM1rOO43Z3RpYLKcQNxoeHx_wIeJ9/view" },
+        { name: "Taller Seguridad Laboral y Salud Ocupacional - Extintores",  type: "Formación complementaria / Seguridad industrial / Actuación ante emergencias",  link: "https://drive.google.com/file/d/1z--lMDFwVvERVv1GQHV9BxkZV1In3zDb/view" },
+        { name: "International Buddy Program - UTEC", type: "Iniciativa propia / Gestión de programa extracurricular / Desarrollo intercultural" },
+        { name: "LinguaSkill - Preparación autónoma",  type: "Autoaprendizaje / Inglés técnico / Certificación internacional Cambridge" }
       ],
       reflection: "La carrera de mecatrónica exige aprender más rápido de lo que el currículo puede enseñar. Busqué formación complementaria de forma sistemática: el Taller de Soldadura me dio competencias en SMAW, GTAW, GMAW y soldadura de electrónica que apliqué directamente en el PIC II al soldar componentes SMD en la PCB. El taller de Seguridad Laboral me preparó para actuar ante emergencias industriales reales. El Buddy Program y el Congreso CTG fueron decisiones propias, no obligatorias. Preparar el LinguaSkill de forma autónoma fue otro ejemplo de identificar una brecha y cubrirla sin esperar que el sistema lo pidiera. Autorregularme significó entender que mi formación no termina en el aula.",
       resources: [
@@ -524,14 +511,10 @@ export default function App() {
       area: "EXE",
       description: "Análisis de problemas complejos y toma de decisiones basadas en evidencia técnica y datos experimentales.",
      evidences: [
-        { name: "Lab 4 TMPR - Diagnóstico SPI vs I2C", 
-          type: "Análisis de fallas / Identificación de causa raíz / Corrección basada en evidencia" },
-        { name: "PIC II - MCDM Sigfox vs WiFi vs LoRa", 
-          type: "Toma de decisiones técnicas / Matrices multicriterio / Análisis comparativo justificado" },
-        { name: "Lab 4 EAA - Discrepancias JFET teórico vs práctico", 
-          type: "Análisis crítico de resultados / Identificación de parámetros reales vs asumidos" },
-        { name: "Lab 5 EAA - Diagnóstico fallo integrador LM324", 
-          type: "Diagnóstico de fallo experimental / Hipótesis técnicas / Razonamiento sistemático" }
+        { name: "Lab 4 TMPR - Diagnóstico SPI vs I2C",   type: "Análisis de fallas / Identificación de causa raíz / Corrección basada en evidencia" },
+        { name: "PIC II - MCDM Sigfox vs WiFi vs LoRa",   type: "Toma de decisiones técnicas / Matrices multicriterio / Análisis comparativo justificado" },
+        { name: "Lab 4 EAA - Discrepancias JFET teórico vs práctico",    type: "Análisis crítico de resultados / Identificación de parámetros reales vs asumidos" },
+        { name: "Lab 5 EAA - Diagnóstico fallo integrador LM324",   type: "Diagnóstico de fallo experimental / Hipótesis técnicas / Razonamiento sistemático" }
       ],
       reflection: "En ingeniería, la diferencia entre un resultado y un aprendizaje es el análisis. A lo largo de la carrera desarrollé la capacidad de cuestionar resultados, identificar causas raíz y tomar decisiones basadas en evidencia en lugar de intuición. Ante discrepancias entre lo teórico, lo simulado y lo experimental, aprendí a no aceptar el primer resultado como válido sino a investigar el origen de la diferencia. En los proyectos integradores apliqué herramientas de análisis multicriterio para justificar decisiones de diseño con datos concretos. El pensamiento crítico no es dudar de todo, es no aceptar ningún resultado sin entender por qué.",
       resources: [
