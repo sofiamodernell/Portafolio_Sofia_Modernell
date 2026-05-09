@@ -469,8 +469,6 @@ export default function App() {
       reflection: "Comunicar en ingeniería no es solo escribir informes, es traducir decisiones técnicas en argumentos comprensibles. A lo largo de la carrera redacté informes en formato IEEE para todas las UCs, documentando metodología, resultados y análisis comparativos con rigor académico. Cada proyecto integrador implicó además instancias de presentación oral ante docentes y evaluadores, donde debí defender decisiones técnicas, responder preguntas críticas y comunicar resultados de forma clara y estructurada. El LinguaSkill Cambridge validó mi nivel B2 general, aunque en Listening y Reading obtuve C1, lo que refleja una capacidad real de operar en entornos técnicos internacionales. Participar como voluntaria en el XV Congreso de Ciencia, Tecnología y Género me expuso a comunicación académica de alto nivel y me exigió coordinar, orientar y representar a UTEC ante personas de distintos países. Comunicar bien no es un complemento de la ingeniería, es parte de ella.",
       resources: [
         { name: "Validador oficial del certificado LinguaSkill,", url: "https://results.linguaskill.com" }
-        { name: "Validador oficial del certificado LinguaSkill,", url: "https://results.linguaskill.com" }
-
       ]
     },
     {
