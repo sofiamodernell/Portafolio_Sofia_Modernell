@@ -1038,15 +1038,30 @@ export default function App() {
                                  <div className="p-3 bg-white">
                                    <p className="text-[11px] text-gray-600 mb-3 italic">{sub.description}</p>
                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                     {sub.evidences.map((ev: any, idx: number) => (
-                                       <div key={idx} className="flex items-center gap-2 p-2 bg-slate-50 border border-slate-200">
-                                         <FileText size={14} className="text-blue-900" />
-                                         <div className="flex flex-col">
-                                            <span className="text-[10px] font-bold">{ev.name}</span>
-                                            <span className="text-[8px] text-gray-500 uppercase tracking-tighter">[{ev.type}]</span>
+                             {sub.evidences.map((ev: any, idx: number) => {
+                                       const isLinkable = ev.link && ev.link !== "#";
+                                       const content = (
+                                         <div key={idx} className={`flex items-center gap-2 p-2 bg-slate-50 border border-slate-200 h-full ${isLinkable ? 'hover:bg-blue-50 hover:border-blue-300 transition-colors cursor-pointer' : ''}`}>
+                                           <FileText size={14} className="text-blue-900 shrink-0" />
+                                           <div className="flex flex-col min-w-0">
+                                              <span className="text-[10px] font-bold truncate">{ev.name}</span>
+                                              <span className="text-[8px] text-gray-500 uppercase tracking-tighter">[{ev.type}]</span>
+                                           </div>
                                          </div>
-                                       </div>
-                                     ))}
+                                       );
+
+                                       return isLinkable ? (
+                                         <a 
+                                           key={idx} 
+                                           href={getImgPath(ev.link)} 
+                                           target="_blank" 
+                                           rel="noopener noreferrer"
+                                           className="no-underline block"
+                                         >
+                                           {content}
+                                         </a>
+                                       ) : content;
+                                     })}
                                    </div>
                                  </div>
                                </details>
@@ -1056,15 +1071,30 @@ export default function App() {
                           <>
                              <h3 className="text-sm font-bold text-slate-700 underline mb-2">Evidencias de Desempeño</h3>
                              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-6">
-                                {selectedComp.evidences.map((ev: any, i: number) => (
-                                  <div key={i} className="flex items-center gap-2 p-2 bg-slate-50 border border-slate-200">
-                                     <FileText size={14} className="text-blue-900" />
-                                     <div className="flex flex-col">
-                                        <span className="text-[10px] font-bold">{ev.name}</span>
-                                        <span className="text-[8px] text-gray-500 uppercase tracking-tighter">[{ev.type}]</span>
-                                     </div>
-                                  </div>
-                                ))}
+                              {selectedComp.evidences.map((ev: any, i: number) => {
+                                  const isLinkable = ev.link && ev.link !== "#";
+                                  const content = (
+                                    <div key={i} className={`flex items-center gap-2 p-2 bg-slate-50 border border-slate-200 h-full ${isLinkable ? 'hover:bg-blue-50 hover:border-blue-300 transition-colors cursor-pointer' : ''}`}>
+                                       <FileText size={14} className="text-blue-900 shrink-0" />
+                                       <div className="flex flex-col min-w-0">
+                                          <span className="text-[10px] font-bold truncate">{ev.name}</span>
+                                          <span className="text-[8px] text-gray-500 uppercase tracking-tighter">[{ev.type}]</span>
+                                       </div>
+                                    </div>
+                                  );
+
+                                  return isLinkable ? (
+                                    <a 
+                                      key={i} 
+                                      href={getImgPath(ev.link)} 
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                      className="no-underline block"
+                                    >
+                                      {content}
+                                    </a>
+                                  ) : content;
+                                })}
                              </div>
                           </>
                        )}
