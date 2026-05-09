@@ -246,7 +246,6 @@ export default function App() {
 
   const backgrounds = {
     space: { bg: '#000000', pattern: 'https://www.transparenttextures.com/patterns/stardust.png', name: 'ESPACIO_ESTRELLADO.SYS' },
-    blueprint: { bg: '#003366', pattern: 'https://upload.wikimedia.org/wikipedia/en/2/27/Bliss_%28Windows_XP%29.png', name: 'CUADRICULA_INGENIERIA.VXD' },
     matrix: { bg: '#001a00', pattern: 'https://www.transparenttextures.com/patterns/carbon-fibre.png', name: 'MATRIZ_DATOS.EXE' },
     sunset: { bg: '#ff0080', pattern: 'https://www.transparenttextures.com/patterns/asfalt-light.png', name: 'VAPORWAVE_90S.BMP' },
     clouds: { bg: '#87CEEB', pattern: 'https://www.transparenttextures.com/patterns/cloudy-day.png', name: 'NUBES_XP.SCR' },
@@ -287,7 +286,7 @@ export default function App() {
           title: "1.1 Implementar software y hardware específicos para el correcto desempeño de procesos industriales.",
           description: "Desarrollo y despliegue de soluciones integrales que combinan programación de bajo nivel con diseño circuital robusto para automatización.",
           evidences: [
-            { name: "Laboratorio 1 TMPR", type: "ATmega328P / Ensamblador / UART / GPIO / DAC R-2R", link: "https://drive.google.com/file/d/1NXQSYHN2ltbnLsJ9agiUTe_sG3_E0GKU/view?usp=drive_link" },
+            { name: "Laboratorio 1 TMPR", type: "ATmega328P / Ensamblador / UART / GPIO / DAC R-2R", url: "https://drive.google.com/file/d/1NXQSYHN2ltbnLsJ9agiUTe_sG3_E0GKU/view?usp=drive_link" },
             { name: "Laboratorio 2 TMPR", type: "Pen Plotter / UART / EEPROM", link: "https://drive.google.com/file/d/1E4UumDUg6E0UXkpHhlxfGIRlxUSbwrMJ/view?usp=drive_link" },
             { name: "Laboratorio 3 TMPR", type: "PWM / Python / I2C / SPI / UART", link: "https://drive.google.com/file/d/1inv05FgKHeb75ErSzuFv0p4lAdz8C2xE/view?usp=drive_link" },
             { name: "Laboratorio 4 TMPR", type: "Robótica móvil / Maestro-Esclavo / I2C / SPI / UART", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" },
