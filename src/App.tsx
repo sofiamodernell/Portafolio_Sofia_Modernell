@@ -459,7 +459,7 @@ export default function App() {
       id: "soft1",
       title: "Comunicacion",
       area: "SOFT",
-      description: "La habilidad para expresar ideas técnicas de manera clara y efectiva tanto en español como en inglés profesional.",
+      description: "Capacidad de expresar y transmitir información técnica en forma oral, escrita y multimedial con claridad y eficacia, tanto en español como en inglés, dirigida a distintos interlocutores del entorno profesional y académico.",
       evidences: [
         { name: "Informe XV Congreso CTG - Voluntaria", type: "Redacción técnica / Comunicación académica / Perspectiva de género en STEM",  link: "https://drive.google.com/file/d/1X4jI-7knJR73lKpkvu9aUKpVHVVlBcX5/view" },
         { name: "LinguaSkill Cambridge - B2", type: "Cambridge English Scale / Listening C1 / Reading C1 / Speaking B2 / Writing B2",   link: "https://drive.google.com/file/d/1AW7DZFOkqdJeglgT9ue_hvrppzP255iC/view" },
@@ -475,7 +475,7 @@ export default function App() {
       id: "soft2",
       title: "Trabajo en Equipo",
       area: "SOFT",
-      description: "Colaboracion efectiva en entornos multidisciplinarios, asumiendo roles de liderazgo o apoyo según la necesidad del proyecto.",
+      description: "Capacidad de integrarse y colaborar en grupos multidisciplinarios, asumiendo roles con responsabilidad colectiva, fomentando el liderazgo, la comunicación interpersonal y el compromiso con los objetivos comunes del equipo.",
      evidences: [
         { name: "International Buddy Program - UTEC", type: "Mentoría intercultural / Liderazgo / Acompañamiento a estudiante internacional", link: "https://drive.google.com/file/d/172GdTCqQ9zAv-CzrXd_uTjmEOTxD-yGm/view" },
         { name: "XV Congreso CTG - Voluntaria", type: "Trabajo en equipo internacional / Logística / Colaboración multidisciplinaria", link: "https://drive.google.com/file/d/1X4jI-7knJR73lKpkvu9aUKpVHVVlBcX5/view" },
@@ -492,7 +492,7 @@ export default function App() {
       id: "soft3",
       title: "Autorregulación",
       area: "EXE",
-      description: "Gestión autónoma del aprendizaje y mejora continua de habilidades mecatrónicas, adaptándose a nuevos desafíos.",
+      description: "Capacidad de gestionar el propio aprendizaje de forma autónoma y continua, identificando brechas formativas y buscando activamente instancias de desarrollo profesional más allá del currículo obligatorio.",
      evidences: [
         { name: "IV Taller de Soldadura - 20hs",  type: "Formación extracurricular / Soldadura industrial / Normas IPC",    link: "https://drive.google.com/file/d/16jrBM1rOO43Z3RpYLKcQNxoeHx_wIeJ9/view" },
         { name: "Taller Seguridad Laboral y Salud Ocupacional - Extintores",  type: "Formación complementaria / Seguridad industrial / Actuación ante emergencias",  link: "https://drive.google.com/file/d/1z--lMDFwVvERVv1GQHV9BxkZV1In3zDb/view" },
@@ -509,7 +509,7 @@ export default function App() {
       id: "soft4",
       title: "Pensamiento Crítico",
       area: "EXE",
-      description: "Análisis de problemas complejos y toma de decisiones basadas en evidencia técnica y datos experimentales.",
+      description: "Capacidad de analizar situaciones complejas con rigor, cuestionar resultados, identificar causas raíz y tomar decisiones fundamentadas en evidencia técnica, comparando marcos teóricos con resultados experimentales reales.",
      evidences: [
         { name: "Lab 4 TMPR - Diagnóstico SPI vs I2C",   type: "Análisis de fallas / Identificación de causa raíz / Corrección basada en evidencia" },
         { name: "PIC II - MCDM Sigfox vs WiFi vs LoRa",   type: "Toma de decisiones técnicas / Matrices multicriterio / Análisis comparativo justificado" },
