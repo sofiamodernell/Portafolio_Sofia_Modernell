@@ -246,7 +246,7 @@ export default function App() {
 
   const backgrounds = {
     space: { bg: '#000000', pattern: 'https://www.transparenttextures.com/patterns/stardust.png', name: 'ESPACIO_ESTRELLADO.SYS' },
-    blueprint: { bg: '#003366', pattern: 'https://www.transparenttextures.com/patterns/grid-me.png', name: 'CUADRICULA_INGENIERIA.VXD' },
+    blueprint: { bg: '#003366', pattern: 'https://upload.wikimedia.org/wikipedia/en/2/27/Bliss_%28Windows_XP%29.png', name: 'CUADRICULA_INGENIERIA.VXD' },
     matrix: { bg: '#001a00', pattern: 'https://www.transparenttextures.com/patterns/carbon-fibre.png', name: 'MATRIZ_DATOS.EXE' },
     sunset: { bg: '#ff0080', pattern: 'https://www.transparenttextures.com/patterns/asfalt-light.png', name: 'VAPORWAVE_90S.BMP' },
     clouds: { bg: '#87CEEB', pattern: 'https://www.transparenttextures.com/patterns/cloudy-day.png', name: 'NUBES_XP.SCR' },
@@ -263,14 +263,14 @@ export default function App() {
   const projects = [
     {
       title: "Proyecto Integrador II",
-      tag: "EMBEDDED / IoT",
-      desc: "PCB propia con ATmega328PB, sensores y SigFox IoT. Incluye gemelo digital.",
+      tag: "ATmega328PB / Sigfox / IoT",
+      desc: "PCB propia con ATmega328PB, sensores y SigFox IoT. Enfocado en optimización energetica.",
       img: getImgPath('assets/images/project-pic2.png')
     },
     {
       title: "Pick-to-Light System",
-      tag: "AUTOMATION",
-      desc: "Sistema de guiado lumínico para depósitos optimizado mediante análisis Ishikawa.",
+      tag: "Automatismo / Logística",
+      desc: "Sistema de guiado para depósitos optimizado mediante LEDs .",
       img: getImgPath('assets/images/project-p2l.png')
     }
   ];
@@ -287,13 +287,13 @@ export default function App() {
           title: "1.1 Implementar software y hardware específicos para el correcto desempeño de procesos industriales.",
           description: "Desarrollo y despliegue de soluciones integrales que combinan programación de bajo nivel con diseño circuital robusto para automatización.",
           evidences: [
-            { name: "Laboratorio 1 TMPR", type: "ASM / ATmega328P", link: "#" },
-            { name: "Laboratorio 2 TMPR", type: "C / Embebidos", link: "#" },
-            { name: "Laboratorio 3 TMPR", type: "C+Python / Automatización", link: "#" },
-            { name: "Laboratorio 4 TMPR", type: "Protocolos / Maestro-Esclavo", link: "#" },
-            { name: "Laboratorio 4 ED1", type: "Lógica Discreta", link: "#" },
-            { name: "PIC I - Banchio/Modernell", type: "Pick to Light", link: "#" },
-            { name: "PIC II - Etcheverry/Modernell", type: "SigFox / PCB Design", link: "#" }
+            { name: "Laboratorio 1 TMPR", type: "ATmega328P / Ensamblador / UART / GPIO / DAC R-2R", link: "https://drive.google.com/file/d/1NXQSYHN2ltbnLsJ9agiUTe_sG3_E0GKU/view?usp=drive_link" },
+            { name: "Laboratorio 2 TMPR", type: "Pen Plotter / UART / EEPROM", link: "https://drive.google.com/file/d/1E4UumDUg6E0UXkpHhlxfGIRlxUSbwrMJ/view?usp=drive_link" },
+            { name: "Laboratorio 3 TMPR", type: "PWM / Python / I2C / SPI / UART", link: "https://drive.google.com/file/d/1inv05FgKHeb75ErSzuFv0p4lAdz8C2xE/view?usp=drive_link" },
+            { name: "Laboratorio 4 TMPR", type: "Robótica móvil / Maestro-Esclavo / I2C / SPI / UART", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" },
+            { name: "Laboratorio 4 ED1", type: "Lógica Combinacional / Logica Secuencial / Flip-Flops", link: "https://drive.google.com/file/d/1e-8MCmhZ-o2Soz5FVYluZlWawZygTaC_/view?usp=drive_link" },
+            { name: "PIC I - Sistema Pick to Light", type: "Arduino Uno / Sistema Pick to Light / Control de procesos ", link: "https://drive.google.com/file/d/1plyUhsnvwbN44AVKBbYR7dW_YFSk3E4b/view?usp=drive_link" },
+            { name: "PIC II - Modulo de recolección de datos", type: "ATmega328PB / Sensores ambientales / Comunicación inalámbrica", link: "https://drive.google.com/file/d/1xBhtIRChTQFm7XlxNTK4xA_YoCdC-O2O/view?usp=drive_link" }
           ]
         },
         {
@@ -301,11 +301,11 @@ export default function App() {
           title: "1.2 Verificar la capacidad operacional de los sistemas mecatrónicos en planta usando sistemas de monitoreo.",
           description: "Aseguramiento de la calidad y funcionalidad mediante el análisis de datos en tiempo real y pruebas de estrés en entornos industriales.",
           evidences: [
-            { name: "PIC II (SigFox/API)", type: "Monitoreo Real-time", link: "#" },
-            { name: "Laboratorio 3 TMPR", type: "Lazo Cerrado / Python", link: "#" },
-            { name: "Laboratorio 4 TMPR", type: "Sensores / Validación", link: "#" },
-            { name: "Laboratorio 2 TMPR", type: "Simulación Proteus", link: "#" },
-            { name: "Laboratorio 1 TMPR", type: "Osciloscopio / UART", link: "#" }
+            { name: "PIC II - Modulo de recolección de datos", type: "ATmega328PB / Sensores ambientales / Telemetría inalámbrica / Monitoreo en campo", link: "https://drive.google.com/file/d/1xBhtIRChTQFm7XlxNTK4xA_YoCdC-O2O/view?usp=drive_link" },
+            { name: "Laboratorio 3 TMPR", type: "LM35 / Control de temperatura / Lazo cerrado / Python / Visualización en tiempo real", link: "https://drive.google.com/file/d/1inv05FgKHeb75ErSzuFv0p4lAdz8C2xE/view?usp=drive_link" },
+            { name: "Laboratorio 4 TMPR", type: "DHT11 / MQ135 / Sensor de llama / Maestro-Esclavo SPI-I2C / Monitoreo ambiental / LCD", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" },
+            { name: "Laboratorio 2 TMPR", type: "ATmega328P / Proteus / PicSimLab / Simulación y validación dual / Lenguaje C", link: "https://drive.google.com/file/d/1E4UumDUg6E0UXkpHhlxfGIRlxUSbwrMJ/view?usp=drive_link" },
+            { name: "Laboratorio 1 TMPR", type: "ATmega328P / Osciloscopio / DAC R-2R / UART / Validación de señal analógica", link: "https://drive.google.com/file/d/1NXQSYHN2ltbnLsJ9agiUTe_sG3_E0GKU/view?usp=drive_link" }
           ]
         },
         {
@@ -313,17 +313,19 @@ export default function App() {
           title: "1.3 Instalar y poner en servicio sistemas mecatrónicos considerando normas de calidad, seguridad y medio ambiente.",
           description: "Integración física y lógica de equipos, garantizando el cumplimiento de normativas vigentes y la sostenibilidad del sistema.",
           evidences: [
-            { name: "PIC I (Pick to Light)", type: "Ishikawa / Selección", link: "#" },
-            { name: "PIC II (Monitoreo)", type: "Integración Completa", link: "#" },
-            { name: "Laboratorio 4 TMPR", type: "Robustez de Protocolos", link: "#" },
-            { name: "Laboratorio 3 TMPR", type: "Metodología Sistemática", link: "#" }
+            { name: "PIC I - Sistema Pick to Light", type: "Arduino Uno / Tinkercad / Autodesk Inventor / Ishikawa / Matriz multicriterio / Diseño y simulación", link: "https://drive.google.com/file/u/1/d/1xBhtIRChTQFm7XlxNTK4xA_YoCdC-O2O/view?usp=drive_link" },
+            { name: "PIC II - Modulo de recolección de datos", type: "ATmega328PB / PCB / Soldadura SMD / Carcasa 3D / Sigfox / Bajo consumo / Gemelo digital", link: "https://drive.google.com/file/d/1xBhtIRChTQFm7XlxNTK4xA_YoCdC-O2O/view?usp=drive_link" },
+            { name: "Laboratorio 4 TMPR", type: "ATmega328P / SPI / I2C / Maestro-Esclavo / Integración física / Validación dual simulación-físico", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" },
+            { name: "Laboratorio 3 TMPR", type: "ATmega328P / Proteus / PicSimLab / Metodología dual simulación-físico / Control de temperatura / RFID / Lenguaje C", link: "https://drive.google.com/file/d/1inv05FgKHeb75ErSzuFv0p4lAdz8C2xE/view?usp=drive_link" }
           ]
         }
       ],
       evidences: [],
-      reflection: "A lo largo de mi trayectoria, he consolidado la visión de que la operación de sistemas mecatrónicos trasciende la simple carga de un script o el ensamblaje de módulos. He aprendido que la verdadera competencia reside en la validación exhaustiva de la respuesta física frente a la lógica programada. A través de mis desarrollos en laboratorios de electrónica y proyectos integradores, entendí que un sistema no alcanza su estado operativo al 'funcionar', sino al cumplir estrictamente con los parámetros de diseño bajo monitoreo constante. Esta transición del código al movimiento mecánico sincronizado es lo que define la integridad operacional en la industria.",
+      reflection: "A lo largo de mis proyectos he comprendido que la operación de sistemas mecatrónicos no se valida cuando el código compila o la simulación responde, sino cuando el sistema físico cumple los parámetros de diseño bajo condiciones reales. Verificar una señal analógica con osciloscopio, medir el consumo real de un módulo IoT en campo o comparar la respuesta de un controlador de temperatura contra una gráfica en tiempo real me enseñó que la diferencia entre 'funciona' y 'opera correctamente' define la integridad de un sistema industrial. Esa transición del entorno simulado al desempeño físico verificado es lo que entiendo hoy como competencia operacional real.",
       resources: [
-        { name: "Carpeta de Evidencias Drive", url: "https://drive.google.com/drive/u/1/folders/1vV15lVgWN9c30LRsY4HgE3z9dhCtd2Ue" },
+        { name: "Repositorio GitHub - Tecnologias de Microprocesamiento", url: "https://github.com/Victoriaetch/Microcontroladores"},
+        { name: "Repositorio GitHub - PIC II ", url: "https://github.com/sosaguadalupe/Modulo_recolector_de_datos"},
+        { name: "Carpeta de Evidencias", url: "https://drive.google.com/drive/u/1/folders/1vV15lVgWN9c30LRsY4HgE3z9dhCtd2Ue" },
         { name: "Datasheet ATmega328PB", url: "https://ww1.microchip.com/downloads/en/DeviceDoc/40001906A.pdf" },
         { name: "Plan de Estudios 2023", url: "https://ev1.utec.edu.uy/moodle/pluginfile.php/912362/mod_resource/content/0/Resoluci%C3%B3n%20135_23%20Plan%20IMEC%202023.pdf" }
       ],
