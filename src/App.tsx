@@ -461,13 +461,16 @@ export default function App() {
       area: "SOFT",
       description: "La habilidad para expresar ideas técnicas de manera clara y efectiva tanto en español como en inglés profesional.",
       evidences: [
-        { name: "Presentación Congreso CTG", type: "Slides", link: "#" },
-        { name: "Informe Técnico PIC II", type: "PDF", link: "#" },
-        { name: "LinguaSkill Result (B2)", type: "Crt", link: "#" }
-      ],
-      reflection: "Desarrollé mis habilidades de comunicación a través de la presentación de proyectos en clase y la redacción de informes detallados. El examen LinguaSkill B2 validó mi capacidad de operar en entornos internacionales.",
+        { name: "Informe XV Congreso CTG - Voluntaria", type: "Redacción técnica / Comunicación académica / Perspectiva de género en STEM",  link: "https://drive.google.com/file/d/1X4jI-7knJR73lKpkvu9aUKpVHVVlBcX5/view" },
+        { name: "LinguaSkill Cambridge - B2", type: "Cambridge English Scale / Listening C1 / Reading C1 / Speaking B2 / Writing B2",   link: "https://drive.google.com/file/d/1AW7DZFOkqdJeglgT9ue_hvrppzP255iC/view" },
+        { name: "Informes técnicos",  type: "Redacción técnica en formato IEEE / Documentación de resultados experimentales" },
+        { name: "PIC I y PIC II - Informes integradores",  type: "Presentación oral / Informe técnico / Comunicación de soluciones de ingeniería" }
+],
+      reflection: "Comunicar en ingeniería no es solo escribir informes, es traducir decisiones técnicas en argumentos comprensibles. A lo largo de la carrera redacté informes en formato IEEE para todas las UCs, documentando metodología, resultados y análisis comparativos con rigor académico. Cada proyecto integrador implicó además instancias de presentación oral ante docentes y evaluadores, donde debí defender decisiones técnicas, responder preguntas críticas y comunicar resultados de forma clara y estructurada. El LinguaSkill Cambridge validó mi nivel B2 general, aunque en Listening y Reading obtuve C1, lo que refleja una capacidad real de operar en entornos técnicos internacionales. Participar como voluntaria en el XV Congreso de Ciencia, Tecnología y Género me expuso a comunicación académica de alto nivel y me exigió coordinar, orientar y representar a UTEC ante personas de distintos países. Comunicar bien no es un complemento de la ingeniería, es parte de ella.",
       resources: [
-        { name: "Cambridge Preparation Materials", url: "#" }
+        { name: "Validador oficial del certificado LinguaSkill,", url: "https://results.linguaskill.com" }
+        { name: "Validador oficial del certificado LinguaSkill,", url: "https://results.linguaskill.com" }
+
       ]
     },
     {
@@ -475,13 +478,23 @@ export default function App() {
       title: "Trabajo en Equipo",
       area: "SOFT",
       description: "Colaboracion efectiva en entornos multidisciplinarios, asumiendo roles de liderazgo o apoyo según la necesidad del proyecto.",
-      evidences: [
-        { name: "Bitácora PIC II (Grupal)", type: "Log", link: "#" },
-        { name: "Organización Estudiantil", type: "Doc", link: "#" }
+     evidences: [
+        { name: "International Buddy Program - UTEC", 
+          type: "Mentoría intercultural / Liderazgo / Acompañamiento a estudiante internacional", 
+          link: "https://drive.google.com/file/d/172GdTCqQ9zAv-CzrXd_uTjmEOTxD-yGm/view" },
+        { name: "XV Congreso CTG - Voluntaria", 
+          type: "Trabajo en equipo internacional / Logística / Colaboración multidisciplinaria", 
+          link: "https://drive.google.com/file/d/1X4jI-7knJR73lKpkvu9aUKpVHVVlBcX5/view" },
+        { name: "PIC I y PIC II - Proyectos grupales", 
+          type: "Roles definidos / Trabajo colaborativo / Entregas coordinadas en equipo" },
+        { name: "Laboratorios - Trabajos grupales", 
+          type: "Informes coautorados / Laboratorios en equipo / División de tareas técnicas" }
       ],
-      reflection: "El trabajo en equipo en mecatrónica es esencial dado que nadie es experto en todo. Aprender a delegar tareas de software mientras yo me enfocaba en el hardware fue clave para el éxito del PIC II.",
+      reflection: "Ningún sistema mecatrónico se construye solo. Todos mis proyectos e informes fueron desarrollados en equipo, lo que me enseñó que la colaboración efectiva exige tanto competencia técnica como habilidades interpersonales. En el PIC I y PIC II coordiné con mis compañeras la división de tareas entre hardware, software y documentación. Fuera del aula, el International Buddy Program me asignó la responsabilidad de acompañar a un estudiante internacional en su integración a UTEC, un rol que requirió empatía, planificación y comunicación sostenida. En el XV Congreso CTG trabajé con un equipo de voluntarios de distintas carreras y países durante cuatro días de logística real. Aprendí que un equipo funciona cuando cada persona entiende su rol y confía en el del otro.",
       resources: [
-        { name: "Agile Methodologies for Teams", url: "#" }
+        { name: "Repositorio Tecnologías de Microprocesamiento", url: "https://github.com/Victoriaetch/Microcontroladores" }
+        { name: "Repositorio PIC II", url: "https://github.com/sosaguadalupe/Modulo_recolector_de_datos" }
+       
       ]
     },
     {
@@ -489,12 +502,19 @@ export default function App() {
       title: "Autorregulación",
       area: "EXE",
       description: "Gestión autónoma del aprendizaje y mejora continua de habilidades mecatrónicas, adaptándose a nuevos desafíos.",
-      evidences: [
-        { name: "LinguaSkill B2", type: "Cert", link: "#" },
-        { name: "Tutorías Académicas", type: "Doc", link: "#" },
-        { name: "Curso de Corte Láser", type: "Doc", link: "#" }
+     evidences: [
+        { name: "IV Taller de Soldadura - 20hs", 
+          type: "Formación extracurricular / Soldadura industrial / Normas IPC", 
+          link: "https://drive.google.com/file/d/16jrBM1rOO43Z3RpYLKcQNxoeHx_wIeJ9/view" },
+        { name: "Taller Seguridad Laboral y Salud Ocupacional - Extintores", 
+          type: "Formación complementaria / Seguridad industrial / Actuación ante emergencias", 
+          link: "https://drive.google.com/file/d/1z--lMDFwVvERVv1GQHV9BxkZV1In3zDb/view" },
+        { name: "International Buddy Program - UTEC", 
+          type: "Iniciativa propia / Gestión de programa extracurricular / Desarrollo intercultural" },
+        { name: "LinguaSkill - Preparación autónoma", 
+          type: "Autoaprendizaje / Inglés técnico / Certificación internacional Cambridge" }
       ],
-      reflection: "La autorregulación me ha permitido mantenerme al día con las exigencias de la carrera y buscar formaciones complementarias fuera del currículo obligatorio.",
+      reflection: "La carrera de mecatrónica exige aprender más rápido de lo que el currículo puede enseñar. Busqué formación complementaria de forma sistemática: el Taller de Soldadura me dio competencias en SMAW, GTAW, GMAW y soldadura de electrónica que apliqué directamente en el PIC II al soldar componentes SMD en la PCB. El taller de Seguridad Laboral me preparó para actuar ante emergencias industriales reales. El Buddy Program y el Congreso CTG fueron decisiones propias, no obligatorias. Preparar el LinguaSkill de forma autónoma fue otro ejemplo de identificar una brecha y cubrirla sin esperar que el sistema lo pidiera. Autorregularme significó entender que mi formación no termina en el aula.",
       resources: [
         { name: "Técnica Pomodoro para Ingeniería", url: "#" },
         { name: "Gestión de Proyectos con Trello", url: "#" }
@@ -505,12 +525,17 @@ export default function App() {
       title: "Pensamiento Crítico",
       area: "EXE",
       description: "Análisis de problemas complejos y toma de decisiones basadas en evidencia técnica y datos experimentales.",
-      evidences: [
-        { name: "Análisis de Fallos Lab 4 TMPR", type: "PDF", link: "#" },
-        { name: "Optimización PIC II", type: "Doc", link: "#" },
-        { name: "Tutorías de Electrónica", type: "Doc", link: "#" }
+     evidences: [
+        { name: "Lab 4 TMPR - Diagnóstico SPI vs I2C", 
+          type: "Análisis de fallas / Identificación de causa raíz / Corrección basada en evidencia" },
+        { name: "PIC II - MCDM Sigfox vs WiFi vs LoRa", 
+          type: "Toma de decisiones técnicas / Matrices multicriterio / Análisis comparativo justificado" },
+        { name: "Lab 4 EAA - Discrepancias JFET teórico vs práctico", 
+          type: "Análisis crítico de resultados / Identificación de parámetros reales vs asumidos" },
+        { name: "Lab 5 EAA - Diagnóstico fallo integrador LM324", 
+          type: "Diagnóstico de fallo experimental / Hipótesis técnicas / Razonamiento sistemático" }
       ],
-      reflection: "El pensamiento crítico es el corazón de la ingeniería. Cuestionar por qué un circuito no funciona y analizar los datos de salida me ha permitido resolver problemas que parecían insolubles.",
+      reflection: "En ingeniería, la diferencia entre un resultado y un aprendizaje es el análisis. A lo largo de la carrera desarrollé la capacidad de cuestionar resultados, identificar causas raíz y tomar decisiones basadas en evidencia en lugar de intuición. Ante discrepancias entre lo teórico, lo simulado y lo experimental, aprendí a no aceptar el primer resultado como válido sino a investigar el origen de la diferencia. En los proyectos integradores apliqué herramientas de análisis multicriterio para justificar decisiones de diseño con datos concretos. El pensamiento crítico no es dudar de todo, es no aceptar ningún resultado sin entender por qué.",
       resources: [
         { name: "El Método de Ingeniería", url: "#" },
         { name: "Pensamiento Crítico Aplicado", url: "#" }
