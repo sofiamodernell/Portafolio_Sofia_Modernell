@@ -362,7 +362,7 @@ export default function App() {
       resources: [
         { name: "Carpeta de Evidencias", url: "https://drive.google.com/drive/u/1/folders/17Retv7992rLRJWRwvWbupOL5darzVy8d" },
         { name: "Documentación Proteus", url: "https://www.labcenter.com/resources/" },
-        { name: "Documentación Simulink/MATLAB ", url: "https://www.mathworks.com/products/simulink.html" },
+        { name: "Documentación Simulink/MATLAB ", url: "https://www.mathworks.com/products/simulink.html" }
       ],
       link: "https://drive.google.com/drive/u/1/folders/17Retv7992rLRJWRwvWbupOL5darzVy8d"
     },
@@ -418,9 +418,9 @@ export default function App() {
           title: "4.1. Reconocer paradigmas tecnológicos tradicionales e innovadores presentes en una infraestructura o equipamiento industrial, con el propósito de optimizar sistemas y procesos mecatrónicos.",
           description: "Identificación y análisis de tecnologías emergentes para su aplicación estratégica en la mejora de procesos industriales.",
           evidences: [
-             { name: "PIC II - Módulo de recolección de datos", type: "Sigfox vs WiFi vs LoRa / MCDM  / Bajo consumo energético / Selección tecnológica justificada" , link: "#" }
+             { name: "PIC II - Módulo de recolección de datos", type: "Sigfox vs WiFi vs LoRa / MCDM  / Bajo consumo energético / Selección tecnológica justificada" , link: "#" },
              { name: "PIC I - Sistema Pick to Light", type: "Ishikawa / Matriz multicriterio / Paradigma Pick to Light / Alternativas de diseño evaluadas / Selección de solución óptima" , link: "#" },
-             { name: "Laboratorio 4 - TMPR", type: "SPI vs I2C vs UART / Comparativa de protocolos industriales / Robustez vs velocidad / Selección justificada de arquitectura maestro-esclavo", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" },
+             { name: "Laboratorio 4 - TMPR", type: "SPI vs I2C vs UART / Comparativa de protocolos industriales / Robustez vs velocidad / Selección justificada de arquitectura maestro-esclavo", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" }
           ]
         },
         {
@@ -428,10 +428,10 @@ export default function App() {
           title: "4.2. Fabricar prototipos para sistemas y procesos mecatrónicos.",
           description: "Construcción de modelos funcionales experimentales para la validación de hipótesis técnicas y soluciones innovadoras.",
           evidences: [
-             { name: "PIC II - Módulo de recolección de datos", type: "PCB personalizada / Soldadura SMD / Carcasa 3D PLA / ATmega328PB / Prototipo IoT funcional desplegado en campo" , link: "#" }
+             { name: "PIC II - Módulo de recolección de datos", type: "PCB personalizada / Soldadura SMD / Carcasa 3D PLA / ATmega328PB / Prototipo IoT funcional desplegado en campo" , link: "#" },
              { name: "PIC I - Sistema Pick to Light", type: "Arduino Uno / Tinkercad / Autodesk Inventor / Prototipo Sistema Pick to Light / Validación de concepto industrial" , link: "#" },
              { name: "Laboratorio (1, 2, 3, 4) - TMPR", type: "ATmega328P / Ensamblador / Lenguaje C / Proteus / PicSimLab / Prototipado iterativo simulación-físico", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" },
-             { name: "Labs ED (1, 2, 3)",   type: "Compuertas TTL / Flip-Flop JK / Karnaugh / Simulink / Prototipado de lógica combinacional y secuencial en protoboard", link: "#" },
+             { name: "Labs ED (1, 2, 3)",   type: "Compuertas TTL / Flip-Flop JK / Karnaugh / Simulink / Prototipado de lógica combinacional y secuencial en protoboard", link: "#" }
           ]
         },
         {
