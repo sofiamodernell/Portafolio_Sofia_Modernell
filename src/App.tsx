@@ -380,7 +380,8 @@ export default function App() {
             { name: "Labs EAA (BJT, Filtros, JFET)",   type: "Protoboard / Simulink / Osciloscopio / BJT / JFET / LM324 / Filtros RC / Validación teórico / simulado / experimental", link: "#" },
             { name: "Labs ED (Semáforo, Circuitos lógicos, Secuencial)",   type: "Compuertas TTL / Karnaugh / Flip-Flop JK / Display 7 segmentos / Simulink / Protoboard", link: "#" },
             { name: "PIC II - Módulo de recolección de datos", type: "PCB personalizada / Soldadura SMD / Carcasa 3D / ATmega328PB / Ensamblaje" , link: "#"}
-        },
+      ]
+            },
         {
           id: "3.2",
           title: "3.2. Incorporar tecnologías (ya evaluadas) a sistemas y procesos mecatrónicos.",
