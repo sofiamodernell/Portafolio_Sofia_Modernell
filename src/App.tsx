@@ -377,17 +377,17 @@ export default function App() {
           title: "3.1. Fabricar equipos, sistemas y procesos mecatrónicos de acuerdo con diseño.",
           description: "Ejecución técnica de la manufactura y ensamblaje de sistemas siguiendo planos y especificaciones de diseño formal.",
           evidences: [
-            { name: "Amplificadores y Filtros EAA", type: "Fabricación Análoga", link: "#" },
-            { name: "Diseño Digital ED1", type: "Lógica Discreta", link: "#" }
-          ]
+            { name: "Labs EAA (BJT, Filtros, JFET)",   type: "Protoboard / Simulink / Osciloscopio / BJT / JFET / LM324 / Filtros RC / Validación teórico / simulado / experimental", link: "#" },
+            { name: "Labs ED (Semáforo, Circuitos lógicos, Secuencial)",   type: "Compuertas TTL / Karnaugh / Flip-Flop JK / Display 7 segmentos / Simulink / Protoboard", link: "#" },
+            { name: "PIC II - Módulo de recolección de datos", type: "PCB personalizada / Soldadura SMD / Carcasa 3D / ATmega328PB / Ensamblaje" , link: "#"}
         },
         {
           id: "3.2",
           title: "3.2. Incorporar tecnologías (ya evaluadas) a sistemas y procesos mecatrónicos.",
           description: "Integración de módulos tecnológicos validados para potenciar la funcionalidad de sistemas mecatrónicos existentes.",
           evidences: [
-            { name: "Lazo Cerrado RFID (TMPR)", type: "Integración", link: "#" },
-            { name: "PCB Propia IoT (SigFox) PIC II", type: "Tecnología Inalámbrica", link: "#" }
+            { name: "Labs TMPR (Lab 3, Lab 4)", type: "RFID RC522 / LM35 / DHT11 / MQ135 / SPI / I2C / Python / Integración de módulos validados"  , link: "#"},
+            { name: "PIC II - Módulo de recolección de datos", type: "ATmega328PB / Sigfox / PCB / Backend IoT / MCDM / Sensores ambientales" , link: "#" }
           ]
         },
         {
@@ -395,16 +395,15 @@ export default function App() {
           title: "3.3 Generar insumos de procesos existentes para el diseño o rediseño de un sistema.",
           description: "Análisis de sistemas operativos para extraer parámetros técnicos necesarios para su optimización o rediseño integral.",
           evidences: [
-            { name: "Proyecto PIC I", type: "Rediseño de Proceso", link: "#" },
-            { name: "Optimización de Filtros EAA", type: "Insumos Técnicos", link: "#" }
+            { name: "PIC I - Sistema Pick to Light", type: "Ishikawa / Matriz multicriterio / Tinkercad / Autodesk Inventor / Rediseño de proceso industrial" , link: "#" },
+            { name: "Labs EAA (Filtros, BJT)", type: "LM324 / BJT / Punto Q / Frecuencia de corte / Análisis comparativo de configuraciones / Parámetros para rediseño" , link: "#" }
           ]
         }
       ],
       evidences: [],
-      reflection: "El diseño es la etapa donde la creatividad técnica se encuentra con la normativa. El proyecto PIC II representó para mí el punto de mayor convergencia de diseño, donde no solo implementé un circuito, sino que fundamenté cada decisión de componentes y comparé alternativas tecnológicas para maximizar la eficiencia. He aprendido que el diseño mecatrónico robusto requiere una visión sistémica que integre la viabilidad de fabricación con la precisión del control electrónico, transformando especificaciones abstractas en prototipos funcionales de alta complejidad.",
+      reflection: "El diseño mecatrónico me enseñó que fabricar no es solo ensamblar, sino traducir decisiones fundamentadas en hardware real. A través de los laboratorios de electrónica analógica y digital consolidé la capacidad de implementar circuitos siguiendo especificaciones formales, validando cada etapa entre simulación y físico. En el PIC I aprendí a generar insumos técnicos desde el análisis del problema, usando Ishikawa y matrices multicriterio antes de diseñar. En el PIC II llevé ese proceso al extremo: diseñé una PCB, soldé componentes SMD, imprimí una carcasa en PLA y desplegué un sistema IoT real. Entendí que el diseño robusto no empieza en el circuito, sino en la justificación de cada componente.",
       resources: [
-        { name: "Evidencias Area 03 Drive", url: "https://drive.google.com/drive/u/1/folders/1O-TYA7JWIHOSZWaqeKgqRc4MnKlkk5El" },
-        { name: "KiCad Documentation", url: "https://docs.kicad.org/" }
+        { name: "MATLAB/Simulink", url: "https://www.mathworks.com/products/simulink.html" },
       ],
       link: "https://drive.google.com/drive/u/1/folders/1O-TYA7JWIHOSZWaqeKgqRc4MnKlkk5El"
     },
@@ -419,8 +418,9 @@ export default function App() {
           title: "4.1. Reconocer paradigmas tecnológicos tradicionales e innovadores presentes en una infraestructura o equipamiento industrial, con el propósito de optimizar sistemas y procesos mecatrónicos.",
           description: "Identificación y análisis de tecnologías emergentes para su aplicación estratégica en la mejora de procesos industriales.",
           evidences: [
-             { name: "Protocolos Maestro-Esclavo", type: "Comunicación Industrial", link: "#" },
-             { name: "Investigación Sensores", type: "Fase Experimental", link: "#" }
+             { name: "PIC II - Módulo de recolección de datos", type: "Sigfox vs WiFi vs LoRa / MCDM  / Bajo consumo energético / Selección tecnológica justificada" , link: "#" }
+             { name: "PIC I - Sistema Pick to Light", type: "Ishikawa / Matriz multicriterio / Paradigma Pick to Light / Alternativas de diseño evaluadas / Selección de solución óptima" , link: "#" },
+             { name: "Laboratorio 4 - TMPR", type: "SPI vs I2C vs UART / Comparativa de protocolos industriales / Robustez vs velocidad / Selección justificada de arquitectura maestro-esclavo", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" },
           ]
         },
         {
@@ -428,8 +428,10 @@ export default function App() {
           title: "4.2. Fabricar prototipos para sistemas y procesos mecatrónicos.",
           description: "Construcción de modelos funcionales experimentales para la validación de hipótesis técnicas y soluciones innovadoras.",
           evidences: [
-            { name: "Lógica Discreta Lab ED1", type: "Prototipado", link: "#" },
-            { name: "Análisis Ishikawa PIC I", type: "Desarrollo", link: "#" }
+             { name: "PIC II - Módulo de recolección de datos", type: "PCB personalizada / Soldadura SMD / Carcasa 3D PLA / ATmega328PB / Prototipo IoT funcional desplegado en campo" , link: "#" }
+             { name: "PIC I - Sistema Pick to Light", type: "Arduino Uno / Tinkercad / Autodesk Inventor / Prototipo Sistema Pick to Light / Validación de concepto industrial" , link: "#" },
+             { name: "Laboratorio (1, 2, 3, 4) - TMPR", type: "ATmega328P / Ensamblador / Lenguaje C / Proteus / PicSimLab / Prototipado iterativo simulación-físico", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" },
+             { name: "Labs ED (1, 2, 3)",   type: "Compuertas TTL / Flip-Flop JK / Karnaugh / Simulink / Prototipado de lógica combinacional y secuencial en protoboard", link: "#" },
           ]
         },
         {
@@ -443,10 +445,9 @@ export default function App() {
         }
       ],
       evidences: [],
-      reflection: "La innovación se manifiesta cuando las evidencias van más allá de la aplicación de procedimientos conocidos. En el desarrollo del PIC II, crucé la frontera de la implementación estándar para investigar el ecosistema SigFox, comprendiendo su superioridad en eficiencia energética para contextos IoT frente a alternativas como WiFi. Mi enfoque en esta competencia se basa en la validación de nuevas tecnologías mediante prototipos físicos, buscando siempre la integración de soluciones emergentes que aporten un valor diferencial y una resolución innovadora a problemas industriales complejos.",
+      reflection: "La innovación en mecatrónica no es un acto aislado sino un proceso acumulativo. Investigar protocolos de comunicación industrial me enseñó que cada tecnología responde a un contexto: SPI para velocidad, I2C para simplicidad, Sigfox para eficiencia energética en IoT. En el PIC II ese análisis comparativo se materializó en decisiones concretas justificadas con matrices MCDM, eligiendo Sigfox sobre WiFi y LoRa por su consumo y cobertura. Cada prototipo que construí, desde circuitos en protoboard hasta una PCB soldada con carcasa impresa, fue una hipótesis técnica validada en físico. Entendí que investigar sin prototipar es teoría, y prototipar sin investigar es azar.",
       resources: [
         { name: "Evidencias Area 04 Drive", url: "https://drive.google.com/drive/u/1/folders/1uZr0mWRwIGXNhYLFkosF35GK0HOaNPGe" },
-        { name: "IEEE Xplore - Research", url: "#" }
       ],
       link: "https://drive.google.com/drive/u/1/folders/1uZr0mWRwIGXNhYLFkosF35GK0HOaNPGe"
     }
