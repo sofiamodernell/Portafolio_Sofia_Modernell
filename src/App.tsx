@@ -931,10 +931,7 @@ export default function App() {
                                  "Mi objetivo es transformar problemas complejos en automatismos eficientes y escalables, integrando hardware a medida con firmware optimizado."
                                </p>
                                <p className="leading-relaxed">
-                                  A lo largo de mi trayecctoria aprendí que la ingeniería no se trata solo resolver ecuaciones, sino hacerse las preguntas correctas. Ser tutora académica, me mostró algo que no esperaba: comunicar un concepto a alguien que no lo entiende te obliga a entenderlo vos primero, a profundidad.                               </p>
-                               <p className="leading-relaxed border-t border-gray-100 pt-2 text-[12px]">
                                  Además, soy una <strong>integrante activa de la comunidad universitaria</strong> en el ITR Suroeste, participando en eventos, ferias y espacios de colaboración estudiantil. Considero que el intercambio de ideas y la colaboración interdisciplinaria son pilares fundamentales para la experiencia universitaria y la innovación tecnológica.
-                               </p>
                             </div>
 
                             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
