@@ -939,7 +939,7 @@ export default function App() {
                                <div className="bg-[#f0f0f0] border border-gray-300 p-3 hover:bg-blue-50 transition-colors group">
                                   <h4 className="text-[10px] font-black text-blue-900 uppercase mb-2 flex items-center gap-2">
                                      <Star size={12} className="group-hover:rotate-45 transition-transform" />
-                                     Intereses de Investigación
+                                     Intereses
                                   </h4>
                                   <ul className="text-[11px] space-y-1 text-slate-600 font-mono italic">
                                      <li>{">"} Diseño y fabricación</li>
