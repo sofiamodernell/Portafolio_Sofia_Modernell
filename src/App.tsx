@@ -932,7 +932,8 @@ export default function App() {
                                </p>
                                <p className="leading-relaxed">
                                  Además, soy una <strong>integrante activa de la comunidad universitaria</strong> en el ITR Suroeste, participando en eventos, ferias y espacios de colaboración estudiantil. Considero que el intercambio de ideas y la colaboración interdisciplinaria son pilares fundamentales para la experiencia universitaria y la innovación tecnológica.
-                            </div>
+                               </p>
+                           </div>
 
                             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
                                <div className="bg-[#f0f0f0] border border-gray-300 p-3 hover:bg-blue-50 transition-colors group">
