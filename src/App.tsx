@@ -767,6 +767,9 @@ export default function App() {
                   <RetroButton className="w-full text-[9px] px-2" active={activeSection === 'proyectos'} onClick={() => {setActiveSection('proyectos'); setSelectedComp(null); setShowMobileNav(false);}}>
                     PROYECTOS
                   </RetroButton>
+                  <RetroButton className="w-full text-[9px] px-2" active={activeSection === 'autoevaluacion'} onClick={() => {setActiveSection('autoevaluacion'); setSelectedComp(null); setShowMobileNav(false);}}>
+                    AUTOEVALUACIÓN
+                  </RetroButton>
                   <RetroButton className="w-full text-[9px] px-2" active={activeSection === 'contacto'} onClick={() => {setActiveSection('contacto'); setSelectedComp(null); setShowMobileNav(false);}}>
                     CONTACTO
                   </RetroButton>
@@ -1213,6 +1216,103 @@ export default function App() {
                   </motion.div>
                 )}
 
+                {activeSection === 'autoevaluacion' && (
+                  <motion.div 
+                    key="autoevaluacion"
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    className="space-y-6"
+                   >
+                  <SectionHeader title="05_AUTOEVALUACION_FINAL.LOG" />
+                    
+                    <div className="bg-white border-2 border-inset border-gray-400 p-5 shadow-inner" style={{ borderStyle: 'inset' }}>
+                      <div className="prose prose-sm font-serif max-w-none text-slate-800 space-y-6">
+                        <div className="bg-blue-50 border-l-4 border-blue-900 p-4 italic">
+                          <p className="leading-relaxed">
+                            "Al finalizar este tramo de mi formación, me detengo a observar el camino recorrido. La mecatrónica me ha desafiado a pensar de forma sistémica, integrando mundos que antes veía como aislados. Esta autoevaluación es un ejercicio de honestidad intelectual sobre mis fortalezas consolidadas y los horizontes técnicos que aún aspiro conquistar."
+                          </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                          {/* Growth Areas */}
+                          <div className="space-y-4">
+                            <h3 className="text-sm font-black text-blue-900 uppercase border-b-2 border-blue-900 pb-1 flex items-center gap-2">
+                              <Star size={16} className="text-yellow-600" /> Áreas de Mayor Crecimiento
+                            </h3>
+                            <div className="space-y-3">
+                              <div className="bg-slate-50 border border-slate-200 p-3">
+                                <h4 className="text-[11px] font-bold text-slate-900 mb-1">Hardware y Diseño de Circuitos</h4>
+                                <p className="text-[10px] text-slate-600 leading-relaxed">
+                                  He pasado de la simple conexión de módulos a la concepción integral de PCBs. La transición hacia el diseño profesional en Altium y la soldadura SMD representa un salto cualitativo en mi capacidad de materializar ideas.
+                                </p>
+                              </div>
+                              <div className="bg-slate-50 border border-slate-200 p-3">
+                                <h4 className="text-[11px] font-bold text-slate-900 mb-1">Programación de Microcontroladores</h4>
+                                <p className="text-[10px] text-slate-600 leading-relaxed">
+                                  Dominar el ATmega328PB y entender profundamente el uso de registros y protocolos de comunicación me ha brindado la libertad de optimizar el firmware para aplicaciones críticas.
+                                </p>
+                              </div>
+                              <div className="bg-slate-50 border border-slate-200 p-3">
+                                <h4 className="text-[11px] font-bold text-slate-900 mb-1">Resolución de Problemas y Diagnóstico</h4>
+                                <p className="text-[10px] text-slate-600 leading-relaxed">
+                                  He desarrollado una metodología sistemática para enfrentar fallos. Entender que un error no es un obstáculo sino un dato, me permite utilizar instrumentación con mayor agudeza analítica.
+                                </p>
+                              </div>
+                              <div className="bg-slate-50 border border-slate-200 p-3">
+                                <h4 className="text-[11px] font-bold text-slate-900 mb-1">Comunicación Técnica y Trabajo en Equipo</h4>
+                                <p className="text-[10px] text-slate-600 leading-relaxed">
+                                  La redacción de informes y las presentaciones de proyectos han pulido mi capacidad de transmitir complejidad. He aprendido a trabajar desde la colaboración, valorando la experticia ajena para potenciar el resultado grupal.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Improvement Areas */}
+                          <div className="space-y-4">
+                            <h3 className="text-sm font-black text-red-800 uppercase border-b-2 border-red-800 pb-1 flex items-center gap-2">
+                              <AlertTriangle size={16} className="text-red-600" /> Áreas que Requieren Mejora
+                            </h3>
+                            <div className="space-y-3">
+                              <div className="bg-red-50/30 border border-red-100 p-3">
+                                <h4 className="text-[11px] font-bold text-red-900 mb-1">Programación de Alto Nivel</h4>
+                                <p className="text-[10px] text-slate-600 leading-relaxed">
+                                  Si bien me siento cómoda en C y ASM, reconozco la necesidad de fortalecer mis habilidades en lenguajes como Python para aplicaciones y análisis de datos a mayor escala.
+                                </p>
+                              </div>
+                              <div className="bg-red-50/30 border border-red-100 p-3">
+                                <h4 className="text-[11px] font-bold text-red-900 mb-1">Mecánica y Diseño Estructural</h4>
+                                <p className="text-[10px] text-slate-600 leading-relaxed">
+                                  Busco profundizar en el modelado 3D y el cálculo de esfuerzos mecánicos. Siento que mi perfil electrónico es fuerte, pero necesito equilibrarlo con una comprensión más técnica del diseño de mecanismos.
+                                </p>
+                              </div>
+                              <div className="bg-red-50/30 border border-red-100 p-3">
+                                <h4 className="text-[11px] font-bold text-red-900 mb-1">Confianza en Presentaciones Orales</h4>
+                                <p className="text-[10px] text-slate-600 leading-relaxed">
+                                  A pesar de los logros en comunicación escrita y técnica, la seguridad frente a audiencias grandes es una competencia que sigo trabajando. Mi meta es lograr una fluidez que refleje la robustez de mis conocimientos técnicos.
+                                </p>
+                              </div>
+                              <div className="bg-blue-50/50 border border-blue-100 p-3 mt-4">
+                                <h4 className="text-[11px] font-bold text-blue-900 mb-1 flex items-center gap-2 italic">
+                                  <Users size={12} /> Gestión del Tiempo
+                                </h4>
+                                <p className="text-[10px] text-slate-600 leading-relaxed">
+                                  La autorregulación ha sido clave, pero aún aspiro a perfeccionar la estimación de tiempos en proyectos de investigación de largo aliento para evitar sobrecargas en las fases finales de entrega.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="mt-8 pt-6 border-t border-gray-200">
+                          <p className="text-xs font-bold text-slate-500 uppercase tracking-widest text-center">
+                            {'>>'} FIN DEL REPORTE DE AUTOEVALUACION - COMPILADO_EXITOSO {'<<'}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
                 {activeSection === 'contacto' && (
                   <motion.div 
                     key="contacto"
