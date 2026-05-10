@@ -263,7 +263,7 @@ export default function App() {
     {
       title: "Proyecto Integrador II",
       tag: "ATmega328PB / Sigfox / IoT",
-      desc: "PCB propia con ATmega328PB, sensores y SigFox IoT. Enfocado en optimización energetica.",
+      desc: "PCB propia con ATmega328PB, Sensores Ambientales y SigFox. Enfocado en optimización energetica.",
       img: getImgPath('assets/images/project-pic2.png')
     },
     {
