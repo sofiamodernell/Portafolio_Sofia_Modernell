@@ -923,16 +923,15 @@ export default function App() {
                             
                             <div className="prose prose-sm font-serif max-w-none text-slate-800 space-y-4">
                                <p className="leading-relaxed first-letter:text-4xl first-letter:font-black first-letter:text-blue-900 first-letter:mr-2 first-letter:float-left">
-                                 Soy estudiante avanzada de <strong>Ingeniería en Mecatrónica</strong> en la Universidad Tecnológica (UTEC) Suroeste. Mi enfoque se centra en la convergencia entre la mecánica de precisión y el control digital, con un interés particular en el desarrollo de <strong>Sistemas Embebidos</strong> y la arquitectura de soluciones <strong>IoT</strong>.
+                                Soy estudiante avanzada de <strong>Ingeniería en Mecatrónica</strong> en UTEC, una carrera que elegí precisamente porque no me obliga a elegir: combina hardware, software, mecánica y control en un mismo perfil. A lo largo de la carrera fui descubriendo que lo que más me engancha está en el hardware: diseñar circuitos, escribir código que optimice el consumo energético y conectar sistemas al mundo a través de protocolos de comunicación. Lo que más disfruto es el momento en que un circuito físico y su simulación funcionan juntos de igual manera, y eso es lo que quiero seguir explorando.
                                </p>
                                <p className="leading-relaxed italic border-l-4 border-blue-100 pl-4 bg-blue-50/50 py-2">
-                                 "Mi objetivo es transformar problemas industriales complejos en automatismos robustos, eficientes y escalables, integrando hardware a medida con firmware optimizado."
+                                 "Mi objetivo es transformar problemas complejos en automatismos eficientes y escalables, integrando hardware a medida con firmware optimizado."
                                </p>
                                <p className="leading-relaxed">
-                                 A lo largo de mi carrera, he descubierto que la ingeniería no solo se trata de cálculos, sino de <strong>curiosidad metódica</strong>. Como tutora académica, he reforzado mi capacidad de comunicación técnica, simplificando conceptos abstractos para otros estudiantes.
-                               </p>
+                                  A lo largo de mi trayecctoria aprendí que la ingeniería no se trata solo resolver ecuaciones, sino hacerse las preguntas correctas. Ser tutora académica, me mostró algo que no esperaba: comunicar un concepto a alguien que no lo entiende te obliga a entenderlo vos primero, a profundidad.                               </p>
                                <p className="leading-relaxed border-t border-gray-100 pt-2 text-[12px]">
-                                 Además, soy una <strong>integrante activa de la comunidad universitaria</strong> en el ITR Suroeste, participando en eventos, ferias de proyectos y espacios de co-creación estudiantil. Considero que el intercambio de ideas y la colaboración interdisciplinaria son pilares fundamentales para la innovación tecnológica.
+                                 Además, soy una <strong>integrante activa de la comunidad universitaria</strong> en el ITR Suroeste, participando en eventos, ferias y espacios de colaboración estudiantil. Considero que el intercambio de ideas y la colaboración interdisciplinaria son pilares fundamentales para la experiencia universitaria y la innovación tecnológica.
                                </p>
                             </div>
 
@@ -943,9 +942,11 @@ export default function App() {
                                      Intereses de Investigación
                                   </h4>
                                   <ul className="text-[11px] space-y-1 text-slate-600 font-mono italic">
-                                     <li>{">"} Instrumentación Electrónica</li>
-                                     <li>{">"} Protocolos LPWAN (SigFox)</li>
-                                     <li>{">"} Fabricación Digital</li>
+                                     <li>{">"} Diseño y fabricación</li>
+                                     <li>{">"} Instrumentación</li>
+                                     <li>{">"} Energías Renovables</li>
+                                     <li>{">"} Voluntariados</li>
+                                     <li>{">"} Comunidad Estudiantil</li>
                                   </ul>
                                </div>
                                <div className="bg-[#f0f0f0] border border-gray-300 p-3 hover:bg-red-50 transition-colors group">
@@ -954,8 +955,7 @@ export default function App() {
                                      Enfoque Práctico
                                   </h4>
                                   <p className="text-[11px] text-slate-600 leading-tight italic">
-                                     Me especializo en el ciclo completo de prototipado: desde la soldadura SMD hasta la implementación de gemelos digitales.
-                                  </p>
+                                  Disfruto el recorrido completo de un proyecto: del diseño del circuito al firmware, del prototipo físico al sistema desplegado en campo.                                  </p>
                                </div>
                             </div>
                          </div>
@@ -973,7 +973,7 @@ export default function App() {
                     className="space-y-6"
                   >
                     <SectionHeader title="03_MATRIZ_DE_COMPETENCIAS" />
-                    <p className="text-xs mb-4 italic">Selecciona una competencia para ver su documentación completa:</p>
+                    <p className="text-xs mb-4 italic">Selecciona una competencia para ver su descripción completa:</p>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                        <div className="space-y-4">
@@ -1029,7 +1029,7 @@ export default function App() {
                           {selectedComp.link && (
                              <ClassicLink href={selectedComp.link}>
                                <span className="flex items-center gap-1 text-[10px] bg-yellow-100 px-2 py-0.5 border border-yellow-600 font-sans shadow-sm">
-                                  <FolderOpen size={12} /> VER_FOLDER_DRIVE
+                                  <FolderOpen size={12} /> VER_CARPETA_DRIVE
                                </span>
                              </ClassicLink>
                           )}
@@ -1238,7 +1238,7 @@ export default function App() {
                                 <Linkedin size={16} />
                              </div>
                              <div>
-                                <div className="text-[9px] font-bold text-gray-500">LINKEDIN PROFESSIONAL</div>
+                                <div className="text-[9px] font-bold text-gray-500">LINKEDIN</div>
                                 <ClassicLink href="https://www.linkedin.com/in/sof%C3%ADa-modernell-726965257/">/in/sofia-modernell</ClassicLink>
                              </div>
                           </div>
@@ -1276,7 +1276,7 @@ export default function App() {
               animate={{ scale: 1, opacity: 1 }}
               className="absolute top-2 right-2 z-50 bg-red-600 text-white border-2 border-black px-2 py-1 text-[10px] font-black italic shadow-lg rotate-3 flex items-center gap-1 animate-pulse"
             >
-              <ShieldCheck size={12} /> MODO ADMIN ACTIVADO
+              <ShieldCheck size={10} /> MODO ADMIN ACTIVADO
             </motion.div>
           )}
           {/* Floating artifacts */}
@@ -1506,7 +1506,7 @@ export default function App() {
           </div>
           
           <div className="text-center">
-             <RetroButton href="https://drive.google.com/drive/u/1/folders/1PJozcpmSTPEWUJyWsWH0GECPV4-CmeGv" active>
+             <RetroButton href="https://drive.google.com/file/d/1gZbK0EkHRa7-Xqv8U2FGackpkT-H6ia2/view?usp=drive_link" active>
                ABRIR_CV_PDF.INF
              </RetroButton>
           </div>
@@ -1675,7 +1675,7 @@ export default function App() {
              ))}
           </div>
           <div className="text-[9px] italic border-t border-gray-400 pt-2">
-            * Haz click en un plano para abrir en alta resolución (Simulado)
+            * Fuente: Elaboración propia para PIC I y II
           </div>
         </div>
       </Window>
