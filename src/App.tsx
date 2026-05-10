@@ -341,9 +341,9 @@ export default function App() {
           title: "2.1. Ejecutar planes de mantenimiento (preventivos y correctivos) diseñados por especialistas.",
           description: "Implementación técnica de rutinas de preservación y restauración de funcionalidad en equipos industriales.",
           evidences: [
-            { name: "Análisis de Discrepancias - ED1", type: "Lógica Combinacional / Simulink / Karnaugh / Diagnóstico de discrepancias físico-simulado / Multímetro", link: "https://drive.google.com/drive/folders/1ILz2xo_BhUhRl8Nj1SYwn0h7qUEUbfyR?usp=drive_link" },
-            { name: "Diagnóstico SPI/I2C/UART - TMPR", type: "ATmega328P / SPI vs I2C / Detección de interferencias / Corrección de fallas en protoboard / Validación física", link: "#" },
-            { name: "Instrumentación", type: "Multímetro / Osciloscopio / Caracterización de componentes / Teórico vs Práctico vs Simulado", link: "#" }
+            { name: "Análisis de Discrepancias - ED1", type: "Lógica Combinacional / Simulink / Karnaugh / Diagnóstico de discrepancias físico-simulado / Multímetro", link: "https://drive.google.com/drive/folders/1bJ9UptF8xceCPB11oWsbyZwHPDEFqTZe?usp=drive_link" },
+            { name: "Diagnóstico SPI/I2C/UART - TMPR", type: "ATmega328P / SPI vs I2C / Detección de interferencias / Corrección de fallas en protoboard / Validación física", link: "https://drive.google.com/file/d/1cjPThi30upZfqVSBodW-Yy8T8d2eFbYw/view?usp=drive_link" },
+            { name: "Instrumentación", type: "Multímetro / Osciloscopio / Caracterización de componentes / Teórico vs Práctico vs Simulado", link: "https://drive.google.com/drive/folders/1LsWWDhjfHCWBGJEDiCZjO4Ie3nRVt9Cm?usp=drive_link" }
           ]
         },
         {
@@ -377,9 +377,9 @@ export default function App() {
           title: "3.1. Fabricar equipos, sistemas y procesos mecatrónicos de acuerdo con diseño.",
           description: "Ejecución técnica de la manufactura y ensamblaje de sistemas siguiendo planos y especificaciones de diseño formal.",
           evidences: [
-            { name: "Labs EAA (BJT, Filtros, JFET)",   type: "Protoboard / Simulink / Osciloscopio / BJT / JFET / LM324 / Filtros RC / Validación teórico / simulado / experimental", link: "#" },
-            { name: "Labs ED (Semáforo, Circuitos lógicos, Secuencial)",   type: "Compuertas TTL / Karnaugh / Flip-Flop JK / Display 7 segmentos / Simulink / Protoboard", link: "#" },
-            { name: "PIC II - Módulo de recolección de datos", type: "PCB personalizada / Soldadura SMD / Carcasa 3D / ATmega328PB / Ensamblaje" , link: "#"}
+            { name: "Labs EAA (BJT, Filtros, JFET)",   type: "Protoboard / Simulink / Osciloscopio / BJT / JFET / LM324 / Filtros RC / Validación teórico / simulado / experimental", link: "https://drive.google.com/drive/folders/1Sz0ZQpY2dAqaA3cJ_SiqjUzvuUIsH2Nq?usp=drive_link" },
+            { name: "Labs ED (Semáforo, Circuitos lógicos, Secuencial)",   type: "Compuertas TTL / Karnaugh / Flip-Flop JK / Display 7 segmentos / Simulink / Protoboard", link: "https://drive.google.com/drive/folders/16fmTikNdcKxq1TKzLYORIITM3-3h7o2G?usp=drive_link" },
+            { name: "PIC II - Módulo de recolección de datos", type: "PCB personalizada / Soldadura SMD / Carcasa 3D / ATmega328PB / Ensamblaje" , link: "https://drive.google.com/file/d/1Xmn5ZJ9d2HZZi0RqOah7ySUfVVto5xmf/view?usp=drive_link"}
       ]
             },
         {
@@ -387,8 +387,8 @@ export default function App() {
           title: "3.2. Incorporar tecnologías (ya evaluadas) a sistemas y procesos mecatrónicos.",
           description: "Integración de módulos tecnológicos validados para potenciar la funcionalidad de sistemas mecatrónicos existentes.",
           evidences: [
-            { name: "Labs TMPR (Lab 3, Lab 4)", type: "RFID RC522 / LM35 / DHT11 / MQ135 / SPI / I2C / Python / Integración de módulos validados"  , link: "#"},
-            { name: "PIC II - Módulo de recolección de datos", type: "ATmega328PB / Sigfox / PCB / Backend IoT / MCDM / Sensores ambientales" , link: "#" }
+            { name: "Labs TMPR (Lab 3, Lab 4)", type: "RFID RC522 / LM35 / DHT11 / MQ135 / SPI / I2C / Python / Integración de módulos validados"  , link: "https://drive.google.com/drive/folders/1-AfFF2YpVyH3hXJB5Swb9tTflF5vOYwy?usp=drive_link"},
+            { name: "PIC II - Módulo de recolección de datos", type: "ATmega328PB / Sigfox / PCB / Backend IoT / MCDM / Sensores ambientales" , link: "https://drive.google.com/file/d/1Xmn5ZJ9d2HZZi0RqOah7ySUfVVto5xmf/view?usp=drive_link" }
           ]
         },
         {
@@ -396,8 +396,8 @@ export default function App() {
           title: "3.3 Generar insumos de procesos existentes para el diseño o rediseño de un sistema.",
           description: "Análisis de sistemas operativos para extraer parámetros técnicos necesarios para su optimización o rediseño integral.",
           evidences: [
-            { name: "PIC I - Sistema Pick to Light", type: "Ishikawa / Matriz multicriterio / Tinkercad / Autodesk Inventor / Rediseño de proceso industrial" , link: "#" },
-            { name: "Labs EAA (Filtros, BJT)", type: "LM324 / BJT / Punto Q / Frecuencia de corte / Análisis comparativo de configuraciones / Parámetros para rediseño" , link: "#" }
+            { name: "PIC I - Sistema Pick to Light", type: "Ishikawa / Matriz multicriterio / Tinkercad / Autodesk Inventor / Rediseño de proceso industrial" , link: "https://drive.google.com/file/d/1uHtiYZUymYueBPg_m0tQ8l9zsV9lZRoW/view?usp=drive_link" },
+            { name: "Labs EAA (Filtros, BJT)", type: "LM324 / BJT / Punto Q / Frecuencia de corte / Análisis comparativo de configuraciones / Parámetros para rediseño" , link: "https://drive.google.com/drive/folders/1Sz0ZQpY2dAqaA3cJ_SiqjUzvuUIsH2Nq?usp=drive_link" }
           ]
         }
       ],
@@ -419,9 +419,9 @@ export default function App() {
           title: "4.1. Reconocer paradigmas tecnológicos tradicionales e innovadores presentes en una infraestructura o equipamiento industrial, con el propósito de optimizar sistemas y procesos mecatrónicos.",
           description: "Identificación y análisis de tecnologías emergentes para su aplicación estratégica en la mejora de procesos industriales.",
           evidences: [
-             { name: "PIC II - Módulo de recolección de datos", type: "Sigfox vs WiFi vs LoRa / MCDM  / Bajo consumo energético / Selección tecnológica justificada" , link: "#" },
-             { name: "PIC I - Sistema Pick to Light", type: "Ishikawa / Matriz multicriterio / Paradigma Pick to Light / Alternativas de diseño evaluadas / Selección de solución óptima" , link: "#" },
-             { name: "Laboratorio 4 - TMPR", type: "SPI vs I2C vs UART / Comparativa de protocolos industriales / Robustez vs velocidad / Selección justificada de arquitectura maestro-esclavo", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" }
+             { name: "PIC II - Módulo de recolección de datos", type: "Sigfox vs WiFi vs LoRa / MCDM  / Bajo consumo energético / Selección tecnológica justificada" , link: "https://drive.google.com/file/d/1h0WyQ2px01O2BfzMKtR_90Sz6nluNsXN/view?usp=drive_link" },
+             { name: "PIC I - Sistema Pick to Light", type: "Ishikawa / Matriz multicriterio / Paradigma Pick to Light / Alternativas de diseño evaluadas / Selección de solución óptima" , link: "https://drive.google.com/file/d/11fDHS5f9sW3n2LKLE2SWbAH1KlZv7dVJ/view?usp=drive_link" },
+             { name: "Laboratorio 4 - TMPR", type: "SPI vs I2C vs UART / Comparativa de protocolos industriales / Robustez vs velocidad / Selección justificada de arquitectura maestro-esclavo", link: "https://drive.google.com/file/d/18ira3Uv9tGl6IHBwGCYcg7sOH9XpGB0a/view?usp=drive_link" }
           ]
         },
         {
@@ -429,10 +429,10 @@ export default function App() {
           title: "4.2. Fabricar prototipos para sistemas y procesos mecatrónicos.",
           description: "Construcción de modelos funcionales experimentales para la validación de hipótesis técnicas y soluciones innovadoras.",
           evidences: [
-             { name: "PIC II - Módulo de recolección de datos", type: "PCB personalizada / Soldadura SMD / Carcasa 3D PLA / ATmega328PB / Prototipo IoT funcional desplegado en campo" , link: "#" },
-             { name: "PIC I - Sistema Pick to Light", type: "Arduino Uno / Tinkercad / Autodesk Inventor / Prototipo Sistema Pick to Light / Validación de concepto industrial" , link: "#" },
-             { name: "Laboratorio (1, 2, 3, 4) - TMPR", type: "ATmega328P / Ensamblador / Lenguaje C / Proteus / PicSimLab / Prototipado iterativo simulación-físico", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" },
-             { name: "Labs ED (1, 2, 3)",   type: "Compuertas TTL / Flip-Flop JK / Karnaugh / Simulink / Prototipado de lógica combinacional y secuencial en protoboard", link: "#" }
+             { name: "PIC II - Módulo de recolección de datos", type: "PCB personalizada / Soldadura SMD / Carcasa 3D PLA / ATmega328PB / Prototipo IoT funcional desplegado en campo" , link: "https://drive.google.com/file/d/1h0WyQ2px01O2BfzMKtR_90Sz6nluNsXN/view?usp=drive_link" },
+             { name: "PIC I - Sistema Pick to Light", type: "Arduino Uno / Tinkercad / Autodesk Inventor / Prototipo Sistema Pick to Light / Validación de concepto industrial" , link: "https://drive.google.com/file/d/11fDHS5f9sW3n2LKLE2SWbAH1KlZv7dVJ/view?usp=drive_link" },
+             { name: "Laboratorio (1, 2, 3, 4) - TMPR", type: "ATmega328P / Ensamblador / Lenguaje C / Proteus / PicSimLab / Prototipado iterativo simulación-físico", link: "https://drive.google.com/drive/folders/1SKYsIzcbNR3Sg_8kuTPSgpX15x7AfYg_?usp=drive_link" },
+             { name: "Labs ED (1, 2, 3)",   type: "Compuertas TTL / Flip-Flop JK / Karnaugh / Simulink / Prototipado de lógica combinacional y secuencial en protoboard", link: "https://drive.google.com/drive/folders/1LAAWkgV-AfMhIyNzA8XZjS3fVxRHH_k-?usp=drive_link" }
           ]
         },
         {
@@ -440,8 +440,7 @@ export default function App() {
           title: "4.3. Colaborar en la integración de nuevas tecnologías a los sistemas mecatrónicos realizando pruebas / ensayos.",
           description: "Participación activa en el testeo y refinamiento de integraciones tecnológicas de vanguardia.",
           evidences: [
-            { name: "IoT SigFox y Gemelo Digital PIC II", type: "Innovación", link: "#" },
-            { name: "Validación de Arquitecturas", type: "Ensayos", link: "#" }
+            { name: "IoT SigFox y Gemelo Digital PIC II", type: "Innovación", link: "https://drive.google.com/file/d/1h0WyQ2px01O2BfzMKtR_90Sz6nluNsXN/view?usp=drive_link" },
           ]
         }
       ],
