@@ -170,7 +170,7 @@ export const StatusIndicator: React.FC<{ label: string; status: string; active?:
     <div className="flex items-center gap-2 bg-[#d0d0d0] border border-gray-400 px-2 py-1 shadow-sm">
       <div className={`w-2 h-2 rounded-full ${active ? 'bg-green-500 shadow-[0_0_5px_#22c55e]' : 'bg-gray-400'} ${active ? 'animate-pulse' : ''}`} />
       <div className="flex flex-col">
-        <span className="text-[8px] font-bold text-gray-600 uppercase leading-none">{label}</span>
+        <span className="text-[8px] font-bold text-black-600 uppercase leading-none">{label}</span>
         <span className="text-[9px] font-black text-blue-900 uppercase leading-none">{status}</span>
       </div>
     </div>
