@@ -291,7 +291,6 @@ export default function App() {
             { name: "Laboratorio 3 - TMPR", type: "PWM / Python / I2C / SPI / UART", link: "https://drive.google.com/file/d/1inv05FgKHeb75ErSzuFv0p4lAdz8C2xE/view?usp=drive_link" },
             { name: "Laboratorio 4 - TMPR", type: "Robótica móvil / Maestro-Esclavo / I2C / SPI / UART", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" },
             { name: "Laboratorio 4 - ED1", type: "Lógica Combinacional / Logica Secuencial / Flip-Flops", link: "https://drive.google.com/file/d/1e-8MCmhZ-o2Soz5FVYluZlWawZygTaC_/view?usp=drive_link" },
-            { name: "PIC I - Sistema Pick to Light", type: "Arduino Uno / Sistema Pick to Light / Control de procesos ", link: "https://drive.google.com/file/d/1plyUhsnvwbN44AVKBbYR7dW_YFSk3E4b/view?usp=drive_link" },
             { name: "PIC II - Modulo de recolección de datos", type: "ATmega328PB / Sensores ambientales / Comunicación inalámbrica", link: "https://drive.google.com/file/d/1xBhtIRChTQFm7XlxNTK4xA_YoCdC-O2O/view?usp=drive_link" }
           ]
         },
@@ -312,10 +311,7 @@ export default function App() {
           title: "1.3 Instalar y poner en servicio sistemas mecatrónicos considerando normas de calidad, seguridad y medio ambiente.",
           description: "Integración física y lógica de equipos, garantizando el cumplimiento de normativas vigentes y la sostenibilidad del sistema.",
           evidences: [
-            { name: "PIC I - Sistema Pick to Light", type: "Arduino Uno / Tinkercad / Autodesk Inventor / Ishikawa / Matriz multicriterio / Diseño y simulación", link: "https://drive.google.com/file/d/1plyUhsnvwbN44AVKBbYR7dW_YFSk3E4b/view?usp=drive_link" },
             { name: "PIC II - Modulo de recolección de datos", type: "ATmega328PB / PCB / Soldadura SMD / Carcasa 3D / Sigfox / Bajo consumo / Gemelo digital", link: "https://drive.google.com/file/d/1xBhtIRChTQFm7XlxNTK4xA_YoCdC-O2O/view?usp=drive_link" },
-            { name: "Laboratorio 4 - TMPR", type: "ATmega328P / SPI / I2C / Maestro-Esclavo / Integración física / Validación dual simulación-físico", link: "https://drive.google.com/file/d/1SsyFmSyxe-eTx39NV40ZSN1uZHM2e7R_/view?usp=drive_link" },
-            { name: "Laboratorio 3 - TMPR", type: "ATmega328P / Proteus / PicSimLab / Metodología dual simulación-físico / Control de temperatura / RFID / Lenguaje C", link: "https://drive.google.com/file/d/1inv05FgKHeb75ErSzuFv0p4lAdz8C2xE/view?usp=drive_link" }
           ]
         }
       ],
