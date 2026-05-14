@@ -1327,7 +1327,7 @@ export default function App() {
                              <div className="w-8 h-8 bg-blue-900 flex items-center justify-center text-white shadow-md border-2 border-white">@</div>
                              <div>
                                 <div className="text-[9px] font-bold text-gray-500">CORREO ELECTRÓNICO</div>
-                                <ClassicLink href="mailto:sofia.modernell@utec.edu.uy">sofia.modernell@utec.edu.uy</ClassicLink>
+                                <ClassicLink href="mailto:sofia.modernell@estudiantes.utec.edu.uy">sofia.modernell@estudiantes.utec.edu.uy</ClassicLink>
                              </div>
                           </div>
                           <div className="flex items-center gap-3">
@@ -1573,7 +1573,7 @@ export default function App() {
              <div className="space-y-2">
                 <div className="flex items-center gap-2">
                    <Mail size={14} className="text-blue-700" />
-                   <a href="mailto:sofia.modernell@utec.edu.uy" className="text-[11px] underline">sofia.modernell@utec.edu.uy</a>
+                   <a href="mailto:sofia.modernell@estudiantes.utec.edu.uy" className="text-[11px] underline">sofia.modernell@estudiantes.utec.edu.uy</a>
                 </div>
                 <div className="flex items-center gap-2">
                    <Linkedin size={14} className="text-blue-900" />
