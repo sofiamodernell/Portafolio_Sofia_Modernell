@@ -620,7 +620,7 @@ export default function App() {
             <span>SITE UNDER CONSTRUCTION - PLEASE PARDON THE DUST! ::</span>
             <span>ACTUALIZADO: 05/05/2026 ::</span>
             <span>ERES EL VISITANTE NÚMERO: {visitorCount} ::</span>
-            <span>¡ESCRÍBEME! ✉️ ::</span>
+            <span>¡ESCRÍBEME! ✉️::</span>
           </Marquee>
       </div>
 
@@ -1057,8 +1057,8 @@ export default function App() {
                                            <FileText size={14} className="text-blue-900 shrink-0" />
                                            <div className="flex flex-col min-w-0">
                                               <span className="text-[10px] font-bold truncate">{ev.name}</span>
-                                              <span className="text-[8px] text-gray-500 uppercase tracking-tighter">[{ev.type}]</span>
-                                           </div>
+                                              <span className="text-[8px] text-[#0d0e11] uppercase tracking-tighter">[{ev.type}]</span>
+                                            </div>
                                          </div>
                                        );
 
@@ -1090,7 +1090,7 @@ export default function App() {
                                        <FileText size={14} className="text-blue-900 shrink-0" />
                                        <div className="flex flex-col min-w-0">
                                           <span className="text-[10px] font-bold truncate">{ev.name}</span>
-                                          <span className="text-[8px] text-gray-500 uppercase tracking-tighter">[{ev.type}]</span>
+                                          <span className="text-[8px] text-[#0d0e11] uppercase tracking-tighter">[{ev.type}]</span>
                                        </div>
                                     </div>
                                   );
